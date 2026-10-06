@@ -94,7 +94,7 @@ const views = {
     const run = ['NO RULES. JUST CRAZY.', 'ONE OF ONE', 'HANDCRAFTED DENIM', 'NO RESTOCKS', 'OWN YOUR CRAZY'].map(ph).join('<i>✦</i>');
     return `<section class="h-hero"><div class="h-copy">
       <div class="lab">drop 01 — handcrafted denim — 1 of 1</div>
-      <h1><span class="own">own your</span><span class="crz">${ransom("crazy", 8)}</span></h1>
+      <h1><span class="own">own your</span><span class="crz">${ransom("crazy", [7, 11, 12][Math.floor(Math.random() * 3)])}</span></h1>
       <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><img src="${esc(hero.images[0])}" alt="${esc(hero.name)}"><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
