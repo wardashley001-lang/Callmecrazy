@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: callmecrazy
+    runtime: node
+    plan: starter
+    buildCommand: echo "nothing to build"
+    startCommand: npm start
+    healthCheckPath: /api/config
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false   # you type this in on Render's website
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: orders
+      mountPath: /var/data
+      sizeGB: 1

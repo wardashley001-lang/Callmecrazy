@@ -5,10 +5,12 @@ const path = require('path');
 const crypto = require('crypto');
 
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'changeme';
 const PUBLIC = path.join(__dirname, 'public');
 const PRODUCTS_FILE = path.join(__dirname, 'data', 'products.json');
-const ORDERS_FILE = path.join(__dirname, 'data', 'orders.json');
+// DATA_DIR lets a host store orders on a persistent disk (see render.yaml).
+const ORDERS_FILE = path.join(process.env.DATA_DIR || path.join(__dirname, 'data'), 'orders.json');
 
 const FREE_SHIPPING_MIN = 10000; // cents
 const SHIPPING_FLAT = 800;
@@ -139,6 +141,6 @@ const server = http.createServer((req, res) => {
 });
 
 if (require.main === module) {
-  server.listen(PORT, () => console.log(`Call Me Crazy running at http://localhost:${PORT}`));
+  server.listen(PORT, HOST, () => console.log(`Call Me Crazy running at http://localhost:${PORT}`));
 }
 module.exports = { server, priceOrder };

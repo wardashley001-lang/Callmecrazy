@@ -120,7 +120,7 @@ const views = {
   },
 
   contact() {
-    return `<div class="wrap prose"><h2>Contact us</h2><p>Questions about an order or sizing? Email <a href="mailto:hello@example.com">hello@example.com</a> — we reply within one business day.</p></div>`;
+    return `<div class="wrap prose"><h2>Contact us</h2><p>Questions about an order or sizing? Email <a href="mailto:hello@shopcallmecrazy.com">hello@shopcallmecrazy.com</a> — we reply within one business day.</p></div>`;
   },
 
   shipping() {

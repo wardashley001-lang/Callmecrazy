@@ -29,7 +29,7 @@ Set your own password: `ADMIN_PASSWORD=mysecret npm start`
 - [ ] Real photos and product info
 - [ ] Your own "Our Story", contact email and return policy
 - [ ] Turn on card payments (currently orders are saved as "pending_payment" — see the TODO in `server.js`)
-- [ ] Pick a host (Render, Railway, or Fly.io) and a domain name
+- [ ] Follow `GO-LIVE.md` to put it on shopcallmecrazy.com
 - [ ] Change the admin password
 
 Run `npm test` to check that pricing and checkout still work after edits.
