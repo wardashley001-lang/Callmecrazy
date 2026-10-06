@@ -1,5 +1,29 @@
 [
  {
+  "id": "stay-wild-skirt",
+  "name": "Stay Wild Cowgirl Patchwork Skirt",
+  "category": "Skirts",
+  "price": 14800,
+  "description": "One of one. Reclaimed light-wash denim, hand-patched with a pink 'Stay Wild' cowgirl graphic, sequin stars, a gold heart, boot patches and rows of studs and rhinestones. Pearl-studded back pockets, patchwork panels in every shade of blue and a black studded center seam. 'Pucker up, cowboy.'",
+  "colors": [
+   {
+    "name": "Light Wash",
+    "hex": "#a9c1da"
+   }
+  ],
+  "sizes": [
+   "One of One"
+  ],
+  "badge": "One of one",
+  "featured": true,
+  "images": [
+   "/images/stay-wild-front.jpg",
+   "/images/stay-wild-side.jpg",
+   "/images/stay-wild-back.jpg",
+   "/images/stay-wild-back-side.jpg"
+  ]
+ },
+ {
   "id": "patchwork-jacket",
   "name": "Patchwork Studded Jacket",
   "category": "Jackets",
@@ -84,27 +108,6 @@
    "XL"
   ],
   "badge": "New"
- },
- {
-  "id": "crazy-skirt",
-  "name": "Patch Me Up Mini Skirt",
-  "category": "Skirts",
-  "price": 10800,
-  "description": "Mini skirt stitched from mixed denim panels and loud patches.",
-  "colors": [
-   {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
-   }
-  ],
-  "sizes": [
-   "XS",
-   "S",
-   "M",
-   "L",
-   "XL"
-  ],
-  "featured": true
  },
  {
   "id": "bling-bag",

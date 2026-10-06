@@ -17,8 +17,13 @@ function toast(msg) {
 }
 
 // Placeholder product art (swap for real photos by adding an `image` field to products.json).
+function photo(src, alt) {
+  return `<img class="photo" src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`;
+}
+
 function art(p, hex) {
-  if (p.image) return `<img src="${esc(p.image)}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover">`;
+  const src = p.images?.[0] || p.image;
+  if (src) return photo(src, p.name);
   const c = hex || p.colors[0].hex;
   return `<svg viewBox="0 0 300 400" role="img" aria-label="${esc(p.name)}" preserveAspectRatio="xMidYMid slice">
     <defs><linearGradient id="g${p.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="#0a1a2e"/></linearGradient></defs>
@@ -76,7 +81,7 @@ const views = {
     const p = state.products.find((x) => x.id === id);
     if (!p) return `<div class="wrap"><h2>Product not found</h2><a href="#/shop">Back to shop</a></div>`;
     return `<div class="wrap"><div class="product">
-      <div class="pimg" id="pimg">${art(p)}</div>
+      <div><div class="pimg" id="pimg">${art(p)}</div>${p.images && p.images.length > 1 ? `<div class="thumbs" id="thumbs">${p.images.map((s, i) => `<button class="${i ? '' : 'on'}" data-src="${esc(s)}" aria-label="Photo ${i + 1}">${photo(s, p.name + ' photo ' + (i + 1))}</button>`).join('')}</div>` : ''}</div>
       <div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.description)}</p>
         <div class="opt"><span class="t" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Color: <b id="cname">${esc(p.colors[0].name)}</b></span>
           <div class="opts" id="colors" style="margin-top:.4rem">${p.colors.map((c, i) => `<button class="color ${i ? '' : 'on'}" data-v="${esc(c.name)}" data-hex="${c.hex}"><span class="sw" style="background:${c.hex}"></span>${esc(c.name)}</button>`).join('')}</div></div>
@@ -126,7 +131,7 @@ const views = {
   },
 
   contact() {
-    return `<div class="wrap prose"><h2>Contact us</h2><p>Questions about an order or sizing? Email <a href="mailto:jodi@shopcallmecrazy.com">jodi@shopcallmecrazy.com</a> — we reply within one business day.</p></div>`;
+    return `<div class="wrap prose"><h2>Contact us</h2><p>Questions about an order or sizing? Email <a href="mailto:jodi@shopcallmecrazy.com">jodi@shopcallmecrazy.com</a> or DM us on <a href="https://instagram.com/shopcallmecrazy" target="_blank" rel="noopener">Instagram @shopcallmecrazy</a>.</p></div>`;
   },
 
   shipping() {
@@ -168,7 +173,13 @@ function bind(route, arg) {
     });
     pick(document.getElementById('colors'), (b) => {
       color = b.dataset.v; document.getElementById('cname').textContent = color;
-      document.getElementById('pimg').innerHTML = art(p, b.dataset.hex);
+      if (!p.images && !p.image) document.getElementById('pimg').innerHTML = art(p, b.dataset.hex);
+    });
+    const th = document.getElementById('thumbs');
+    if (th) th.addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return;
+      th.querySelectorAll('button').forEach((x) => x.classList.remove('on')); b.classList.add('on');
+      document.getElementById('pimg').innerHTML = photo(b.dataset.src, p.name);
     });
     pick(document.getElementById('sizes'), (b) => { size = b.dataset.v; });
     document.getElementById('add').onclick = () => {
