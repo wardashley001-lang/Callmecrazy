@@ -2,12 +2,10 @@
 const assert = require('assert');
 const { server, priceOrder } = require('./server');
 
-const item = { id: 'rhinestone-jeans', size: 'M', color: 'Denim Blue', qty: 2 };
+const item = { id: 'ride-or-die-vest', size: 'One of One', color: 'Light Wash', qty: 2 };
 let p = priceOrder([item]);
-assert.strictEqual(p.subtotal, 37600);
+assert.strictEqual(p.subtotal, 33600);
 assert.strictEqual(p.shipping, 0); // over $100
-p = priceOrder([{ id: 'studded-cap', size: 'One Size', color: 'Denim Blue', qty: 1 }]);
-assert.strictEqual(p.shipping, 800);
 assert.throws(() => priceOrder([{ ...item, size: 'ZZ' }]));
 assert.throws(() => priceOrder([{ ...item, id: 'nope' }]));
 assert.throws(() => priceOrder([]));

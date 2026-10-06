@@ -33,142 +33,159 @@
   }
  },
  {
-  "id": "patchwork-jacket",
-  "name": "Patchwork Studded Jacket",
+  "id": "howdy-patch-jacket",
+  "name": "Howdy Patch Jacket",
+  "category": "Jackets",
+  "price": 19800,
+  "description": "PLACEHOLDER NAME + COPY. Light-wash denim jacket with studded collar and pockets, a Limited Edition patch, Howdy lettering, horseshoe and cowgirl patches.",
+  "colors": [
+   {
+    "name": "Light Wash",
+    "hex": "#a9c1da"
+   }
+  ],
+  "sizes": [
+   "One of One"
+  ],
+  "badge": "One of one",
+  "featured": true,
+  "images": [
+   "/images/howdy-1.jpg",
+   "/images/howdy-2.jpg"
+  ],
+  "closeup": {
+   "img": "closeup-howdy",
+   "w": 1100,
+   "h": 1012,
+   "cx": 0.5,
+   "cy": 0.5,
+   "z": 1,
+   "label": "close-up"
+  }
+ },
+ {
+  "id": "tie-dye-studded-jacket",
+  "name": "Tie-Dye Studded Jacket",
+  "category": "Jackets",
+  "price": 21800,
+  "description": "PLACEHOLDER NAME + COPY. Hand-dyed denim in teal, purple and pink with pearls, studs, sequin stars and a vintage poster back panel.",
+  "colors": [
+   {
+    "name": "Light Wash",
+    "hex": "#a9c1da"
+   }
+  ],
+  "sizes": [
+   "One of One"
+  ],
+  "badge": "One of one",
+  "featured": false,
+  "images": [
+   "/images/tiedye-1.jpg",
+   "/images/tiedye-2.jpg"
+  ],
+  "closeup": {
+   "img": "closeup-tiedye",
+   "w": 1100,
+   "h": 1012,
+   "cx": 0.5,
+   "cy": 0.5,
+   "z": 1,
+   "label": "close-up"
+  }
+ },
+ {
+  "id": "ride-or-die-vest",
+  "name": "Ride or Die Vest",
+  "category": "Vests",
+  "price": 16800,
+  "description": "PLACEHOLDER NAME + COPY. Distressed denim vest with paint splatter, biker patches, sequin stars and studded pockets.",
+  "colors": [
+   {
+    "name": "Light Wash",
+    "hex": "#a9c1da"
+   }
+  ],
+  "sizes": [
+   "One of One"
+  ],
+  "badge": "One of one",
+  "featured": false,
+  "images": [
+   "/images/vest-1.jpg",
+   "/images/vest-2.jpg",
+   "/images/vest-3.jpg"
+  ],
+  "closeup": {
+   "img": "closeup-vest",
+   "w": 1100,
+   "h": 1012,
+   "cx": 0.5,
+   "cy": 0.5,
+   "z": 1,
+   "label": "close-up"
+  }
+ },
+ {
+  "id": "studded-patch-jacket",
+  "name": "Studded Patch Jacket",
+  "category": "Jackets",
+  "price": 20800,
+  "description": "PLACEHOLDER NAME + COPY. Rhinestone-studded collar and pockets, lips, mushroom and cocktail patches, sparkle sleeve lettering.",
+  "colors": [
+   {
+    "name": "Light Wash",
+    "hex": "#a9c1da"
+   }
+  ],
+  "sizes": [
+   "One of One"
+  ],
+  "badge": "One of one",
+  "featured": false,
+  "images": [
+   "/images/desert-1.jpg",
+   "/images/desert-2.jpg"
+  ],
+  "closeup": {
+   "img": "closeup-desert",
+   "w": 1100,
+   "h": 1012,
+   "cx": 0.5,
+   "cy": 0.5,
+   "z": 1,
+   "label": "close-up"
+  }
+ },
+ {
+  "id": "long-patch-jacket",
+  "name": "Long Patch Jacket",
   "category": "Jackets",
   "price": 24800,
-  "description": "Hand-patched vintage denim jacket with silver studs and hand-painted pink accents. One of one.",
+  "description": "PLACEHOLDER NAME + COPY. Longline bleached denim, raw hem, hand-painted details and a wall of patches.",
   "colors": [
    {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
+    "name": "Light Wash",
+    "hex": "#a9c1da"
    }
   ],
   "sizes": [
-   "XS",
-   "S",
-   "M",
-   "L",
-   "XL"
+   "One of One"
   ],
-  "badge": "New",
-  "featured": true
- },
- {
-  "id": "rhinestone-jeans",
-  "name": "Rhinestone Rebel Jeans",
-  "category": "Jeans",
-  "price": 18800,
-  "description": "High-rise straight leg, hand-embellished with rhinestones down the seam.",
-  "colors": [
-   {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
-   }
+  "badge": "One of one",
+  "featured": false,
+  "images": [
+   "/images/long-1.jpg",
+   "/images/long-2.jpg"
   ],
-  "sizes": [
-   "XS",
-   "S",
-   "M",
-   "L",
-   "XL"
-  ],
-  "badge": "Bestseller",
-  "featured": true
- },
- {
-  "id": "painted-vest",
-  "name": "Hand-Painted Denim Vest",
-  "category": "Vests",
-  "price": 13800,
-  "description": "Cropped vest with hot pink brushstroke art across the back.",
-  "colors": [
-   {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
-   }
-  ],
-  "sizes": [
-   "XS",
-   "S",
-   "M",
-   "L",
-   "XL"
-  ],
-  "featured": true
- },
- {
-  "id": "studded-shorts",
-  "name": "Studded Cutoff Shorts",
-  "category": "Shorts",
-  "price": 9800,
-  "description": "Frayed cutoffs with a ring of silver studs. Made from reclaimed denim.",
-  "colors": [
-   {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
-   }
-  ],
-  "sizes": [
-   "XS",
-   "S",
-   "M",
-   "L",
-   "XL"
-  ],
-  "badge": "New"
- },
- {
-  "id": "bling-bag",
-  "name": "Denim Bling Tote",
-  "category": "Accessories",
-  "price": 7800,
-  "description": "Upcycled denim tote with rhinestone lettering.",
-  "colors": [
-   {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
-   }
-  ],
-  "sizes": [
-   "One Size"
-  ]
- },
- {
-  "id": "custom-jacket",
-  "name": "Custom Order Jacket",
-  "category": "Jackets",
-  "price": 29800,
-  "description": "Your jacket, your story. Tell us what to paint, patch and stud.",
-  "colors": [
-   {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
-   }
-  ],
-  "sizes": [
-   "XS",
-   "S",
-   "M",
-   "L",
-   "XL"
-  ],
-  "badge": "Made to order"
- },
- {
-  "id": "studded-cap",
-  "name": "Studded Denim Cap",
-  "category": "Accessories",
-  "price": 4800,
-  "description": "Reclaimed denim cap with silver studs.",
-  "colors": [
-   {
-    "name": "Denim Blue",
-    "hex": "#2B547E"
-   }
-  ],
-  "sizes": [
-   "One Size"
-  ]
+  "closeup": {
+   "img": "closeup-long",
+   "w": 1100,
+   "h": 1012,
+   "cx": 0.5,
+   "cy": 0.5,
+   "z": 1,
+   "label": "close-up"
+  }
  }
 ]
