@@ -19,7 +19,18 @@ Rules: clean language on the website, no swearing. "Crazy" means personality and
 - When it's gone, it's gone.
 - One person. One number. One shot.
 
-## More ideas to react to
+## Team favorites (picked from the ideas below)
+- Not a phase.
+- Behave? Never heard of her.
+- Dressed for trouble.
+- Crazy looks good on you.
+- Certified crazy. (order ticket, a patch)
+- Member of the Too Much Club. (signup, loyalty, customer name)
+- Normal is overrated.
+- Made once. Worn loud.
+- Zero chill. All noise.
+
+## More ideas
 - Born this way. Patched that way.
 - Not a phase.
 - Behave? Never heard of her.
@@ -33,11 +44,13 @@ Rules: clean language on the website, no swearing. "Crazy" means personality and
 - Crazy club. / Member of the Too Much Club.
 - Normal is overrated.
 - Made once. Worn loud.
-- Zero chill. All sparkle.
+- Zero chill. All noise.
+- Zero chill. All sparkle. (alt)
 
 ## Where each could live
 - Marquee ticker: Crazy is a compliment / Well behaved is boring / Crazy since birth / Too much? Good.
-- Order ticket footer: Certified crazy.
+- Order ticket stamp: Certified crazy.
+- Signup field and customer name: the Too Much Club
 - Email signup button: call me
 - 404 page: Gone.
 - Packaging and hang tags: Crazy since birth. / Made once. Worn loud.
