@@ -7,22 +7,48 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 
 
 
-// Ransom-note lettering (used for one word only): each letter is its own torn scrap.
-const RN_FONTS = ["'Playfair Display'", "'Abril Fatface'", "'Bebas Neue'", "'Special Elite'", "'Courier Prime'", "'Archivo Black'", "'Oswald'", "'DM Serif Display'"];
-const RN_PAPER = [['#fff', '#111'], ['#111', '#fff'], ['#e4dccb', '#111'], ['#F33283', '#fff'], ['#C1272D', '#fff'], ['#fff', '#C1272D'], ['#d9d6cd', '#111'], ['#111', '#F33283']];
+// Ransom-note lettering (used for one word only): each letter is a cut scrap with a white margin,
+// printed texture, and sometimes a crop of her own denim as the "paper".
+const RN_FONTS = ["'Playfair Display'", "'Abril Fatface'", "'Bebas Neue'", "'Special Elite'", "'Courier Prime'", "'Archivo Black'", "'Oswald'", "'DM Serif Display'", "'Anton'"];
+const RN_PAPER = [
+  { bg: '#f1ebdd', fg: '#141414', tex: 'news' }, { bg: '#e9dfc4', fg: '#1b1b1b', tex: 'news' }, { bg: '#fdfdfb', fg: '#111', tex: 'gloss' },
+  { bg: '#111', fg: '#f6efe2', tex: 'gloss' }, { bg: '#F33283', fg: '#fff', tex: 'half' }, { bg: '#C1272D', fg: '#fbeee4', tex: 'half' },
+  { bg: '#f7c1d9', fg: '#8c1230', tex: 'half' }, { bg: '#d6d2c6', fg: '#111', tex: 'news' }, { bg: '#fff', fg: '#C1272D', tex: 'gloss' },
+];
+// crops of real photos used as scrap "paper": [file, w, h, cx, cy, zoom, text colour]
+const RN_PHOTOS = [
+  ['stay-wild-front', 1100, 1012, .76, .50, 6, '#fff'],   // pink sequin ribbon
+  ['stay-wild-front', 1100, 1012, .58, .19, 6, '#fff'],   // studs on denim pocket
+  ['stay-wild-back', 1100, 1131, .50, .50, 5, '#fff'],    // denim + patches
+];
 function rnd(seed) { const x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
-function ragged(s) {
-  const j = (n) => (rnd(s + n) * 7 - 1).toFixed(1);
-  return `polygon(${j(1)}% ${j(2)}%, 50% ${j(3)}%, ${100 - j(4)}% ${j(5)}%, ${100 - j(6)}% 50%, ${100 - j(7)}% ${100 - j(8)}%, 50% ${100 - j(9)}%, ${j(10)}% ${100 - j(11)}%, ${j(12)}% 55%)`;
+function cut(s, torn) {
+  const n = torn ? 14 : 6, pts = [];
+  for (let i = 0; i < n; i++) {
+    const t = i / n, side = Math.floor(t * 4), u = (t * 4) % 1, j = (k) => (rnd(s + i * 7 + k) * (torn ? 5 : 2.2)).toFixed(1);
+    const x = side === 0 ? u * 100 : side === 1 ? 100 - j(1) : side === 2 ? 100 - u * 100 : +j(2);
+    const y = side === 0 ? +j(3) : side === 1 ? u * 100 : side === 2 ? 100 - j(4) : 100 - u * 100;
+    pts.push(`${Math.min(100, Math.max(0, x)).toFixed(1)}% ${Math.min(100, Math.max(0, y)).toFixed(1)}%`);
+  }
+  return `polygon(${pts.join(',')})`;
 }
 function ransom(text, seed = 1) {
   return `<span class="rn" aria-label="${esc(text)}">` + [...text].map((ch, k) => {
     const s = seed * 100 + k + 1;
-    const f = RN_FONTS[Math.floor(rnd(s) * RN_FONTS.length)];
-    const [bg, fg] = RN_PAPER[Math.floor(rnd(s + 3) * RN_PAPER.length)];
+    const font = RN_FONTS[Math.floor(rnd(s) * RN_FONTS.length)];
     const c = rnd(s + 5) > 0.5 ? ch.toUpperCase() : ch.toLowerCase();
-    const rot = (rnd(s + 7) * 12 - 6).toFixed(1), dy = (rnd(s + 9) * .16 - .08).toFixed(2);
-    return `<span class="lt" aria-hidden="true" style="font-family:${f},serif;background:${bg};color:${fg};transform:translateY(${dy}em) rotate(${rot}deg);clip-path:${ragged(s)}">${esc(c)}</span>`;
+    const rot = (rnd(s + 7) * 14 - 7).toFixed(1), dy = (rnd(s + 9) * .3 - .15).toFixed(2), sz = (0.8 + rnd(s + 11) * 0.5).toFixed(2);
+    const photo = rnd(s + 13) > 0.62 ? RN_PHOTOS[Math.floor(rnd(s + 15) * RN_PHOTOS.length)] : null;
+    let inner;
+    if (photo) {
+      const [img, w, h, cx, cy, z, fg] = photo;
+      const px = ((cx * z - .5) / (z - 1) * 100).toFixed(1), py = ((cy * z * (h / w) * 1.3 - .5 * 1.3) / (z * (h / w) * 1.3 - 1.3 * 1) * 100);
+      inner = `<span class="in photo" style="background-image:url(/images/${img}.jpg);background-size:${z * 100}% auto;background-position:${px}% ${Math.max(0, Math.min(100, py)).toFixed(1)}%;color:${fg};text-shadow:2px 2px 0 #000,-1px -1px 0 #000;font-family:${font},serif;clip-path:${cut(s + 20, false)}">${esc(c)}</span>`;
+    } else {
+      const p = RN_PAPER[Math.floor(rnd(s + 3) * RN_PAPER.length)];
+      inner = `<span class="in ${p.tex}" style="background-color:${p.bg};color:${p.fg};font-family:${font},serif;clip-path:${cut(s + 20, false)}">${esc(c)}</span>`;
+    }
+    return `<span class="lt" aria-hidden="true" style="transform:translateY(${dy}em) rotate(${rot}deg);font-size:${sz}em;clip-path:${cut(s, true)}">${inner}</span>`;
   }).join('') + '</span>';
 }
 

@@ -277,3 +277,13 @@ h2.big em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700
 .lab{background:#fff}
 .paper{box-shadow:8px 10px 0 rgba(0,0,0,.2)}
 .tp{background:rgba(243,50,131,.55)}
+
+/* better ransom: cut scraps with white margin + print texture */
+.rn{display:inline-flex;align-items:flex-end;filter:drop-shadow(2px 4px 3px rgba(0,0,0,.4))}
+.rn .lt{display:inline-block;background:#fbf8f1;padding:.09em;margin:0 -.04em;line-height:1}
+.rn .in{display:block;padding:.04em .14em .08em;line-height:1.02;min-width:.55em;text-align:center;font-weight:400;position:relative;text-transform:none;letter-spacing:0}
+.rn .in::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27160%27%20height%3D%27160%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.85%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27/%3E%3CfeColorMatrix%20values%3D%270%200%200%200%200%20%200%200%200%200%200%20%200%200%200%200%200%20%200%200%200%20.55%20-.12%27/%3E%3C/filter%3E%3Crect%20width%3D%27160%27%20height%3D%27160%27%20filter%3D%27url%28%23n%29%27/%3E%3C/svg%3E");mix-blend-mode:multiply;opacity:.55;pointer-events:none}
+.rn .in.half{background-image:radial-gradient(circle at center,rgba(0,0,0,.22) 0 1.1px,transparent 1.5px);background-size:5px 5px}
+.rn .in.news{background-image:linear-gradient(rgba(120,100,60,.12),rgba(120,100,60,.12))}
+.rn .in.photo{background-repeat:no-repeat;min-width:.7em}
+.rn .in.photo::after{opacity:.35}
