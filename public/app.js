@@ -21,10 +21,12 @@ function art(p, hex) {
   if (p.image) return `<img src="${esc(p.image)}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover">`;
   const c = hex || p.colors[0].hex;
   return `<svg viewBox="0 0 300 400" role="img" aria-label="${esc(p.name)}" preserveAspectRatio="xMidYMid slice">
-    <defs><linearGradient id="g${p.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="${c}" stop-opacity=".7"/></linearGradient></defs>
-    <rect width="300" height="400" fill="#efe9e1"/><circle cx="150" cy="170" r="130" fill="url(#g${p.id})" opacity=".35"/>
-    <text x="150" y="215" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="28" fill="${c}">${esc(p.category)}</text>
-    <text x="150" y="380" text-anchor="middle" font-family="sans-serif" font-size="11" letter-spacing="3" fill="#00000066">CALL ME CRAZY</text></svg>`;
+    <defs><linearGradient id="g${p.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="#0a1a2e"/></linearGradient></defs>
+    <rect width="300" height="400" fill="url(#g${p.id})"/>
+    <path d="M-10 330 L310 120" stroke="#FF007F" stroke-width="14" opacity=".9"/>
+    <g fill="#C0C0C0">${[60,110,160,210,260].map((x,i)=>`<circle cx="${x}" cy="${300-i*40}" r="4"/>`).join('')}</g>
+    <text x="150" y="60" text-anchor="middle" font-family="Permanent Marker,cursive" font-size="22" fill="#fff">${esc(p.category)}</text>
+    <text x="150" y="385" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" letter-spacing="3" fill="#ffffff99">CALL ME CRAZY · ONE OF ONE</text></svg>`;
 }
 
 function card(p) {
@@ -39,13 +41,17 @@ const CATEGORIES = () => [...new Set(state.products.map((p) => p.category))];
 const views = {
   home() {
     const featured = state.products.filter((p) => p.featured).slice(0, 4);
-    return `<section class="hero"><div><h1>Dress like you mean it.</h1>
-      <p>Bold, effortless pieces designed to be lived in. New season, new attitude.</p>
-      <a class="btn" href="#/shop">Shop the collection</a></div></section>
-      <div class="wrap"><h2>Shop by category</h2><div class="cats">
+    const phrase = 'NO RULES. JUST CRAZY. ✦ ONE OF ONE ✦ HANDCRAFTED DENIM ✦ OWN YOUR CRAZY ✦ ';
+    return `<section class="hero"><div><img src="images/logo.png" alt="Call Me Crazy by Jodi">
+      <p class="tag">Handcrafted denim · one of one</p>
+      <a class="btn" href="#/shop">Shop the drop</a> <a class="btn ghost" href="#/about">Our story</a></div></section>
+      <div class="band"><span>${phrase.repeat(4)}</span></div>
+      <div class="wrap"><h2>Shop by <em>crazy</em></h2><div class="cats">
       ${CATEGORIES().map((c) => `<a href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
-      <h2 style="margin-top:3rem">Featured</h2><div class="grid">${featured.map(card).join('')}</div>
-      <p class="center" style="margin-top:2rem"><a class="btn ghost" href="#/shop">View all</a></p></div>`;
+      <h2 style="margin-top:3.5rem">Fresh off the <em>sewing machine</em></h2><div class="grid">${featured.map(card).join('')}</div>
+      <p class="center" style="margin-top:2rem"><a class="btn ghost" href="#/shop">View all</a></p>
+      <div class="story" style="margin-top:4rem"><div><h2>Why fit in when you were born to <em>stand out?</em></h2></div>
+      <div><p>Every piece is handcrafted from reclaimed denim — patched, painted and studded by hand. No two are alike, and neither are you.</p><a class="btn" href="#/about">Read our story</a></div></div></div>`;
   },
 
   shop(cat) {
@@ -55,7 +61,7 @@ const views = {
     if (sort === 'low') list.sort((a, b) => a.price - b.price);
     if (sort === 'high') list.sort((a, b) => b.price - a.price);
     if (sort === 'featured') list.sort((a, b) => !!b.featured - !!a.featured);
-    return `<div class="wrap"><h2>${esc(cat || 'All products')}</h2>
+    return `<div class="wrap"><h2>${esc(cat || 'The collection')}</h2>
       <div class="toolbar"><div class="chips">
         <a class="chip ${!cat ? 'on' : ''}" href="#/shop">All</a>
         ${CATEGORIES().map((c) => `<a class="chip ${c === cat ? 'on' : ''}" href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
@@ -113,19 +119,19 @@ const views = {
   },
 
   about() {
-    return `<div class="wrap prose"><h2>Our story</h2>
-      <p>Call Me Crazy began at a kitchen table with a sketchbook, a sewing machine and a simple belief: getting dressed should feel like fun, not work.</p>
-      <p>Every piece is designed in small batches with quality fabrics and fits made to flatter real bodies. Thank you for supporting a family-run label.</p>
-      <p><em>Replace this text with your own story.</em></p></div>`;
+    return `<div class="wrap prose"><h2>Our <em>story</em></h2>
+      <p>At Call Me Crazy, we're redefining denim and redefining normal. Every piece is handcrafted — a bold declaration of individuality, pushing boundaries and shattering expectations.</p>
+      <p>This isn't fashion for the faint-hearted. It's for those bold enough to wear their story proudly.</p>
+      <p><b>One piece. One story. One you.</b></p></div>`;
   },
 
   contact() {
-    return `<div class="wrap prose"><h2>Contact us</h2><p>Questions about an order or sizing? Email <a href="mailto:hello@shopcallmecrazy.com">hello@shopcallmecrazy.com</a> — we reply within one business day.</p></div>`;
+    return `<div class="wrap prose"><h2>Contact us</h2><p>Questions about an order or sizing? Email <a href="mailto:jodi@shopcallmecrazy.com">jodi@shopcallmecrazy.com</a> — we reply within one business day.</p></div>`;
   },
 
   shipping() {
     return `<div class="wrap prose"><h2>Shipping &amp; returns</h2>
-      <p><b>Shipping:</b> Flat $8 rate, free on orders over $100. Orders ship within 2–3 business days.</p>
+      <p><b>Shipping:</b> Flat $8 rate, free on orders over $100. Handmade pieces ship within 5–7 business days.</p>
       <p><b>Returns:</b> Unworn items with tags may be returned within 30 days for a full refund.</p></div>`;
   },
 };

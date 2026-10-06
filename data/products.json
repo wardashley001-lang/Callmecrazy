@@ -1,16 +1,162 @@
 [
-  {"id":"silk-slip-dress","name":"Midnight Silk Slip Dress","category":"Dresses","price":14800,"description":"A bias-cut slip dress in washed silk satin with adjustable straps and a fluid, floor-grazing drape.","colors":[{"name":"Midnight","hex":"#1d2340"},{"name":"Champagne","hex":"#e6d3b3"}],"sizes":["XS","S","M","L","XL"],"badge":"New","featured":true},
-  {"id":"wrap-midi-dress","name":"Rosé Wrap Midi Dress","category":"Dresses","price":12800,"description":"Flattering wrap silhouette with flutter sleeves in a breathable viscose crepe.","colors":[{"name":"Rosé","hex":"#d98a9a"},{"name":"Sage","hex":"#9caf88"}],"sizes":["XS","S","M","L","XL"],"featured":true},
-  {"id":"linen-maxi-dress","name":"Coastal Linen Maxi","category":"Dresses","price":13800,"description":"Relaxed tiered maxi in pure European linen. Made for long summer evenings.","colors":[{"name":"Sand","hex":"#d8c3a5"},{"name":"White","hex":"#f4f1ea"}],"sizes":["S","M","L","XL"]},
-  {"id":"oversized-blazer","name":"Oversized Tailored Blazer","category":"Outerwear","price":16800,"description":"Sharp shoulders, relaxed body. Fully lined with horn-effect buttons.","colors":[{"name":"Black","hex":"#1a1a1a"},{"name":"Camel","hex":"#b8895a"}],"sizes":["XS","S","M","L","XL"],"badge":"Bestseller","featured":true},
-  {"id":"trench-coat","name":"Everyday Trench Coat","category":"Outerwear","price":21800,"description":"A water-resistant cotton-blend trench with storm flap and belted waist.","colors":[{"name":"Stone","hex":"#c9b99a"},{"name":"Black","hex":"#1a1a1a"}],"sizes":["S","M","L","XL"]},
-  {"id":"cropped-denim-jacket","name":"Cropped Denim Jacket","category":"Outerwear","price":11800,"description":"Vintage-wash denim with a cropped, boxy fit.","colors":[{"name":"Indigo","hex":"#3d5a80"}],"sizes":["XS","S","M","L"]},
-  {"id":"ribbed-knit-top","name":"Ribbed Knit Top","category":"Tops","price":5800,"description":"Soft stretch rib with a scooped neck. A layering essential.","colors":[{"name":"Ivory","hex":"#f1ebdd"},{"name":"Black","hex":"#1a1a1a"},{"name":"Terracotta","hex":"#c4694a"}],"sizes":["XS","S","M","L","XL"],"featured":true},
-  {"id":"satin-blouse","name":"Satin Button Blouse","category":"Tops","price":8800,"description":"Fluid satin blouse with a relaxed collar and mother-of-pearl buttons.","colors":[{"name":"Pearl","hex":"#ece6dc"},{"name":"Emerald","hex":"#2f6b57"}],"sizes":["XS","S","M","L","XL"]},
-  {"id":"graphic-tee","name":"Call Me Crazy Tee","category":"Tops","price":4200,"description":"Heavyweight organic cotton tee with embroidered logo.","colors":[{"name":"White","hex":"#f4f4f2"},{"name":"Black","hex":"#1a1a1a"}],"sizes":["XS","S","M","L","XL","XXL"],"badge":"Signature"},
-  {"id":"wide-leg-trousers","name":"Wide-Leg Pleated Trousers","category":"Bottoms","price":11200,"description":"High-rise, fluid wide leg with front pleats and side pockets.","colors":[{"name":"Black","hex":"#1a1a1a"},{"name":"Oat","hex":"#d9cdb8"}],"sizes":["XS","S","M","L","XL"]},
-  {"id":"pleated-midi-skirt","name":"Pleated Midi Skirt","category":"Bottoms","price":9200,"description":"Knife-pleated midi that moves beautifully with every step.","colors":[{"name":"Plum","hex":"#5b2a49"},{"name":"Gold","hex":"#c9a24b"}],"sizes":["XS","S","M","L","XL"],"badge":"New"},
-  {"id":"straight-jeans","name":"High-Rise Straight Jeans","category":"Bottoms","price":9800,"description":"Classic straight leg in rigid, sustainably-washed denim.","colors":[{"name":"Mid Wash","hex":"#5f7ea1"},{"name":"Black","hex":"#222222"}],"sizes":["24","26","28","30","32","34"]},
-  {"id":"leather-tote","name":"Structured Leather Tote","category":"Accessories","price":18800,"description":"Full-grain leather tote with a suede-lined interior and zip pocket.","colors":[{"name":"Cognac","hex":"#a0603a"},{"name":"Black","hex":"#1a1a1a"}],"sizes":["One Size"],"featured":true},
-  {"id":"silk-scarf","name":"Printed Silk Scarf","category":"Accessories","price":6800,"description":"Hand-rolled edges on a 90cm silk twill square.","colors":[{"name":"Floral","hex":"#c97b84"},{"name":"Cobalt","hex":"#2f4bb0"}],"sizes":["One Size"]}
+ {
+  "id": "patchwork-jacket",
+  "name": "Patchwork Studded Jacket",
+  "category": "Jackets",
+  "price": 24800,
+  "description": "Hand-patched vintage denim jacket with silver studs and hand-painted pink accents. One of one.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "badge": "New",
+  "featured": true
+ },
+ {
+  "id": "rhinestone-jeans",
+  "name": "Rhinestone Rebel Jeans",
+  "category": "Jeans",
+  "price": 18800,
+  "description": "High-rise straight leg, hand-embellished with rhinestones down the seam.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "badge": "Bestseller",
+  "featured": true
+ },
+ {
+  "id": "painted-vest",
+  "name": "Hand-Painted Denim Vest",
+  "category": "Vests",
+  "price": 13800,
+  "description": "Cropped vest with hot pink brushstroke art across the back.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "featured": true
+ },
+ {
+  "id": "studded-shorts",
+  "name": "Studded Cutoff Shorts",
+  "category": "Shorts",
+  "price": 9800,
+  "description": "Frayed cutoffs with a ring of silver studs. Made from reclaimed denim.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "badge": "New"
+ },
+ {
+  "id": "crazy-skirt",
+  "name": "Patch Me Up Mini Skirt",
+  "category": "Skirts",
+  "price": 10800,
+  "description": "Mini skirt stitched from mixed denim panels and loud patches.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "featured": true
+ },
+ {
+  "id": "bling-bag",
+  "name": "Denim Bling Tote",
+  "category": "Accessories",
+  "price": 7800,
+  "description": "Upcycled denim tote with rhinestone lettering.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "One Size"
+  ]
+ },
+ {
+  "id": "custom-jacket",
+  "name": "Custom Order Jacket",
+  "category": "Jackets",
+  "price": 29800,
+  "description": "Your jacket, your story. Tell us what to paint, patch and stud.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "badge": "Made to order"
+ },
+ {
+  "id": "studded-cap",
+  "name": "Studded Denim Cap",
+  "category": "Accessories",
+  "price": 4800,
+  "description": "Reclaimed denim cap with silver studs.",
+  "colors": [
+   {
+    "name": "Denim Blue",
+    "hex": "#2B547E"
+   }
+  ],
+  "sizes": [
+   "One Size"
+  ]
+ }
 ]
