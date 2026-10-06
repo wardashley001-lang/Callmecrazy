@@ -74,8 +74,8 @@ const views = {
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="blk"><span class="sp s3">✦</span><span class="sp s4">✦</span><div class="tiny" style="color:#f33283">made by hand</div>
-      <h2 class="mega"><span>No two</span><span>alike.</span></h2><p class="serif">neither are you.</p><span class="script">xo</span>
+      <section class="blk leo"><span class="sp s3">✦</span><span class="sp s4">✦</span>
+      <div class="heartwrap"><svg class="heart" viewBox="0 0 400 360" aria-hidden="true"><path d="M200 340 C40 232 8 130 60 66 C104 14 176 30 200 86 C224 30 296 14 340 66 C392 130 360 232 200 340Z" fill="#8f0012"/><path d="M200 322 C58 226 30 134 74 80 C110 36 172 50 200 102 C228 50 290 36 326 80 C370 134 342 226 200 322Z" fill="none" stroke="#fff" stroke-opacity=".0"/><path d="M200 350 C30 238 -4 128 52 58 C100 0 178 18 200 76 C222 18 300 0 348 58 C404 128 370 238 200 350Z" fill="none" stroke="#ffd1e1" stroke-width="9" stroke-linecap="round" stroke-dasharray="0.1 12"/></svg><div class="ht"><span class="a">No two</span><span class="b">alike.</span><span class="c">neither are you.</span></div></div>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
 
