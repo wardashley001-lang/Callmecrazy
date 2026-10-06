@@ -372,3 +372,12 @@ select{border:2px solid #0b0b0b;border-radius:0;font-family:'Courier Prime',mono
   .wall-pics .c1{width:36%!important}
   .info .corner{width:70px!important}
 }
+
+/* no stickers for now: closing section is a single column */
+.wall-grid{grid-template-columns:1fr}
+.wall-pics{display:none}
+@media(min-width:861px){
+  .mega-black{font-size:clamp(6rem,22vw,20rem)}
+  .script-wall span{font-size:clamp(3.4rem,11vw,10rem)}
+  .script-wall{margin-top:-3.4rem}
+}

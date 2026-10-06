@@ -86,10 +86,6 @@ function card(p) {
 
 const CATEGORIES = () => [...new Set(state.products.map((p) => p.category))];
 
-// Die-cut patch stickers cut from her photos (drop new transparent PNGs in /images/cutouts and use cutout('name')).
-function cutout(name, style = '', cls = '') {
-  return `<img class="cutout ${cls}" src="/images/cutouts/${name}.png" alt="" aria-hidden="true" style="${style}">`;
-}
 function pageHead(label, title, stickers = '') {
   return `<section class="pagehead"><div class="wrap ph"><div class="ph-l"><div class="lab">${esc(label)}</div><h1 class="ph-t">${esc(title)}</h1></div><div class="ph-stk" aria-hidden="true">${stickers}</div></div></section>`;
 }
@@ -113,7 +109,7 @@ const views = {
       <div class="grid">${feat.map(card).join('')}</div></div>
       <section class="blk wall"><div class="wall-grid"><div class="wall-text"><div class="wall-head"><span class="mega-black">no two<br>alike.</span></div>
       <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div></div>
-      <div class="wall-pics">${cutout('cowgirl', '', 'c1')}${cutout('sequin-star', '', 'c2')}${cutout('howdy', '', 'c3')}${cutout('gold-star', '', 'c4')}${cutout('silver-heart', '', 'c5')}</div></div>
+      </div>
       <p class="fine">Every piece is handmade from reclaimed denim. Patched, painted and studded by hand. When it's gone, it's gone. We don't restock. We don't apologize.</p>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
@@ -125,7 +121,7 @@ const views = {
     if (sort === 'low') list.sort((a, b) => a.price - b.price);
     if (sort === 'high') list.sort((a, b) => b.price - a.price);
     if (sort === 'featured') list.sort((a, b) => !!b.featured - !!a.featured);
-    return pageHead('drop 01 — one of one', cat || 'The drop', cutout('gold-star', 'width:120px;transform:rotate(12deg)') + cutout('boot', 'width:64px;transform:rotate(-9deg)')) +
+    return pageHead('drop 01 — one of one', cat || 'The drop', '') +
       `<div class="wrap"><div class="toolbar"><div class="chips">
         <a class="chip ${!cat ? 'on' : ''}" href="#/shop">All</a>
         ${CATEGORIES().map((c) => `<a class="chip ${c === cat ? 'on' : ''}" href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
@@ -142,7 +138,7 @@ const views = {
     return `<div class="wrap crumbs"><a class="tiny" href="#/shop">← the drop</a></div>
       <div class="wrap product">
       <div class="gal"><div class="pimg" id="pimg">${art(p)}<span class="tp t1"></span><span class="tp t2"></span></div>${p.images && p.images.length > 1 ? `<div class="thumbs" id="thumbs">${p.images.map((s, i) => `<button class="${i ? '' : 'on'}" data-src="${esc(s)}" aria-label="Photo ${i + 1}">${photo(s, p.name + ' photo ' + (i + 1))}</button>`).join('')}</div>` : ''}</div>
-      <div class="info">${cutout('sequin-star', 'width:96px;transform:rotate(14deg)', 'corner')}
+      <div class="info">
         <div class="lab">no. ${num(p)} — one of one</div><h2 class="plain">${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p class="desc">${esc(p.description)}</p>
         <div class="opt"><span class="ol">Color: <b id="cname">${esc(p.colors[0].name)}</b></span>
           <div class="opts" id="colors">${p.colors.map((c, i) => `<button class="color ${i ? '' : 'on'}" data-v="${esc(c.name)}" data-hex="${c.hex}"><span class="sw" style="background:${c.hex}"></span>${esc(c.name)}</button>`).join('')}</div></div>
@@ -153,7 +149,7 @@ const views = {
   },
 
   cart() {
-    if (!state.cart.length) return pageHead('your bag', 'Empty.', cutout('boot', 'width:70px;transform:rotate(10deg)')) + `<div class="wrap"><p class="sub">Nothing yet.</p><a class="btn" href="#/shop">Shop the drop</a></div>`;
+    if (!state.cart.length) return pageHead('your bag', 'Empty.', '') + `<div class="wrap"><p class="sub">Nothing yet.</p><a class="btn" href="#/shop">Shop the drop</a></div>`;
     const rows = state.cart.map((i, idx) => {
       const p = state.products.find((x) => x.id === i.id);
       return `<tr><td><div class="thumb">${art(p, p.colors.find((c) => c.name === i.color)?.hex)}</div></td>
@@ -161,7 +157,7 @@ const views = {
         <td><div class="qty"><button data-dec="${idx}" aria-label="Decrease">−</button><span style="min-width:24px;text-align:center">${i.qty}</span><button data-inc="${idx}" aria-label="Increase">+</button></div></td>
         <td>${money(p.price * i.qty)}</td></tr>`;
     }).join('');
-    return pageHead('your bag', 'Bag', cutout('silver-heart', 'width:110px;transform:rotate(-10deg)')) +
+    return pageHead('your bag', 'Bag', '') +
       `<div class="wrap"><div class="cols"><table class="table">${rows}</table>
       <div class="summary receipt" id="summary">${summaryHtml()}<a class="buy" href="#/checkout" style="margin-top:1.2rem">Checkout <span>→</span></a></div></div></div>`;
   },
@@ -169,7 +165,7 @@ const views = {
   checkout() {
     if (!state.cart.length) { location.hash = '#/cart'; return ''; }
     const f = (n, label, extra = '') => `<div class="${extra}"><label for="${n}">${label}</label><input id="${n}" name="${n}" required autocomplete="${n}"></div>`;
-    return pageHead('almost yours', 'Checkout', cutout('cowgirl', 'width:120px;transform:rotate(8deg)')) + `<div class="wrap"><div class="cols">
+    return pageHead('almost yours', 'Checkout', '') + `<div class="wrap"><div class="cols">
       <form id="checkout" class="form">
         ${f('name', 'Full name', 'full')}${f('email', 'Email', 'full')}${f('address', 'Address', 'full')}
         ${f('city', 'City')}${f('state', 'State / Region')}${f('zip', 'ZIP / Postal code')}
@@ -181,24 +177,24 @@ const views = {
   },
 
   confirmation(id) {
-    return pageHead(`order ${id}`, "It's yours.", cutout('cowgirl', 'width:150px;transform:rotate(7deg)') + cutout('gold-star', 'width:90px;transform:rotate(-12deg)')) +
+    return pageHead(`order ${id}`, "It's yours.", '') +
       `<div class="wrap prose"><p class="sub">We got your order. A confirmation is on its way to your email.</p><a class="btn" href="#/shop">Keep shopping</a></div>`;
   },
 
   about() {
-    return pageHead('our story', 'Handmade. One of one.', cutout('howdy', 'width:80px;transform:rotate(8deg)') + cutout('sequin-star', 'width:100px;transform:rotate(-12deg)')) +
+    return pageHead('our story', 'Handmade. One of one.', '') +
       `<div class="wrap prose story-p"><p><mark>Call Me Crazy is one person, a lot of old denim and a sewing machine.</mark></p>
       <p>Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
       <p>Every piece is made once. When it's gone, it's gone.</p></div>`;
   },
 
   contact() {
-    return pageHead('contact', 'Say hi.', cutout('bw-star', 'width:100px;transform:rotate(10deg)')) +
+    return pageHead('contact', 'Say hi.', '') +
       `<div class="wrap prose story-p"><p>Questions about an order or sizing? Email <a href="mailto:jodi@shopcallmecrazy.com">jodi@shopcallmecrazy.com</a> or DM us on <a href="https://instagram.com/shopcallmecrazy" target="_blank" rel="noopener">Instagram @shopcallmecrazy</a>.</p></div>`;
   },
 
   shipping() {
-    return pageHead('shipping & returns', 'The fine print.', cutout('boot', 'width:64px;transform:rotate(-8deg)')) +
+    return pageHead('shipping & returns', 'The fine print.', '') +
       `<div class="wrap prose story-p"><p><b>Shipping.</b> Flat $8 rate, free on orders over $100. Handmade pieces ship within 5–7 business days.</p>
       <p><b>Returns.</b> Unworn items with tags may be returned within 30 days for a full refund.</p></div>`;
   },
