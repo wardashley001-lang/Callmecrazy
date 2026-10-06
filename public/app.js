@@ -105,11 +105,11 @@ const views = {
     const hero = state.products.find((x) => x.id === 'studded-patch-jacket') || state.products[0];
     const feat = state.products.slice(0, 4);
     const ph = (t) => `<span>${t}</span>`;
-    const run = ['CALL ME CRAZY. I DON\'T MIND.', 'ONE OF ONE', 'MADE BY HAND', 'NO RESTOCKS', 'NO APOLOGIES'].map(ph).join('<i>✦</i>');
+    const run = ['NO RESTOCKS. NO APOLOGIES.', 'ONE OF ONE', 'MADE BY HAND', 'CALL US CRAZY', 'WE DARE YOU'].map(ph).join('<i>✦</i>');
     return `<section class="h-hero"><span class="gfx g-hang" aria-hidden="true"><img src="/images/art/phone.png" alt=""></span><div class="h-copy">
       <div class="lab">drop 01 — one of one — no restocks</div>
       <h1><span class="own">own your</span><span class="crz">${ransom("crazy", [7, 11, 12][Math.floor(Math.random() * 3)])}</span></h1>
-      <p class="hl"><mark>Old denim, rebuilt by hand. Patched, painted, studded. Zero chill.</mark></p>
+      <p class="hl"><mark>Call us crazy — we dare you.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><video src="/video/sparkle-studs.mp4" poster="/video/sparkle-studs.jpg" autoplay muted loop playsinline aria-label="${esc(hero.name)}"></video><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
       <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
@@ -193,9 +193,9 @@ const views = {
 
   about() {
     return pageHead('our story', 'Handmade. One of one.', '') +
-      `<div class="wrap prose story-p"><p><mark>They called it crazy. So we made it a brand: a lot of old denim, a sewing machine and zero interest in playing it safe.</mark></p>
+      `<div class="wrap prose story-p"><p><mark>They called me crazy. I made it a business.</mark></p>
       <p>Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones. Yes, it takes forever. No, we won't rush it.</p>
-      <p>Every piece is made once. When it's gone, it's gone. Call it crazy. We do.</p></div>`;
+      <p>Every piece is made once. When it's gone, it's gone.</p></div>`;
   },
 
   contact() {
