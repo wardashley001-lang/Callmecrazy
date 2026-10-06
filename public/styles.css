@@ -88,3 +88,5 @@ input:focus,select:focus{outline:2px solid var(--pink);border-color:var(--pink)}
 .thumbs button.on{border-color:var(--pink);box-shadow:0 0 0 2px var(--pink)}
 .ig{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-decoration:none;border:1px solid #444;padding:.25rem .6rem;border-radius:99px}
 .ig:hover{border-color:var(--pink);color:var(--pink)}
+#toast{opacity:0;pointer-events:none;transition:transform .3s,opacity .3s}
+#toast.show{opacity:1}
