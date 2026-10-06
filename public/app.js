@@ -105,22 +105,22 @@ const views = {
     const hero = state.products.find((x) => x.id === 'studded-patch-jacket') || state.products[0];
     const feat = state.products.slice(0, 4);
     const ph = (t) => `<span>${t}</span>`;
-    const run = ['NO RULES. JUST CRAZY.', 'ONE OF ONE', 'HANDCRAFTED DENIM', 'NO RESTOCKS', 'OWN YOUR CRAZY'].map(ph).join('<i>✦</i>');
+    const run = ['CALL ME CRAZY. I DON\'T MIND.', 'ONE OF ONE', 'MADE BY HAND', 'NO RESTOCKS', 'NO APOLOGIES'].map(ph).join('<i>✦</i>');
     return `<section class="h-hero"><span class="gfx g-hang" aria-hidden="true"><img src="/images/art/phone.png" alt=""></span><div class="h-copy">
-      <div class="lab">drop 01 — handcrafted denim — 1 of 1</div>
+      <div class="lab">drop 01 — one of one — no restocks</div>
       <h1><span class="own">own your</span><span class="crz">${ransom("crazy", [7, 11, 12][Math.floor(Math.random() * 3)])}</span></h1>
-      <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
+      <p class="hl"><mark>Old denim, rebuilt by hand. Patched, painted, studded. Zero chill.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><video src="/video/sparkle-studs.mp4" poster="/video/sparkle-studs.jpg" autoplay muted loop playsinline aria-label="${esc(hero.name)}"></video><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
       <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
       <div class="run"><div class="trk">${run}<i>✦</i>${run}<i>✦</i></div></div>
-      <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
+      <section class="up"><div class="wrap"><h2 class="big">up close<em> look closer.</em></h2>${detailStrip()}</div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
       <section class="blk wall"><div class="wall-text"><span class="mega-black">no two<br>alike.</span>
       <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div></div>
       <div class="wall-pics"></div>
-      <p class="fine">Every piece is handmade from reclaimed denim. Patched, painted and studded by hand. When it's gone, it's gone. We don't restock. We don't apologize.</p>
+      <p class="fine">Every piece is cut up and rebuilt by hand from reclaimed denim. Made once. When it's gone, it's gone. We don't restock. We don't apologize.</p>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
 
@@ -193,9 +193,9 @@ const views = {
 
   about() {
     return pageHead('our story', 'Handmade. One of one.', '') +
-      `<div class="wrap prose story-p"><p><mark>Call Me Crazy is one person, a lot of old denim and a sewing machine.</mark></p>
-      <p>Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
-      <p>Every piece is made once. When it's gone, it's gone.</p></div>`;
+      `<div class="wrap prose story-p"><p><mark>They called it crazy. So we made it a brand: a lot of old denim, a sewing machine and zero interest in playing it safe.</mark></p>
+      <p>Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones. Yes, it takes forever. No, we won't rush it.</p>
+      <p>Every piece is made once. When it's gone, it's gone. Call it crazy. We do.</p></div>`;
   },
 
   contact() {
