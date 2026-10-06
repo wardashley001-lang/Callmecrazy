@@ -25,8 +25,8 @@ function art(p, hex) {
   const src = p.images?.[0] || p.image;
   if (src) return photo(src, p.name);
   return `<svg viewBox="0 0 300 400" role="img" aria-label="${esc(p.name)}" preserveAspectRatio="xMidYMid slice">
-    <rect width="300" height="400" fill="#0f0f0f"/><path d="M0 400 L300 0" stroke="#FF007F" stroke-width="1" opacity=".6"/>
-    <text x="20" y="380" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#ffffff66">PHOTO COMING</text></svg>`;
+    <rect width="300" height="400" fill="#f2f1ef"/><path d="M0 400 L300 0" stroke="#FF007F" stroke-width="1" opacity=".6"/>
+    <text x="20" y="380" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#00000066">PHOTO COMING</text></svg>`;
 }
 
 const num = (p) => String(state.products.findIndex((x) => x.id === p.id) + 1).padStart(3, '0');

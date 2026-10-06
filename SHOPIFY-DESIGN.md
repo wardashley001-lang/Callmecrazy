@@ -12,18 +12,18 @@ Take your time; nothing goes live until you click **Save**, and your store stays
 - Click **Customize** next to it.
 
 ## 2. Colors  (Theme settings → Colors)
-Create/edit the color scheme so it reads black + hot pink:
+White page, black text, hot pink used sparingly. Scheme 1 (main pages):
 | Setting | Color |
 |---|---|
-| Background | `#000000` |
-| Text | `#FFFFFF` |
-| Solid button background | `#FF007F` |
+| Background | `#FFFFFF` |
+| Text | `#0A0A0A` |
+| Solid button background | `#FF007F` (main buttons) |
 | Solid button label | `#FFFFFF` |
-| Outline button / links | `#FFFFFF` |
-| Accent / highlights | `#FF007F` |
-| Secondary background (cards, panels) | `#111111` |
-| Denim section background | `#2B547E` |
-| Silver details | `#C0C0C0` |
+| Outline button / links | `#0A0A0A` |
+| Secondary background (empty photo boxes) | `#F2F1EF` |
+Scheme 2 (the big statement band, "no two alike. neither are you."): background `#FF007F`, text `#000000`, accent words white.
+Scheme 3 (announcement bar): background `#000000`, text `#BBBBBB`.
+Keep the black version of the logo for the white header (`public/images/logo-dark.png` in the project).
 
 ## 3. Fonts  (Theme settings → Typography)
 Look: huge, tight, lowercase headlines. Tiny spaced-out caps for details. Almost no decoration; the clothes and the logo do the talking.
@@ -38,12 +38,12 @@ h1, h2, h3, .h0, .h1, .h2 { font-family: 'Inter Tight', Inter, sans-serif; font-
 - The brush-script **logo image** is the only decorative type on the site.
 
 ## 4. Logo & header  (Header section)
-- Upload the logo (`public/images/logo.png` in the project; transparent background so it sits on black).
+- Upload the logo (use `public/images/logo-dark.png` from the project: black "Call Me", pink "CRAZY", transparent background).
 - Logo width about 160–200px. Logo position: left. Menu: Shop All, Skirts, Jackets, Jeans, Accessories, Our Story.
 - Turn **on** the announcement bar: `OWN YOUR CRAZY · FREE SHIPPING OVER $100` (pink background, white text).
 
 ## 5. Homepage sections (top to bottom)
-1. **Image banner** (hero): black background or a dark photo of a piece; big heading **"own your crazy."** (the word crazy in pink), subtext "Reclaimed denim, patched, painted and studded by hand. One of one. No restocks." Put a big photo of the hero piece on one side (white background)., buttons **Shop the drop** (pink) and **Our story** (outline).
+1. **Image banner** (hero): white page, headline on the left, big photo on the right; big heading **"own your crazy."** (the word crazy in pink), subtext "Reclaimed denim, patched, painted and studded by hand. One of one. No restocks." Put a big photo of the hero piece on one side (white background)., buttons **Shop the drop** (pink) and **Our story** (outline).
 2. **Marquee / rich text strip** (pink bar): a thin ticker: `ONE OF ONE / HANDCRAFTED DENIM / NO RESTOCKS / OWN YOUR CRAZY` (tiny grey caps, pink slashes)
 3. (Skip the category tiles for now; with a small catalog the drop grid is stronger.)
 4. **Featured collection**, titled "the drop", 4 products. Under each: NO. 001 (pink, tiny caps), name in lowercase, price., 4 products.
