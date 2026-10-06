@@ -105,11 +105,11 @@ const views = {
     const hero = state.products.find((x) => x.id === 'studded-patch-jacket') || state.products[0];
     const feat = state.products.slice(0, 4);
     const ph = (t) => `<span>${t}</span>`;
-    const run = ['NO RESTOCKS. NO APOLOGIES.', 'ONE OF ONE', 'MADE BY HAND', 'CALL US CRAZY', 'WE DARE YOU'].map(ph).join('<i>✦</i>');
+    const run = ['NO RESTOCKS. NO APOLOGIES.', 'ONE OF ONE', 'MADE BY HAND', 'WE DARE YOU', 'ZERO CHILL'].map(ph).join('<i>✦</i>');
     return `<section class="h-hero"><span class="gfx g-hang" aria-hidden="true"><img src="/images/art/phone.png" alt=""></span><div class="h-copy">
       <div class="lab">drop 01 — one of one — no restocks</div>
       <h1><span class="own">own your</span><span class="crz">${ransom("crazy", [7, 11, 12][Math.floor(Math.random() * 3)])}</span></h1>
-      <p class="hl"><mark>Call us crazy — we dare you.</mark></p>
+      <p class="hl"><mark>One of one. We dare you.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><video src="/video/sparkle-studs.mp4" poster="/video/sparkle-studs.jpg" autoplay muted loop playsinline aria-label="${esc(hero.name)}"></video><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
       <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
