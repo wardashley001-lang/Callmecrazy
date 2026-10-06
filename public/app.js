@@ -103,7 +103,7 @@ phone: `<svg viewBox="0 0 100 400" aria-hidden="true"><path d="M50.0 0.0 L55.8 3
   burst: `<svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 58,28 80,10 74,36 98,34 78,52 98,66 72,68 82,92 58,78 50,98 42,78 18,92 28,68 2,66 22,52 2,34 26,36 20,10 42,28" fill="#f7c1d9" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/></svg>`,
   ticket: `<svg viewBox="0 0 220 100" aria-hidden="true"><path d="M8 8 H212 V38 A12 12 0 0 0 212 62 V92 H8 V62 A12 12 0 0 0 8 38 Z" fill="#ef7fb2" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/><path d="M150 12 V88" stroke="#111" stroke-width="2.5" stroke-dasharray="4 5"/><text x="78" y="46" text-anchor="middle" font-family="Anton,sans-serif" font-size="30" fill="#111" letter-spacing="2">ADMIT ONE</text><text x="78" y="72" text-anchor="middle" font-family="Courier Prime,monospace" font-weight="700" font-size="12" fill="#111" letter-spacing="3">DROP 01 · NO RESTOCKS</text><text x="181" y="58" text-anchor="middle" font-family="Anton,sans-serif" font-size="26" fill="#111" transform="rotate(-90 181 50)">001</text></svg>`,
 };
-function gfx(name, style = '', cls = '') { return `<span class="gfx ${cls}" style="${style}" aria-hidden="true">${GFX[name]}</span>`; }
+function gfx(name, style = '', cls = '') { return `<span class="gfx ${cls}" style="${style}" aria-hidden="true"><img src="/images/art/${name}.png" alt=""></span>`; }
 
 const views = {
   home() {
@@ -117,14 +117,14 @@ const views = {
       <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><img src="${esc(hero.images[0])}" alt="${esc(hero.name)}"><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
-      <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
+      ${gfx('bubble', '', 'g-bub')}<div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
       <div class="run"><div class="trk">${run}<i>✦</i>${run}<i>✦</i></div></div>
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
       <section class="blk wall"><div class="wall-text"><span class="mega-black">no two<br>alike.</span>
       <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div></div>
-      <div class="wall-pics">${gfx('phone', '', 'g-phone')}${gfx('megaphone', '', 'g-mega')}${gfx('star', '', 'g-star1')}${gfx('burst', '', 'g-burst')}${gfx('star', '', 'g-star2')}</div>
+      <div class="wall-pics">${gfx('phone', '', 'g-phone')}${gfx('megaphone-stars', '', 'g-mega')}${gfx('lips', '', 'g-lips')}${gfx('kiss-me', '', 'g-kiss')}${gfx('lover-girl', '', 'g-lover')}</div>
       <p class="fine">Every piece is handmade from reclaimed denim. Patched, painted and studded by hand. When it's gone, it's gone. We don't restock. We don't apologize.</p>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
@@ -136,7 +136,7 @@ const views = {
     if (sort === 'low') list.sort((a, b) => a.price - b.price);
     if (sort === 'high') list.sort((a, b) => b.price - a.price);
     if (sort === 'featured') list.sort((a, b) => !!b.featured - !!a.featured);
-    return pageHead('drop 01 — one of one', cat || 'The drop', gfx('ticket', 'width:210px;transform:rotate(-5deg)') + gfx('star', 'width:70px;transform:rotate(12deg)')) +
+    return pageHead('drop 01 — one of one', cat || 'The drop', gfx('ticket-shitshow', 'width:200px;transform:rotate(-5deg)') + gfx('kiss-me', 'width:84px;transform:rotate(10deg)')) +
       `<div class="wrap"><div class="toolbar"><div class="chips">
         <a class="chip ${!cat ? 'on' : ''}" href="#/shop">All</a>
         ${CATEGORIES().map((c) => `<a class="chip ${c === cat ? 'on' : ''}" href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
@@ -172,7 +172,7 @@ const views = {
         <td><div class="qty"><button data-dec="${idx}" aria-label="Decrease">−</button><span style="min-width:24px;text-align:center">${i.qty}</span><button data-inc="${idx}" aria-label="Increase">+</button></div></td>
         <td>${money(p.price * i.qty)}</td></tr>`;
     }).join('');
-    return pageHead('your bag', 'Bag', gfx('star', 'width:90px;transform:rotate(-10deg)')) +
+    return pageHead('your bag', 'Bag', gfx('lips', 'width:120px;transform:rotate(-8deg)')) +
       `<div class="wrap"><div class="cols"><table class="table">${rows}</table>
       <div class="summary receipt" id="summary">${summaryHtml()}<a class="buy" href="#/checkout" style="margin-top:1.2rem">Checkout <span>→</span></a></div></div></div>`;
   },
@@ -197,7 +197,7 @@ const views = {
   },
 
   about() {
-    return pageHead('our story', 'Handmade. One of one.', gfx('megaphone', 'width:200px;transform:rotate(-8deg)')) +
+    return pageHead('our story', 'Handmade. One of one.', gfx('bubble', 'width:240px;transform:rotate(-4deg)')) +
       `<div class="wrap prose story-p"><p><mark>Call Me Crazy is one person, a lot of old denim and a sewing machine.</mark></p>
       <p>Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
       <p>Every piece is made once. When it's gone, it's gone.</p></div>`;

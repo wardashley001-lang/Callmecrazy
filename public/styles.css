@@ -417,3 +417,24 @@ select{border:2px solid #0b0b0b;border-radius:0;font-family:'Courier Prime',mono
   .g-mega{width:46%;left:4%;right:auto;top:18%}
   .g-star1{width:18%;right:30%;top:12%}.g-burst{width:16%;right:34%;top:60%}.g-star2{width:11%;right:6%;top:64%}
 }
+
+/* supplied cut-out art */
+.gfx img{width:100%;height:auto;display:block;filter:drop-shadow(3px 5px 4px rgba(0,0,0,.3))}
+.g-phone{width:clamp(48px,5.5vw,76px);right:34%;top:0}
+.g-mega{width:min(30vw,330px);right:1%;top:4%;transform:rotate(4deg)}
+.g-lips{width:min(18vw,190px);right:30%;top:58%;transform:rotate(-12deg)}
+.g-kiss{width:min(10vw,110px);right:7%;top:58%;transform:rotate(10deg)}
+.g-lover{width:min(12vw,130px);right:14%;top:76%;transform:rotate(-6deg)}
+@media(max-width:860px){
+  .g-phone{width:38px;right:8%;top:-1rem}.g-mega{width:44%;left:3%;right:auto;top:6%}
+  .g-lips{width:30%;right:22%;top:52%}.g-kiss{width:18%;right:4%;top:46%}.g-lover{width:20%;left:6%;right:auto;top:60%}
+}
+@media(min-width:861px){
+  .g-phone{width:clamp(56px,6vw,84px);right:31%}
+  .g-mega{width:min(34vw,400px);right:0;top:2%}
+  .g-lips{width:min(22vw,260px);right:3%;top:44%;transform:rotate(-10deg)}
+  .g-kiss{width:min(11vw,130px);right:36%;top:58%}
+  .g-lover{width:min(14vw,160px);right:12%;top:74%}
+}
+
+.h-photo .g-bub{position:absolute;width:min(46%,260px);left:-6%;top:-2%;transform:rotate(-6deg);z-index:3}
