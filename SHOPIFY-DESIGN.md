@@ -47,7 +47,7 @@ h1, h2, h3, .h0, .h1, .h2 { font-family: 'Inter Tight', Inter, sans-serif; font-
 2. **Marquee / rich text strip** (pink bar): a thin ticker: `ONE OF ONE / HANDCRAFTED DENIM / NO RESTOCKS / OWN YOUR CRAZY` (tiny grey caps, pink slashes)
 3. (Skip the category tiles for now; with a small catalog the drop grid is stronger.)
 4. **Featured collection**, titled "the drop", 4 products. Under each: NO. 001 (pink, tiny caps), name in lowercase, price., 4 products.
-5. **Image with text** (denim-blue background): heading **"no two alike. neither are you."**, small label "BY JODI" above it, button **Read the story**, and an email signup "email, for the next drop".
+5. **Image with text** (denim-blue background): heading **"no two alike. neither are you."**, small label "MADE BY HAND" above it, button **Read the story**, and an email signup "email, for the next drop".
 6. **Instagram / social** link in the footer: https://instagram.com/shopcallmecrazy
 7. Optional: **Email signup**: "Get first dibs on every drop."
 

@@ -52,7 +52,7 @@ const views = {
       <div class="ticker"><span>${t.repeat(6)}</span></div>
       <div class="wrap"><div class="sechead"><h2>the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="statement"><div class="tiny" style="margin-bottom:1.5rem">By Jodi</div>
+      <section class="statement"><div class="tiny" style="margin-bottom:1.5rem">Made by hand</div>
       <h2>no two alike. <em>neither are you.</em></h2>
       <a class="btn ghost" href="#/about">Read the story</a>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn pink">Join</button></form></section>`;
@@ -124,7 +124,7 @@ const views = {
 
   about() {
     return `<div class="wrap prose"><div class="tiny" style="color:var(--pink)">Our story</div><h2 style="margin-top:.6rem">handmade.<br>one of one.</h2>
-      <p>Call Me Crazy is Jodi. Reclaimed denim, cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
+      <p>Call Me Crazy is one person, a lot of old denim and a sewing machine. Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
       <p>Every piece is made once. When it's gone, it's gone.</p></div>`;
   },
 
