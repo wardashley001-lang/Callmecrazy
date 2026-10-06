@@ -75,7 +75,7 @@ const views = {
     const pin = '<svg class="pin" viewBox="0 0 130 44" aria-hidden="true"><path d="M12 22C12 8 34 8 34 22C34 34 12 34 12 22M34 22L120 12M34 22L120 32M120 12C128 15 128 29 120 32" fill="none" stroke="#0b0b0b" stroke-width="3.5" stroke-linecap="round"/></svg>';
     return `<section class="h-hero"><div class="h-copy">
       <div class="lab">drop 01 — handcrafted denim — 1 of 1</div>
-      <h1><span class="own">own your</span><span class="crz">Crazy</span></h1>
+      <h1><span class="own">own your</span><span class="crz"><img src="/images/crazy-white.png" alt="Crazy"></span></h1>
       <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><img src="${esc(hero.images[0])}" alt="${esc(hero.name)}"><span class="tp t1"></span><span class="tp t2"></span></div>${pin}<span class="sp s1">✦</span><span class="sp s2">✦</span>

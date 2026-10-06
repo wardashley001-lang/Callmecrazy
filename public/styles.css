@@ -263,3 +263,6 @@ h2.big em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700
 .blk.wall .signup input::placeholder{color:#5a2a40}
 .blk.wall .btn{color:#0b0b0b;border-color:#0b0b0b}.blk.wall .btn:hover{background:#0b0b0b;color:var(--orchid)}
 @media(max-width:860px){.hpic.h1{width:46vw;top:10%}.hpic.h2{width:24vw;bottom:36%}.hpic.h3{display:none}}
+
+.crz{font-size:0;text-shadow:none;transform:rotate(-4deg);margin:-.5rem 0 0 .4rem;line-height:1}
+.crz img{width:clamp(18rem,40vw,36rem);height:auto;display:block;filter:drop-shadow(5px 6px 0 rgba(11,11,11,.9))}
