@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap');
-:root{--ink:#0a0a0a;--bg:#fff;--panel:#f2f1ef;--pink:#FF007F;--denim:#2B547E;--silver:#C0C0C0;--muted:#767676;--line:#e6e4e1;--radius:0}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@900&family=Abril+Fatface&family=Bebas+Neue&family=Special+Elite&family=Archivo+Black&family=UnifrakturCook:wght@700&family=Oswald:wght@600&family=DM+Serif+Display&display=swap');
+:root{--ink:#0a0a0a;--bg:#f6f3ed;--panel:#ebe7df;--pink:#FF007F;--denim:#2B547E;--silver:#C0C0C0;--muted:#767676;--line:#e6e4e1;--radius:0}
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -8,7 +8,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);margin-bottom:1.6rem}
 h2 em,h1 em{font-style:normal;color:var(--pink)}
 .tiny{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
 .announce{background:#000;color:#bbb;text-align:center;font-size:.66rem;padding:.55rem;letter-spacing:.22em;text-transform:uppercase;border-bottom:1px solid var(--line)}
-.site-header{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding:.7rem 1.5rem;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding:.7rem 1.5rem;background:rgba(246,243,237,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10;flex-wrap:wrap}
 .logo img{height:56px;display:block}
 #nav{display:flex;gap:1.8rem;flex-wrap:wrap}
 #nav a,.cart-link,.ig{text-decoration:none;font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
@@ -109,3 +109,58 @@ input:focus,select:focus{outline:1px solid var(--pink);border-color:var(--pink)}
 .card .img,.pimg{background:var(--panel)}
 .hero .r{background:#fff;border-left:1px solid var(--line)}
 .thumbs button{opacity:.55}
+
+/* ---- ransom-note system ---- */
+body{background:var(--bg)}
+.rn{display:block;filter:drop-shadow(1px 2px 1.5px rgba(0,0,0,.28));line-height:1.12;font-size:inherit}
+.rn .wd{display:inline-block;white-space:nowrap;margin:0 .22em .1em 0}
+.rn .lt{display:inline-block;padding:.03em .08em .06em;margin:0 -.01em;line-height:1;font-weight:400;text-transform:none;letter-spacing:0}
+h1,h2{font-family:'Courier Prime',monospace;font-weight:700;letter-spacing:-.02em;line-height:1;text-transform:none}
+h1:has(.rn),h2:has(.rn){text-shadow:none}
+.hero h1{font-size:clamp(3rem,7.4vw,6.6rem)}
+h2{font-size:clamp(2rem,4.4vw,3.4rem)}
+.tiny,.card .no,.hero .cap,.badge,.ticker,.announce{font-family:'Courier Prime',monospace}
+.card h3,.card .meta,.sub{font-family:'Courier Prime',monospace;letter-spacing:0}
+.card h3{font-size:.9rem}
+.photo,.hero .r img{mix-blend-mode:multiply}
+.card .img:has(.photo),.pimg:has(.photo){background:transparent}
+.card .img,.pimg{background:transparent}
+.hero .r{background:transparent;border-left:0}
+.photo{background:transparent}
+.hero{border-bottom:1px solid #d9d4c9}
+.thumbs button{background:transparent;border-color:#d9d4c9}
+/* buttons become plain text links, so they never look like the cut-outs */
+.btn,.btn.pink,.btn.ghost{background:transparent;color:#000;border:0;border-bottom:2px solid #000;padding:.35rem 0;margin-right:1.6rem;font-family:'Courier Prime',monospace;font-weight:700;letter-spacing:.14em}
+.btn::after{content:' →'}
+.btn:hover,.btn.pink:hover,.btn.ghost:hover{background:transparent;color:#FF007F;border-color:#FF007F}
+.btn.block{display:block;width:100%;text-align:left;border:0;border-top:2px solid #000;border-bottom:2px solid #000;padding:1rem 0;margin:0}
+.btn.block::after{float:right}
+.statement{background:transparent;color:#000;border-top:1px solid #d9d4c9;position:relative}
+.statement .tiny{color:#000}
+.statement h2 em{color:inherit}
+.statement .btn,.statement .btn.pink,.statement .btn.ghost{background:transparent;color:#000;border-color:#000}
+.statement .btn:hover{color:#FF007F;border-color:#FF007F;background:transparent}
+.statement .rn{display:inline-block;max-width:900px}
+.signup button.btn{margin:0 0 0 1rem}
+.signup input{border:0;border-bottom:2px solid #000;background:transparent;padding-left:0}
+.tape{position:absolute;width:120px;height:30px;background:rgba(255,0,127,.75);transform:rotate(-7deg);opacity:.9}
+.site-footer strong{font-family:'Courier Prime',monospace}
+input,select{background:transparent}
+.opts button{background:transparent;font-family:'Courier Prime',monospace}
+.opts button.on{color:#000;border-color:#000;box-shadow:inset 0 -3px 0 #FF007F}
+.chip.on,.chip:hover{border-color:#FF007F}
+
+/* patches + patchwork */
+.pt{position:absolute;filter:drop-shadow(1px 2px 1.5px rgba(0,0,0,.3));pointer-events:none;z-index:2}
+.hero .r{position:relative;overflow:visible}
+.statement{overflow:hidden}
+.hpt{display:flex;gap:.6rem;align-items:center;margin-left:auto;margin-right:1.2rem}
+.hpt .pt{position:static}
+.patchband{overflow:hidden;border-top:3px dashed #1c2e4a;border-bottom:3px dashed #1c2e4a;background:#2b3f5e;padding:.5rem 0}
+.patchband .track{display:flex;gap:.55rem;width:max-content;animation:slide 45s linear infinite}
+.pc{display:grid;place-items:center;min-width:150px;height:62px;padding:0 1rem;font-family:'Special Elite','Courier Prime',monospace;font-size:.9rem;letter-spacing:.14em;border:2px dashed rgba(255,255,255,.7);outline:2px solid rgba(0,0,0,.25);outline-offset:-6px;white-space:nowrap}
+.pc .pt{position:static;width:44px;height:44px}
+@keyframes slide{to{transform:translateX(-50%)}}
+.badge{border:1.5px dashed #fff;outline:2px solid #111;outline-offset:0}
+@media(max-width:860px){.hero .r .pt{width:60px!important;height:60px!important}.statement .pt{opacity:.9;width:56px!important;height:56px!important}}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.03em}

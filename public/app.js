@@ -5,6 +5,50 @@ const state = { products: [], cart: loadCart() };
 const money = (c) => '$' + (c / 100).toFixed(2);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+
+// Ransom-note lettering: each letter is its own torn scrap (random font, paper, tilt, ragged edge).
+const RN_FONTS = ["'Playfair Display'", "'Abril Fatface'", "'Bebas Neue'", "'Special Elite'", "'Courier Prime'", "'Archivo Black'", "'UnifrakturCook'", "'Oswald'", "'DM Serif Display'"];
+const RN_PAPER = [['#fff', '#111'], ['#fff', '#111'], ['#111', '#fff'], ['#111', '#fff'], ['#FF007F', '#fff'], ['#FF007F', '#111'], ['#e4dccb', '#111'], ['#fff', '#FF007F'], ['#d9d9d6', '#111']];
+function rnd(seed) { const x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
+function ragged(s) {
+  const j = (n) => (rnd(s + n) * 7 - 1).toFixed(1);
+  return `polygon(${j(1)}% ${j(2)}%, 50% ${j(3)}%, ${100 - j(4)}% ${j(5)}%, ${100 - j(6)}% 50%, ${100 - j(7)}% ${100 - j(8)}%, 50% ${100 - j(9)}%, ${j(10)}% ${100 - j(11)}%, ${j(12)}% 55%)`;
+}
+function ransom(text, seed = 1) {
+  let k = 0;
+  return `<span class="rn" aria-label="${esc(text.replace('|', ' '))}">` + text.split('|').map((line) =>
+    line.split(' ').filter(Boolean).map((w) => `<span class="wd" aria-hidden="true">` + [...w].map((ch) => {
+      k++; const s = seed * 100 + k;
+      const f = RN_FONTS[Math.floor(rnd(s) * RN_FONTS.length)];
+      const [bg, fg] = /[.,!?]/.test(ch) ? ['#111', '#fff'] : RN_PAPER[Math.floor(rnd(s + 3) * RN_PAPER.length)];
+      const c = rnd(s + 5) > 0.55 ? ch.toUpperCase() : ch.toLowerCase();
+      const rot = (rnd(s + 7) * 10 - 5).toFixed(1), dy = (rnd(s + 9) * .16 - .08).toFixed(2);
+      const sz = (0.9 + rnd(s + 11) * 0.3).toFixed(2);
+      return `<span class="lt" style="font-family:${f},serif;background:${bg};color:${fg};transform:translateY(${dy}em) rotate(${rot}deg);font-size:${sz}em;clip-path:${ragged(s)}">${esc(c)}</span>`;
+    }).join('') + '</span>').join(' ') + '<br>').join('') + '</span>';
+}
+
+// Tattoo-flash patches: bold outline, flat color, stitched border.
+const PATCHES = {
+  star: `<polygon points="50,6 62,36 95,38 69,58 78,92 50,73 22,92 31,58 5,38 38,36" fill="#FF007F" stroke="#111" stroke-width="5" stroke-linejoin="round"/><polygon points="50,16 59,38 84,40 64,55 71,80 50,66 29,80 36,55 16,40 41,38" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="3 3"/><g fill="#fff"><circle cx="50" cy="48" r="2.4"/><circle cx="40" cy="44" r="1.8"/><circle cx="60" cy="44" r="1.8"/><circle cx="46" cy="58" r="1.8"/><circle cx="55" cy="58" r="1.8"/></g>`,
+  heart: `<path d="M50 90 C8 62 6 28 28 20 C40 16 50 26 50 33 C50 26 60 16 72 20 C94 28 92 62 50 90Z" fill="#e9b949" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M50 78 C20 56 18 32 31 28 C40 25 48 31 50 38 C52 31 60 25 69 28 C82 32 80 56 50 78Z" fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="3 3"/><path d="M30 36 C32 30 38 30 41 33" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+  lips: `<path d="M6 52 C22 28 40 32 50 41 C60 32 78 28 94 52 C78 82 22 82 6 52Z" fill="#d4003a" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M10 52 C30 60 70 60 90 52" stroke="#111" stroke-width="3" fill="none"/><path d="M26 44 C32 40 38 41 42 44" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+  bolt: `<polygon points="58,4 20,56 46,56 36,96 82,38 55,38" fill="#e9b949" stroke="#111" stroke-width="5" stroke-linejoin="round"/><polygon points="55,16 34,50 52,50 46,76 68,44 50,44" fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="3 3"/>`,
+  flame: `<path d="M50 4 C60 24 82 34 80 62 C78 86 60 96 50 96 C38 96 20 86 20 62 C20 48 30 40 36 28 C40 38 46 40 46 40 C42 26 42 14 50 4Z" fill="#FF007F" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M50 50 C56 60 64 64 62 76 C61 86 54 90 50 90 C44 90 38 85 38 76 C38 68 46 62 50 50Z" fill="#e9b949" stroke="#111" stroke-width="2.5"/>`,
+  boot: `<path d="M30 6 L58 6 L58 50 C74 54 92 62 92 80 L92 92 L26 92 L26 78 C32 70 30 60 30 50Z" fill="#f2e9d6" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M30 24 L58 24 L58 36 L30 36Z" fill="#FF007F" stroke="#111" stroke-width="2.5"/><path d="M26 92 L26 100 L44 100 L44 92" fill="#111"/><g stroke="#111" stroke-width="2"><path d="M36 60 L50 60"/><path d="M36 68 L52 68"/></g>`,
+  xo: `<rect x="4" y="26" width="92" height="48" rx="6" fill="#111" stroke="#111" stroke-width="3"/><rect x="9" y="31" width="82" height="38" rx="3" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="4 3"/><text x="50" y="59" text-anchor="middle" font-family="Special Elite,monospace" font-size="26" fill="#FF007F" font-weight="700">xo xo</text>`,
+};
+function patch(name, size = 90, rot = 0, extra = '') {
+  return `<svg class="pt" style="width:${size}px;height:${size}px;transform:rotate(${rot}deg);${extra}" viewBox="0 0 100 100" aria-hidden="true">${PATCHES[name]}</svg>`;
+}
+const denimBand = () => {
+  const items = ['NO RULES', 'star', 'ONE OF ONE', 'heart', 'NO RESTOCKS', 'bolt', 'OWN YOUR CRAZY', 'lips', 'HANDMADE', 'flame', 'STAY WILD', 'boot'];
+  const shades = ['#6f93bd', '#3b5f8c', '#9db9d6', '#2b3f5e', '#5a7fae', '#b6cbe0'];
+  const cell = (it, i) => `<span class="pc" style="background:${shades[i % shades.length]};color:${i % 6 === 2 || i % 6 === 5 ? '#111' : '#fff'};transform:rotate(${((i * 37) % 5) - 2}deg)">${PATCHES[it] ? patch(it, 44) : esc(it)}</span>`;
+  const row = items.map(cell).join('');
+  return `<div class="patchband"><div class="track">${row}${row}</div></div>`;
+};
+
 function loadCart() { try { return JSON.parse(localStorage.getItem('cmc-cart')) || []; } catch { return []; } }
 function saveCart() {
   try { localStorage.setItem('cmc-cart', JSON.stringify(state.cart)); } catch {}
@@ -44,16 +88,16 @@ const views = {
     const feat = state.products.slice(0, 4);
     const t = 'ONE OF ONE <b>/</b> HANDCRAFTED DENIM <b>/</b> NO RESTOCKS <b>/</b> OWN YOUR CRAZY <b>/</b> ';
     return `<section class="hero"><div class="l"><div class="tiny">Drop 01 · Handcrafted denim</div>
-      <div><h1>own your<br><em>crazy.</em></h1><p class="sub">Reclaimed denim, patched, painted and studded by hand. One of one. No restocks.</p>
+      <div><h1>${ransom('own your|crazy.', 3)}</h1><p class="sub">Reclaimed denim, patched, painted and studded by hand. One of one. No restocks.</p>
       <a class="btn pink" href="#/shop">Shop the drop</a> <a class="btn ghost" href="#/about">Our story</a></div>
       <div class="tiny">Scroll</div></div>
-      <a class="r" href="#/product/${hero.id}" style="text-decoration:none">${hero.images ? `<img src="${esc(hero.images[0])}" alt="${esc(hero.name)}">` : ''}
+      <a class="r" href="#/product/${hero.id}" style="text-decoration:none">${patch('star', 96, -14, 'top:8%;left:4%')}${patch('lips', 84, 10, 'top:6%;right:5%')}${patch('heart', 78, 8, 'bottom:16%;left:6%')}${patch('bolt', 70, -12, 'bottom:10%;right:6%')}${hero.images ? `<img src="${esc(hero.images[0])}" alt="${esc(hero.name)}">` : ''}
       <span class="cap">No. ${num(hero)} — ${esc(hero.name)} — ${money(hero.price)}</span></a></section>
-      <div class="ticker"><span>${t.repeat(6)}</span></div>
-      <div class="wrap"><div class="sechead"><h2>the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
+      ${denimBand()}
+      <div class="wrap"><div class="sechead"><h2>the drop</h2><div class="hpt">${patch('flame', 52, -8)}${patch('boot', 52, 6)}${patch('xo', 70, -4)}</div><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="statement"><div class="tiny" style="margin-bottom:1.5rem">Made by hand</div>
-      <h2>no two alike. <em>neither are you.</em></h2>
+      <section class="statement">${patch('star', 90, 12, 'top:10%;left:7%')}${patch('heart', 80, -10, 'top:14%;right:8%')}${patch('lips', 90, -8, 'bottom:12%;left:9%')}${patch('flame', 80, 10, 'bottom:16%;right:9%')}<div class="tiny" style="margin-bottom:1.5rem">Made by hand</div>
+      <h2 class="rn-h">no two alike.|neither are you.</h2>
       <a class="btn ghost" href="#/about">Read the story</a>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn pink">Join</button></form></section>`;
   },
@@ -81,7 +125,7 @@ const views = {
     if (!p) return `<div class="wrap"><h2>Product not found</h2><a href="#/shop">Back to shop</a></div>`;
     return `<div class="wrap"><div class="product">
       <div><div class="pimg" id="pimg">${art(p)}</div>${p.images && p.images.length > 1 ? `<div class="thumbs" id="thumbs">${p.images.map((s, i) => `<button class="${i ? '' : 'on'}" data-src="${esc(s)}" aria-label="Photo ${i + 1}">${photo(s, p.name + ' photo ' + (i + 1))}</button>`).join('')}</div>` : ''}</div>
-      <div><div class="tiny" style="color:var(--pink)">No. ${num(p)} · One of one</div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.description)}</p>
+      <div><div class="tiny" style="color:var(--pink)">No. ${num(p)} · One of one</div><h2 class="plain">${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.description)}</p>
         <div class="opt"><span class="t" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Color: <b id="cname">${esc(p.colors[0].name)}</b></span>
           <div class="opts" id="colors" style="margin-top:.4rem">${p.colors.map((c, i) => `<button class="color ${i ? '' : 'on'}" data-v="${esc(c.name)}" data-hex="${c.hex}"><span class="sw" style="background:${c.hex}"></span>${esc(c.name)}</button>`).join('')}</div></div>
         <div class="opt"><span style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Size</span>
@@ -219,6 +263,7 @@ function render() {
   const view = views[name] || views.home;
   $app.innerHTML = view(arg ? decodeURIComponent(arg) : undefined);
   document.querySelectorAll('#nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === location.hash.split('?')[0]));
+  $app.querySelectorAll('h2.rn-h').forEach((h, i) => { if (!h.querySelector(".lt")) h.innerHTML = ransom(h.textContent.trim(), i + 7); });
   bind(name, arg && decodeURIComponent(arg));
   window.scrollTo(0, 0);
 }
