@@ -1,0 +1,33 @@
+<div class="run" {{ section.shopify_attributes }}>
+  <div class="trk">
+    {%- for i in (1..2) -%}
+      {%- for block in section.blocks -%}
+        <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span><i>✦</i>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrolling banner",
+  "blocks": [
+    { "type": "line", "name": "Line", "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "ONE OF ONE" }] }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling banner",
+      "blocks": [
+        { "type": "line", "settings": { "text": "CRAZY IS A COMPLIMENT" } },
+        { "type": "line", "settings": { "text": "ONE OF ONE" } },
+        { "type": "line", "settings": { "text": "WELL BEHAVED IS BORING" } },
+        { "type": "line", "settings": { "text": "NOT A PHASE" } },
+        { "type": "line", "settings": { "text": "BEHAVE? NEVER HEARD OF HER" } },
+        { "type": "line", "settings": { "text": "CRAZY SINCE BIRTH" } },
+        { "type": "line", "settings": { "text": "MADE ONCE. WORN LOUD." } },
+        { "type": "line", "settings": { "text": "NO RESTOCKS. NO APOLOGIES." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

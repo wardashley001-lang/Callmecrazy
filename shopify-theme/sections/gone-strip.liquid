@@ -1,0 +1,19 @@
+<section class="gonestrip" {{ section.shopify_attributes }}>
+  <div class="wrap">
+    <span>gone.</span>
+    <p>{{ section.settings.text }}</p>
+    <a class="btn" href="{{ section.settings.link }}">{{ section.settings.button }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gone strip",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Text", "default": "These found their person. Don't miss the next one." },
+    { "type": "text", "id": "button", "label": "Button", "default": "the gone wall" },
+    { "type": "url", "id": "link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Gone strip" }]
+}
+{% endschema %}

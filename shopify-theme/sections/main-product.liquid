@@ -1,0 +1,70 @@
+{%- liquid
+  assign piece = product.metafields.custom.piece_number.value
+  assign quip = product.metafields.custom.quip.value
+  assign provenance = product.metafields.custom.provenance.value
+  assign measurements = product.metafields.custom.measurements.value
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+<div class="wrap crumbs"><a class="tiny" href="{{ routes.all_products_collection_url }}">← the drop</a></div>
+<div class="wrap product" {{ section.shopify_attributes }}>
+  <div class="gal">
+    <div class="pimg">
+      {%- if product.featured_media -%}
+        <img id="pimg-main" class="photo" src="{{ product.featured_media | image_url: width: 1100 }}" alt="{{ product.featured_media.alt | default: product.title | escape }}" width="1100" height="{{ 1100 | divided_by: product.featured_media.aspect_ratio | round }}">
+      {%- endif -%}
+      <span class="tp t1"></span><span class="tp t2"></span>
+    </div>
+    {%- if product.images.size > 1 -%}
+      <div class="thumbs">
+        {%- for image in product.images -%}
+          <button type="button" class="{% if forloop.first %}on{% endif %}" data-thumb="{{ image | image_url: width: 1100 }}" aria-label="Photo {{ forloop.index }}">
+            {{ image | image_url: width: 160 | image_tag: class: 'photo', loading: 'lazy' }}
+          </button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="info">
+    <div class="lab">{% if piece != blank %}no. {{ piece }} — {% endif %}one of one</div>
+    <h2 class="plain">{{ product.title | escape }}</h2>
+    <div class="price">{{ product.price | money }}</div>
+    <div class="desc">{{ product.description }}{% if quip != blank %} <b>{{ quip }}</b>{% endif %}</div>
+
+    {%- if provenance != blank -%}
+      <div class="prov"><div class="lab">where it came from</div><p>{{ provenance }}</p></div>
+    {%- endif -%}
+    {%- if measurements != blank -%}
+      <div class="meas"><div class="lab">measurements</div><pre>{{ measurements }}</pre></div>
+    {%- endif -%}
+
+    {%- form 'product', product -%}
+      {%- if product.has_only_default_variant -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+      {%- else -%}
+        <div class="opt"><span class="ol">Size / option</span>
+          <select name="id" aria-label="Variant">
+            {%- for variant in product.variants -%}
+              <option value="{{ variant.id }}"{% unless variant.available %} disabled{% endunless %}{% if variant == current_variant %} selected{% endif %}>{{ variant.title }}{% unless variant.available %} — gone{% endunless %}</option>
+            {%- endfor -%}
+          </select>
+        </div>
+      {%- endif -%}
+      {%- if product.available -%}
+        <button class="buy" type="submit" name="add">Add to bag <span>→</span></button>
+      {%- else -%}
+        <button class="buy" type="button" disabled>Gone. <span>✕</span></button>
+        <p class="fineprint">This one found its person. <a href="/pages/next-drop">Call me for the next drop.</a></p>
+      {%- endif -%}
+    {%- endform -%}
+    <p class="fineprint">Ships in 5–7 days · Free over $100 · One of one, no restocks</p>
+  </div>
+</div>
+
+<script type="application/ld+json">{{ product | structured_data }}</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}

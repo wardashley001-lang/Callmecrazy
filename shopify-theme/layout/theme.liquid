@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}</title>
+  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Anton&family=Kaushan+Script&family=Playfair+Display:ital,wght@0,900;1,700&family=Abril+Fatface&family=Bebas+Neue&family=Special+Elite&family=Archivo+Black&family=Oswald:wght@600&family=DM+Serif+Display&display=swap">
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+</head>
+<body class="template-{{ template.name }}">
+  {% section 'announcement' %}
+  {% section 'header' %}
+  <main id="app" tabindex="-1">{{ content_for_layout }}</main>
+  {% section 'footer' %}
+  <script src="{{ 'ransom.js' | asset_url }}" defer></script>
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>

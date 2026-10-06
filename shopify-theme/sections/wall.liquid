@@ -1,0 +1,22 @@
+<section class="blk wall" {{ section.shopify_attributes }}>
+  <div class="wall-text">
+    <span class="mega-black">{{ section.settings.mega }}</span>
+    <div class="script-wall" aria-hidden="true">{% for i in (1..5) %}<span>{{ section.settings.script }}</span>{% endfor %}</div>
+  </div>
+  <p class="fine">{{ section.settings.fine }}</p>
+  {% render 'signup', placeholder: section.settings.placeholder, button: section.settings.button %}
+</section>
+
+{% schema %}
+{
+  "name": "Statement wall",
+  "settings": [
+    { "type": "html", "id": "mega", "label": "Big text", "default": "no two<br>alike." },
+    { "type": "text", "id": "script", "label": "Script text (repeats)", "default": "neither are you." },
+    { "type": "textarea", "id": "fine", "label": "Small print", "default": "Every piece is cut up and rebuilt by hand from reclaimed denim. Numbered. Never made again. When it's gone, it's gone." },
+    { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "email for the next drop" },
+    { "type": "text", "id": "button", "label": "Button", "default": "join the crazy" }
+  ],
+  "presets": [{ "name": "Statement wall" }]
+}
+{% endschema %}

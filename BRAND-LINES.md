@@ -30,7 +30,6 @@ Rules: clean language on the website, no swearing. "Crazy" means personality and
 - Member of the Too Much Club. (signup, loyalty, customer name)
 - Normal is overrated.
 - Made once. Worn loud.
-- Zero chill. All noise.
 
 ## More ideas
 - Born this way. Patched that way.
@@ -46,8 +45,7 @@ Rules: clean language on the website, no swearing. "Crazy" means personality and
 - Crazy club. / Member of the Too Much Club.
 - Normal is overrated.
 - Made once. Worn loud.
-- Zero chill. All noise.
-- Zero chill. All sparkle. (alt)
+
 
 ## Where each could live
 - Marquee ticker: Crazy is a compliment / Well behaved is boring / Crazy since birth / Too much? Good.
@@ -57,3 +55,7 @@ Rules: clean language on the website, no swearing. "Crazy" means personality and
 - 404 page: Gone.
 - Packaging and hang tags: Crazy since birth. / Made once. Worn loud.
 - Gone Wall: These found their person.
+
+## Retired (team doesn't like)
+- Zero chill. (any version)
+- Beige is a choice. So is this. (as a hero banner)

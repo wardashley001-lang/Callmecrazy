@@ -1,0 +1,12 @@
+{% doc %}
+Renders the email signup form.
+@param {string} placeholder - Input placeholder
+@param {string} button - Button label
+{% enddoc %}
+{% form 'customer', class: 'signup' %}
+  <input type="hidden" name="contact[tags]" value="newsletter">
+  <span class="callme">Call me?</span>
+  <input type="email" name="contact[email]" placeholder="{{ placeholder | escape }}" required aria-label="Email" value="{{ form.email }}">
+  <button class="btn" type="submit">{{ button }}</button>
+  {% if form.posted_successfully? %}<p class="fineprint">You're in.</p>{% endif %}
+{% endform %}

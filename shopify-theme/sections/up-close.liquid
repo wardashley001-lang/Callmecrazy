@@ -1,0 +1,48 @@
+<section class="up" {{ section.shopify_attributes }}>
+  <div class="wrap">
+    <h2 class="big">{{ section.settings.heading }}<em> {{ section.settings.heading_script }}</em></h2>
+    <div class="strip">
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        <a class="dt" href="{{ p.url | default: '#' }}" {{ block.shopify_attributes }}>
+          <span class="tp"></span>
+          <div class="crop">
+            {%- if block.settings.video != blank -%}
+              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '400x' }}
+            {%- elsif block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 600 | image_tag: class: 'fill', loading: 'lazy' }}
+            {%- else -%}
+              <div class="crop empty"><span>close-up coming</span></div>
+            {%- endif -%}
+          </div>
+          <figcaption><b>no. {{ block.settings.number }}</b> {{ p.title | default: block.settings.caption }}</figcaption>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Up close",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "up close" },
+    { "type": "text", "id": "heading_script", "label": "Heading (script part)", "default": "look closer." }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Close-up",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Links to piece" },
+        { "type": "text", "id": "number", "label": "Piece number", "default": "001" },
+        { "type": "text", "id": "caption", "label": "Caption (if no product)" },
+        { "type": "video", "id": "video", "label": "Close-up video" },
+        { "type": "image_picker", "id": "image", "label": "Close-up photo (used if no video)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Up close", "blocks": [{ "type": "tile" }, { "type": "tile" }, { "type": "tile" }, { "type": "tile" }, { "type": "tile" }] }]
+}
+{% endschema %}

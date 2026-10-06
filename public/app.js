@@ -105,7 +105,7 @@ const views = {
     const hero = state.products.find((x) => x.id === 'studded-patch-jacket') || state.products[0];
     const feat = state.products.slice(0, 4);
     const ph = (t) => `<span>${t}</span>`;
-    const run = ['NO RESTOCKS. NO APOLOGIES.', 'ONE OF ONE', 'MADE BY HAND', 'WE DARE YOU', 'ZERO CHILL'].map(ph).join('<i>✦</i>');
+    const run = ['NO RESTOCKS. NO APOLOGIES.', 'ONE OF ONE', 'MADE BY HAND', 'WE DARE YOU', 'MADE ONCE. WORN LOUD.'].map(ph).join('<i>✦</i>');
     return `<section class="h-hero"><span class="gfx g-hang" aria-hidden="true"><img src="/images/art/phone.png" alt=""></span><div class="h-copy">
       <div class="lab">drop 01 — one of one — no restocks</div>
       <h1><span class="own">own your</span><span class="crz">${ransom("crazy", [7, 11, 12][Math.floor(Math.random() * 3)])}</span></h1>

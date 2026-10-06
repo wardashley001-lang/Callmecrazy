@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "ticker": { "type": "ticker", "blocks": {
+      "b1": { "type": "line", "settings": { "text": "CRAZY IS A COMPLIMENT" } },
+      "b2": { "type": "line", "settings": { "text": "ONE OF ONE" } },
+      "b3": { "type": "line", "settings": { "text": "WELL BEHAVED IS BORING" } },
+      "b4": { "type": "line", "settings": { "text": "NOT A PHASE" } },
+      "b5": { "type": "line", "settings": { "text": "BEHAVE? NEVER HEARD OF HER" } },
+      "b6": { "type": "line", "settings": { "text": "CRAZY SINCE BIRTH" } },
+      "b7": { "type": "line", "settings": { "text": "MADE ONCE. WORN LOUD." } },
+      "b8": { "type": "line", "settings": { "text": "NO RESTOCKS. NO APOLOGIES." } }
+    }, "block_order": ["b1","b2","b3","b4","b5","b6","b7","b8"] },
+    "up_close": { "type": "up-close", "blocks": {
+      "t1": { "type": "tile", "settings": { "number": "001" } },
+      "t2": { "type": "tile", "settings": { "number": "002" } },
+      "t3": { "type": "tile", "settings": { "number": "003" } },
+      "t4": { "type": "tile", "settings": { "number": "004" } },
+      "t5": { "type": "tile", "settings": { "number": "005" } }
+    }, "block_order": ["t1","t2","t3","t4","t5"] },
+    "trio": { "type": "trio", "blocks": {
+      "a": { "type": "item", "settings": { "title": "one woman.", "text": "crazy and a lot of denim." } },
+      "b": { "type": "item", "settings": { "title": "one number.", "text": "every piece is numbered and never made again." } },
+      "c": { "type": "item", "settings": { "title": "one shot.", "text": "no restocks. when it's gone, it's gone." } }
+    }, "block_order": ["a","b","c"] },
+    "drop": { "type": "featured-drop", "settings": {} },
+    "gone": { "type": "gone-strip", "settings": { "link": "/pages/gone-wall" } },
+    "wall": { "type": "wall", "settings": {} }
+  },
+  "order": ["hero","ticker","up_close","trio","drop","gone","wall"]
+}

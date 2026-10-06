@@ -1,0 +1,27 @@
+{% render 'page-head', label: 'the gone wall', title: 'Gone.' %}
+<div class="wrap">
+  <p class="sub">{{ section.settings.intro }}</p>
+  {% paginate collections.all.products by 24 %}
+    <div class="grid">
+      {%- assign shown = 0 -%}
+      {%- for product in collections.all.products -%}
+        {%- unless product.available -%}
+          {%- assign shown = shown | plus: 1 -%}
+          {% render 'product-card', product: product, index: forloop.index0, gone: true %}
+        {%- endunless -%}
+      {%- endfor -%}
+    </div>
+    {%- if shown == 0 -%}<p class="tiny">Nothing sold yet. Be the first.</p>{%- endif -%}
+    {{ paginate | default_pagination }}
+  {% endpaginate %}
+  <p style="margin-top:2rem"><a class="btn" href="/pages/next-drop">call me — next drop</a></p>
+</div>
+
+{% schema %}
+{
+  "name": "Gone Wall",
+  "settings": [
+    { "type": "text", "id": "intro", "label": "Intro", "default": "These found their person. You missed them. Don't miss the next one." }
+  ]
+}
+{% endschema %}
