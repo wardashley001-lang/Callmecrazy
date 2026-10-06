@@ -8,7 +8,7 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 
 // Ransom-note lettering: each letter is its own torn scrap (random font, paper, tilt, ragged edge).
 const RN_FONTS = ["'Playfair Display'", "'Abril Fatface'", "'Bebas Neue'", "'Special Elite'", "'Courier Prime'", "'Archivo Black'", "'UnifrakturCook'", "'Oswald'", "'DM Serif Display'"];
-const RN_PAPER = [['#fff', '#111'], ['#fff', '#111'], ['#111', '#fff'], ['#111', '#fff'], ['#FF007F', '#fff'], ['#FF007F', '#111'], ['#e4dccb', '#111'], ['#fff', '#FF007F'], ['#d9d9d6', '#111']];
+const RN_PAPER = [['#f7f5ef', '#111'], ['#f7f5ef', '#111'], ['#111', '#f7f5ef'], ['#111', '#f7f5ef'], ['#d9d6cd', '#111'], ['#e9e5da', '#111'], ['#2a2a2a', '#f7f5ef'], ['#bdbab2', '#111']];
 function rnd(seed) { const x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
 function ragged(s) {
   const j = (n) => (rnd(s + n) * 7 - 1).toFixed(1);
@@ -20,7 +20,7 @@ function ransom(text, seed = 1) {
     line.split(' ').filter(Boolean).map((w) => `<span class="wd" aria-hidden="true">` + [...w].map((ch) => {
       k++; const s = seed * 100 + k;
       const f = RN_FONTS[Math.floor(rnd(s) * RN_FONTS.length)];
-      const [bg, fg] = /[.,!?]/.test(ch) ? ['#111', '#fff'] : RN_PAPER[Math.floor(rnd(s + 3) * RN_PAPER.length)];
+      const [bg, fg] = /[.,!?]/.test(ch) ? ['#111', '#f7f5ef'] : RN_PAPER[Math.floor(rnd(s + 3) * RN_PAPER.length)];
       const c = rnd(s + 5) > 0.55 ? ch.toUpperCase() : ch.toLowerCase();
       const rot = (rnd(s + 7) * 10 - 5).toFixed(1), dy = (rnd(s + 9) * .16 - .08).toFixed(2);
       const sz = (0.9 + rnd(s + 11) * 0.3).toFixed(2);
@@ -28,26 +28,22 @@ function ransom(text, seed = 1) {
     }).join('') + '</span>').join(' ') + '<br>').join('') + '</span>';
 }
 
-// Tattoo-flash patches: bold outline, flat color, stitched border.
-const PATCHES = {
-  star: `<polygon points="50,6 62,36 95,38 69,58 78,92 50,73 22,92 31,58 5,38 38,36" fill="#FF007F" stroke="#111" stroke-width="5" stroke-linejoin="round"/><polygon points="50,16 59,38 84,40 64,55 71,80 50,66 29,80 36,55 16,40 41,38" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="3 3"/><g fill="#fff"><circle cx="50" cy="48" r="2.4"/><circle cx="40" cy="44" r="1.8"/><circle cx="60" cy="44" r="1.8"/><circle cx="46" cy="58" r="1.8"/><circle cx="55" cy="58" r="1.8"/></g>`,
-  heart: `<path d="M50 90 C8 62 6 28 28 20 C40 16 50 26 50 33 C50 26 60 16 72 20 C94 28 92 62 50 90Z" fill="#e9b949" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M50 78 C20 56 18 32 31 28 C40 25 48 31 50 38 C52 31 60 25 69 28 C82 32 80 56 50 78Z" fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="3 3"/><path d="M30 36 C32 30 38 30 41 33" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>`,
-  lips: `<path d="M6 52 C22 28 40 32 50 41 C60 32 78 28 94 52 C78 82 22 82 6 52Z" fill="#d4003a" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M10 52 C30 60 70 60 90 52" stroke="#111" stroke-width="3" fill="none"/><path d="M26 44 C32 40 38 41 42 44" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>`,
-  bolt: `<polygon points="58,4 20,56 46,56 36,96 82,38 55,38" fill="#e9b949" stroke="#111" stroke-width="5" stroke-linejoin="round"/><polygon points="55,16 34,50 52,50 46,76 68,44 50,44" fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="3 3"/>`,
-  flame: `<path d="M50 4 C60 24 82 34 80 62 C78 86 60 96 50 96 C38 96 20 86 20 62 C20 48 30 40 36 28 C40 38 46 40 46 40 C42 26 42 14 50 4Z" fill="#FF007F" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M50 50 C56 60 64 64 62 76 C61 86 54 90 50 90 C44 90 38 85 38 76 C38 68 46 62 50 50Z" fill="#e9b949" stroke="#111" stroke-width="2.5"/>`,
-  boot: `<path d="M30 6 L58 6 L58 50 C74 54 92 62 92 80 L92 92 L26 92 L26 78 C32 70 30 60 30 50Z" fill="#f2e9d6" stroke="#111" stroke-width="5" stroke-linejoin="round"/><path d="M30 24 L58 24 L58 36 L30 36Z" fill="#FF007F" stroke="#111" stroke-width="2.5"/><path d="M26 92 L26 100 L44 100 L44 92" fill="#111"/><g stroke="#111" stroke-width="2"><path d="M36 60 L50 60"/><path d="M36 68 L52 68"/></g>`,
-  xo: `<rect x="4" y="26" width="92" height="48" rx="6" fill="#111" stroke="#111" stroke-width="3"/><rect x="9" y="31" width="82" height="38" rx="3" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="4 3"/><text x="50" y="59" text-anchor="middle" font-family="Special Elite,monospace" font-size="26" fill="#FF007F" font-weight="700">xo xo</text>`,
-};
-function patch(name, size = 90, rot = 0, extra = '') {
-  return `<svg class="pt" style="width:${size}px;height:${size}px;transform:rotate(${rot}deg);${extra}" viewBox="0 0 100 100" aria-hidden="true">${PATCHES[name]}</svg>`;
+
+// Real close-ups of her work (cx, cy = crop centre as a fraction of the photo; z = zoom).
+const DETAILS = [
+  { img: 'stay-wild-front', w: 1100, h: 1012, cx: .60, cy: .62, z: 4.2, label: 'gold heart / distressed' },
+  { img: 'stay-wild-front', w: 1100, h: 1012, cx: .58, cy: .21, z: 4.6, label: 'studs + rhinestones' },
+  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .55, cy: .57, z: 4.2, label: 'pucker up' },
+  { img: 'stay-wild-front', w: 1100, h: 1012, cx: .53, cy: .84, z: 4.2, label: 'sequin star' },
+  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .76, cy: .64, z: 4.2, label: 'patch no. 14' },
+];
+function detailStrip() {
+  const crop = (d) => {
+    const left = -(d.cx * d.z - 0.5) * 100, top = -(d.cy * d.z * (d.h / d.w) - 0.5) * 100;
+    return `<figure class="dt"><div class="crop"><img src="/images/${d.img}.jpg" alt="${esc(d.label)}" style="width:${d.z * 100}%;left:${left}%;top:${top}%"></div><figcaption>${esc(d.label)}</figcaption></figure>`;
+  };
+  return `<div class="strip">${DETAILS.map(crop).join('')}</div>`;
 }
-const denimBand = () => {
-  const items = ['NO RULES', 'star', 'ONE OF ONE', 'heart', 'NO RESTOCKS', 'bolt', 'OWN YOUR CRAZY', 'lips', 'HANDMADE', 'flame', 'STAY WILD', 'boot'];
-  const shades = ['#6f93bd', '#3b5f8c', '#9db9d6', '#2b3f5e', '#5a7fae', '#b6cbe0'];
-  const cell = (it, i) => `<span class="pc" style="background:${shades[i % shades.length]};color:${i % 6 === 2 || i % 6 === 5 ? '#111' : '#fff'};transform:rotate(${((i * 37) % 5) - 2}deg)">${PATCHES[it] ? patch(it, 44) : esc(it)}</span>`;
-  const row = items.map(cell).join('');
-  return `<div class="patchband"><div class="track">${row}${row}</div></div>`;
-};
 
 function loadCart() { try { return JSON.parse(localStorage.getItem('cmc-cart')) || []; } catch { return []; } }
 function saveCart() {
@@ -91,12 +87,12 @@ const views = {
       <div><h1>${ransom('own your|crazy.', 3)}</h1><p class="sub">Reclaimed denim, patched, painted and studded by hand. One of one. No restocks.</p>
       <a class="btn pink" href="#/shop">Shop the drop</a> <a class="btn ghost" href="#/about">Our story</a></div>
       <div class="tiny">Scroll</div></div>
-      <a class="r" href="#/product/${hero.id}" style="text-decoration:none">${patch('star', 96, -14, 'top:8%;left:4%')}${patch('lips', 84, 10, 'top:6%;right:5%')}${patch('heart', 78, 8, 'bottom:16%;left:6%')}${patch('bolt', 70, -12, 'bottom:10%;right:6%')}${hero.images ? `<img src="${esc(hero.images[0])}" alt="${esc(hero.name)}">` : ''}
+      <a class="r" href="#/product/${hero.id}" style="text-decoration:none">${hero.images ? `<img src="${esc(hero.images[0])}" alt="${esc(hero.name)}">` : ''}
       <span class="cap">No. ${num(hero)} — ${esc(hero.name)} — ${money(hero.price)}</span></a></section>
-      ${denimBand()}
-      <div class="wrap"><div class="sechead"><h2>the drop</h2><div class="hpt">${patch('flame', 52, -8)}${patch('boot', 52, 6)}${patch('xo', 70, -4)}</div><a class="tiny" href="#/shop">View all →</a></div>
+      <div class="stripwrap"><div class="tiny">The work, up close</div>${detailStrip()}</div>
+      <div class="wrap"><div class="sechead"><h2>the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="statement">${patch('star', 90, 12, 'top:10%;left:7%')}${patch('heart', 80, -10, 'top:14%;right:8%')}${patch('lips', 90, -8, 'bottom:12%;left:9%')}${patch('flame', 80, 10, 'bottom:16%;right:9%')}<div class="tiny" style="margin-bottom:1.5rem">Made by hand</div>
+      <section class="statement"><div class="tiny" style="margin-bottom:1.5rem">Made by hand</div>
       <h2 class="rn-h">no two alike.|neither are you.</h2>
       <a class="btn ghost" href="#/about">Read the story</a>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn pink">Join</button></form></section>`;
