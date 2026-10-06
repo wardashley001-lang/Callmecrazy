@@ -24,40 +24,38 @@ function photo(src, alt) {
 function art(p, hex) {
   const src = p.images?.[0] || p.image;
   if (src) return photo(src, p.name);
-  const c = hex || p.colors[0].hex;
   return `<svg viewBox="0 0 300 400" role="img" aria-label="${esc(p.name)}" preserveAspectRatio="xMidYMid slice">
-    <defs><linearGradient id="g${p.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="#0a1a2e"/></linearGradient></defs>
-    <rect width="300" height="400" fill="url(#g${p.id})"/>
-    <path d="M-10 330 L310 120" stroke="#FF007F" stroke-width="14" opacity=".9"/>
-    <g fill="#C0C0C0">${[60,110,160,210,260].map((x,i)=>`<circle cx="${x}" cy="${300-i*40}" r="4"/>`).join('')}</g>
-    <text x="150" y="60" text-anchor="middle" font-family="Anton,cursive" font-size="22" fill="#fff">${esc(p.category)}</text>
-    <text x="150" y="385" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" letter-spacing="3" fill="#ffffff99">CALL ME CRAZY · ONE OF ONE</text></svg>`;
+    <rect width="300" height="400" fill="#0f0f0f"/><path d="M0 400 L300 0" stroke="#FF007F" stroke-width="1" opacity=".6"/>
+    <text x="20" y="380" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#ffffff66">PHOTO COMING</text></svg>`;
 }
 
+const num = (p) => String(state.products.findIndex((x) => x.id === p.id) + 1).padStart(3, '0');
 function card(p) {
   return `<a class="card" href="#/product/${p.id}">
     <div class="img">${art(p)}${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}</div>
-    <h3>${esc(p.name)}</h3><div class="meta">${money(p.price)}</div>
-    <div class="swatches">${p.colors.map((c) => `<span class="sw" title="${esc(c.name)}" style="background:${c.hex}"></span>`).join('')}</div></a>`;
+    <div class="row"><div><div class="no">NO. ${num(p)}</div><h3>${esc(p.name)}</h3></div><div class="meta">${money(p.price)}</div></div></a>`;
 }
 
 const CATEGORIES = () => [...new Set(state.products.map((p) => p.category))];
 
 const views = {
   home() {
-    const featured = state.products.filter((p) => p.featured).slice(0, 4);
-    const phrase = 'NO RULES. JUST CRAZY. ✦ ONE OF ONE ✦ HANDCRAFTED DENIM ✦ OWN YOUR CRAZY ✦ DARE TO STAND OUT ✦ ';
-    return `<section class="hero"><div><img src="images/logo.png" alt="Call Me Crazy by Jodi">
-      <p class="sass">Crazy? Maybe. <b>Unique? Definitely.</b></p>
-      <p class="tag">Handcrafted denim · one of one</p>
-      <a class="btn" href="#/shop">Shop the drop</a> <a class="btn ghost" href="#/about">Our story</a></div></section>
-      <div class="band"><span>${phrase.repeat(4)}</span></div>
-      <div class="wrap"><h2>Pick your <em>poison</em></h2><div class="cats">
-      ${CATEGORIES().map((c) => `<a href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
-      <h2 style="margin-top:3.5rem">Just <em>dropped.</em> Don't sleep.</h2><div class="grid">${featured.map(card).join('')}</div>
-      <p class="center" style="margin-top:2rem"><a class="btn ghost" href="#/shop">View all</a></p>
-      <div class="story" style="margin-top:4rem"><div><h2>Why fit in when you were born to <em>stand out?</em></h2></div>
-      <div><p>Reclaimed denim. Patched, painted and studded by hand. No two are alike, and neither are you. Don't call us crazy… or do. We dare you.</p><a class="btn" href="#/about">Read our story</a></div></div></div>`;
+    const hero = state.products[0];
+    const feat = state.products.slice(0, 4);
+    const t = 'ONE OF ONE <b>/</b> HANDCRAFTED DENIM <b>/</b> NO RESTOCKS <b>/</b> OWN YOUR CRAZY <b>/</b> ';
+    return `<section class="hero"><div class="l"><div class="tiny">Drop 01 · Handcrafted denim</div>
+      <div><h1>own your<br><em>crazy.</em></h1><p class="sub">Reclaimed denim, patched, painted and studded by hand. One of one. No restocks.</p>
+      <a class="btn pink" href="#/shop">Shop the drop</a> <a class="btn ghost" href="#/about">Our story</a></div>
+      <div class="tiny">Scroll</div></div>
+      <a class="r" href="#/product/${hero.id}" style="text-decoration:none">${hero.images ? `<img src="${esc(hero.images[0])}" alt="${esc(hero.name)}">` : ''}
+      <span class="cap">No. ${num(hero)} — ${esc(hero.name)} — ${money(hero.price)}</span></a></section>
+      <div class="ticker"><span>${t.repeat(6)}</span></div>
+      <div class="wrap"><div class="sechead"><h2>the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
+      <div class="grid">${feat.map(card).join('')}</div></div>
+      <section class="statement"><div class="tiny" style="margin-bottom:1.5rem">By Jodi</div>
+      <h2>no two alike. <em>neither are you.</em></h2>
+      <a class="btn ghost" href="#/about">Read the story</a>
+      <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn pink">Join</button></form></section>`;
   },
 
   shop(cat) {
@@ -67,12 +65,12 @@ const views = {
     if (sort === 'low') list.sort((a, b) => a.price - b.price);
     if (sort === 'high') list.sort((a, b) => b.price - a.price);
     if (sort === 'featured') list.sort((a, b) => !!b.featured - !!a.featured);
-    return `<div class="wrap"><h2>${esc(cat || 'The collection')}</h2>
+    return `<div class="wrap"><h2>${esc((cat || 'everything').toLowerCase())}</h2>
       <div class="toolbar"><div class="chips">
         <a class="chip ${!cat ? 'on' : ''}" href="#/shop">All</a>
         ${CATEGORIES().map((c) => `<a class="chip ${c === cat ? 'on' : ''}" href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
         <select id="sort" aria-label="Sort">
-          <option value="featured"${sort === 'featured' ? ' selected' : ''}>Featured</option>
+          <option value="featured"${sort === 'featured' ? ' selected' : ''}>Newest</option>
           <option value="low"${sort === 'low' ? ' selected' : ''}>Price: low to high</option>
           <option value="high"${sort === 'high' ? ' selected' : ''}>Price: high to low</option></select></div>
       <div class="grid">${list.map(card).join('') || '<p>No products found.</p>'}</div></div>`;
@@ -83,17 +81,17 @@ const views = {
     if (!p) return `<div class="wrap"><h2>Product not found</h2><a href="#/shop">Back to shop</a></div>`;
     return `<div class="wrap"><div class="product">
       <div><div class="pimg" id="pimg">${art(p)}</div>${p.images && p.images.length > 1 ? `<div class="thumbs" id="thumbs">${p.images.map((s, i) => `<button class="${i ? '' : 'on'}" data-src="${esc(s)}" aria-label="Photo ${i + 1}">${photo(s, p.name + ' photo ' + (i + 1))}</button>`).join('')}</div>` : ''}</div>
-      <div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.description)}</p>
+      <div><div class="tiny" style="color:var(--pink)">No. ${num(p)} · One of one</div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.description)}</p>
         <div class="opt"><span class="t" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Color: <b id="cname">${esc(p.colors[0].name)}</b></span>
           <div class="opts" id="colors" style="margin-top:.4rem">${p.colors.map((c, i) => `<button class="color ${i ? '' : 'on'}" data-v="${esc(c.name)}" data-hex="${c.hex}"><span class="sw" style="background:${c.hex}"></span>${esc(c.name)}</button>`).join('')}</div></div>
         <div class="opt"><span style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Size</span>
           <div class="opts" id="sizes" style="margin-top:.4rem">${p.sizes.map((s, i) => `<button class="${p.sizes.length === 1 && !i ? 'on' : ''}" data-v="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>
-        <button class="btn block" id="add">Add to bag</button>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:1rem">Free shipping over $100 · 30-day returns</p></div></div></div>`;
+        <button class="btn pink block" id="add">Add to bag</button>
+        <p style="color:var(--muted);font-size:.85rem;margin-top:1rem">Ships in 5–7 days · Free over $100 · One of one, no restocks</p></div></div></div>`;
   },
 
   cart() {
-    if (!state.cart.length) return `<div class="wrap center"><h2>Your bag is empty</h2><p><a class="btn" href="#/shop">Continue shopping</a></p></div>`;
+    if (!state.cart.length) return `<div class="wrap center"><h2>empty.</h2><p><a class="btn" href="#/shop">Shop the drop</a></p></div>`;
     const rows = state.cart.map((i, idx) => {
       const p = state.products.find((x) => x.id === i.id);
       return `<tr><td><div class="thumb">${art(p, p.colors.find((c) => c.name === i.color)?.hex)}</div></td>
@@ -101,14 +99,14 @@ const views = {
         <td><div class="qty"><button data-dec="${idx}" aria-label="Decrease">−</button><span style="min-width:24px;text-align:center">${i.qty}</span><button data-inc="${idx}" aria-label="Increase">+</button></div></td>
         <td>${money(p.price * i.qty)}</td></tr>`;
     }).join('');
-    return `<div class="wrap"><h2>Your bag</h2><div class="cols"><table class="table">${rows}</table>
+    return `<div class="wrap"><h2>bag</h2><div class="cols"><table class="table">${rows}</table>
       <div class="summary" id="summary">${summaryHtml()}<a class="btn block" href="#/checkout" style="margin-top:1rem">Checkout</a></div></div></div>`;
   },
 
   checkout() {
     if (!state.cart.length) { location.hash = '#/cart'; return ''; }
     const f = (n, label, extra = '') => `<div class="${extra}"><label for="${n}">${label}</label><input id="${n}" name="${n}" required autocomplete="${n}"></div>`;
-    return `<div class="wrap"><h2>Checkout</h2><div class="cols">
+    return `<div class="wrap"><h2>checkout</h2><div class="cols">
       <form id="checkout" class="form">
         ${f('name', 'Full name', 'full')}${f('email', 'Email', 'full')}${f('address', 'Address', 'full')}
         ${f('city', 'City')}${f('state', 'State / Region')}${f('zip', 'ZIP / Postal code')}
@@ -120,23 +118,22 @@ const views = {
   },
 
   confirmation(id) {
-    return `<div class="wrap center"><h2>Thank you!</h2><p>Your order <b>${esc(id)}</b> has been received. A confirmation will be sent to your email.</p>
+    return `<div class="wrap center"><h2>it's yours.</h2><p>Order <b>${esc(id)}</b> received. We'll email you.</p>
       <a class="btn" href="#/shop">Keep shopping</a></div>`;
   },
 
   about() {
-    return `<div class="wrap prose"><h2>Our <em>story.</em> Our rules.</h2>
-      <p>At Call Me Crazy, we're redefining denim and redefining normal. Every piece is handcrafted — a bold declaration of individuality, pushing boundaries and shattering expectations.</p>
-      <p>This isn't fashion for the faint-hearted. It's for those bold enough to wear their story proudly.</p>
-      <p><b>One piece. One story. One you.</b></p></div>`;
+    return `<div class="wrap prose"><div class="tiny" style="color:var(--pink)">Our story</div><h2 style="margin-top:.6rem">handmade.<br>one of one.</h2>
+      <p>Call Me Crazy is Jodi. Reclaimed denim, cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
+      <p>Every piece is made once. When it's gone, it's gone.</p></div>`;
   },
 
   contact() {
-    return `<div class="wrap prose"><h2>Contact us</h2><p>Questions about an order or sizing? Email <a href="mailto:jodi@shopcallmecrazy.com">jodi@shopcallmecrazy.com</a> or DM us on <a href="https://instagram.com/shopcallmecrazy" target="_blank" rel="noopener">Instagram @shopcallmecrazy</a>.</p></div>`;
+    return `<div class="wrap prose"><h2>contact</h2><p>Questions about an order or sizing? Email <a href="mailto:jodi@shopcallmecrazy.com">jodi@shopcallmecrazy.com</a> or DM us on <a href="https://instagram.com/shopcallmecrazy" target="_blank" rel="noopener">Instagram @shopcallmecrazy</a>.</p></div>`;
   },
 
   shipping() {
-    return `<div class="wrap prose"><h2>Shipping &amp; returns</h2>
+    return `<div class="wrap prose"><h2>shipping &amp; returns</h2>
       <p><b>Shipping:</b> Flat $8 rate, free on orders over $100. Handmade pieces ship within 5–7 business days.</p>
       <p><b>Returns:</b> Unworn items with tags may be returned within 30 days for a full refund.</p></div>`;
   },
