@@ -11,14 +11,14 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 const DETAILS = [
   { img: 'stay-wild-front', w: 1100, h: 1012, cx: .60, cy: .62, z: 4.2, label: 'gold heart / distressed' },
   { img: 'stay-wild-front', w: 1100, h: 1012, cx: .58, cy: .21, z: 4.6, label: 'studs + rhinestones' },
-  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .55, cy: .57, z: 4.2, label: 'pucker up' },
+  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .55, cy: .57, z: 4.2, label: 'pucker up', duo: true },
   { img: 'stay-wild-front', w: 1100, h: 1012, cx: .53, cy: .84, z: 4.2, label: 'sequin star' },
   { img: 'stay-wild-back', w: 1100, h: 1131, cx: .76, cy: .64, z: 4.2, label: 'patch no. 14' },
 ];
 function detailStrip() {
   const crop = (d) => {
     const left = -(d.cx * d.z - 0.5) * 100, top = -(d.cy * d.z * (d.h / d.w) - 0.5) * 100;
-    return `<figure class="dt"><div class="crop"><img src="/images/${d.img}.jpg" alt="${esc(d.label)}" style="width:${d.z * 100}%;left:${left}%;top:${top}%"></div><figcaption>${esc(d.label)}</figcaption></figure>`;
+    return `<figure class="dt ${d.duo ? 'duo' : ''}"><span class="tp"></span><div class="crop"><img src="/images/${d.img}.jpg" alt="${esc(d.label)}" style="width:${d.z * 100}%;left:${left}%;top:${top}%"></div><figcaption>${esc(d.label)}</figcaption></figure>`;
   };
   return `<div class="strip">${DETAILS.map(crop).join('')}</div>`;
 }
@@ -60,20 +60,23 @@ const views = {
   home() {
     const hero = state.products[0];
     const feat = state.products.slice(0, 4);
-    const t = 'ONE OF ONE <b>/</b> HANDCRAFTED DENIM <b>/</b> NO RESTOCKS <b>/</b> OWN YOUR CRAZY <b>/</b> ';
-    return `<section class="hero"><div class="l"><div class="tiny">Drop 01 · Handcrafted denim</div>
-      <div><h1 class="goth">Own your<br>Crazy.</h1><p class="sub">Reclaimed denim, patched, painted and studded by hand. One of one. No restocks.</p>
-      <a class="btn pink" href="#/shop">Shop the drop</a> <a class="btn ghost" href="#/about">Our story</a></div>
-      <div class="tiny">Scroll</div></div>
-      <a class="r" href="#/product/${hero.id}" style="text-decoration:none">${hero.images ? `<img src="${esc(hero.images[0])}" alt="${esc(hero.name)}">` : ''}
-      <span class="cap">No. ${num(hero)} — ${esc(hero.name)} — ${money(hero.price)}</span></a></section>
-      <div class="stripwrap"><div class="tiny">The work, up close</div>${detailStrip()}</div>
-      <div class="wrap"><div class="sechead"><h2 class="goth">The drop</h2><a class="tiny" href="#/shop">View all →</a></div>
+    const ph = (t) => `<span>${t}</span>`;
+    const run = ['NO RULES. JUST CRAZY.', 'ONE OF ONE', 'HANDCRAFTED DENIM', 'NO RESTOCKS', 'OWN YOUR CRAZY'].map(ph).join('<i>✦</i>');
+    const pin = '<svg class="pin" viewBox="0 0 130 44" aria-hidden="true"><path d="M12 22C12 8 34 8 34 22C34 34 12 34 12 22M34 22L120 12M34 22L120 32M120 12C128 15 128 29 120 32" fill="none" stroke="#0b0b0b" stroke-width="3.5" stroke-linecap="round"/></svg>';
+    return `<section class="h-hero"><div class="h-copy">
+      <div class="lab">drop 01 — handcrafted denim — 1 of 1</div>
+      <h1><span class="own">own your</span><span class="crz">Crazy</span></h1>
+      <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
+      <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
+      <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><img src="${esc(hero.images[0])}" alt="${esc(hero.name)}"><span class="tp t1"></span><span class="tp t2"></span></div>${pin}<span class="sp s1">✦</span><span class="sp s2">✦</span>
+      <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
+      <div class="run"><div class="trk">${run}<i>✦</i>${run}<i>✦</i></div></div>
+      <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
+      <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="statement"><div class="tiny" style="margin-bottom:1.5rem">Made by hand</div>
-      <h2 class="goth">No two alike.<br>Neither are you.</h2>
-      <a class="btn ghost" href="#/about">Read the story</a>
-      <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn pink">Join</button></form></section>`;
+      <section class="blk"><span class="sp s3">✦</span><span class="sp s4">✦</span><div class="tiny" style="color:#f33283">made by hand</div>
+      <h2 class="mega"><span>No two</span><span>alike.</span></h2><p class="serif">neither are you.</p><span class="script">xo</span>
+      <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
 
   shop(cat) {
