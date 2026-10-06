@@ -6,28 +6,6 @@ const money = (c) => '$' + (c / 100).toFixed(2);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 
-// Ransom-note lettering: each letter is its own torn scrap (random font, paper, tilt, ragged edge).
-const RN_FONTS = ["'Playfair Display'", "'Abril Fatface'", "'Bebas Neue'", "'Special Elite'", "'Courier Prime'", "'Archivo Black'", "'UnifrakturCook'", "'Oswald'", "'DM Serif Display'"];
-const RN_PAPER = [['#f7f5ef', '#111'], ['#f7f5ef', '#111'], ['#111', '#f7f5ef'], ['#111', '#f7f5ef'], ['#d9d6cd', '#111'], ['#e9e5da', '#111'], ['#2a2a2a', '#f7f5ef'], ['#bdbab2', '#111']];
-function rnd(seed) { const x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
-function ragged(s) {
-  const j = (n) => (rnd(s + n) * 7 - 1).toFixed(1);
-  return `polygon(${j(1)}% ${j(2)}%, 50% ${j(3)}%, ${100 - j(4)}% ${j(5)}%, ${100 - j(6)}% 50%, ${100 - j(7)}% ${100 - j(8)}%, 50% ${100 - j(9)}%, ${j(10)}% ${100 - j(11)}%, ${j(12)}% 55%)`;
-}
-function ransom(text, seed = 1) {
-  let k = 0;
-  return `<span class="rn" aria-label="${esc(text.replace('|', ' '))}">` + text.split('|').map((line) =>
-    line.split(' ').filter(Boolean).map((w) => `<span class="wd" aria-hidden="true">` + [...w].map((ch) => {
-      k++; const s = seed * 100 + k;
-      const f = RN_FONTS[Math.floor(rnd(s) * RN_FONTS.length)];
-      const [bg, fg] = /[.,!?]/.test(ch) ? ['#111', '#f7f5ef'] : RN_PAPER[Math.floor(rnd(s + 3) * RN_PAPER.length)];
-      const c = rnd(s + 5) > 0.55 ? ch.toUpperCase() : ch.toLowerCase();
-      const rot = (rnd(s + 7) * 10 - 5).toFixed(1), dy = (rnd(s + 9) * .16 - .08).toFixed(2);
-      const sz = (0.9 + rnd(s + 11) * 0.3).toFixed(2);
-      return `<span class="lt" style="font-family:${f},serif;background:${bg};color:${fg};transform:translateY(${dy}em) rotate(${rot}deg);font-size:${sz}em;clip-path:${ragged(s)}">${esc(c)}</span>`;
-    }).join('') + '</span>').join(' ') + '<br>').join('') + '</span>';
-}
-
 
 // Real close-ups of her work (cx, cy = crop centre as a fraction of the photo; z = zoom).
 const DETAILS = [
@@ -84,16 +62,16 @@ const views = {
     const feat = state.products.slice(0, 4);
     const t = 'ONE OF ONE <b>/</b> HANDCRAFTED DENIM <b>/</b> NO RESTOCKS <b>/</b> OWN YOUR CRAZY <b>/</b> ';
     return `<section class="hero"><div class="l"><div class="tiny">Drop 01 · Handcrafted denim</div>
-      <div><h1>${ransom('own your|crazy.', 3)}</h1><p class="sub">Reclaimed denim, patched, painted and studded by hand. One of one. No restocks.</p>
+      <div><h1 class="goth">Own your<br>Crazy.</h1><p class="sub">Reclaimed denim, patched, painted and studded by hand. One of one. No restocks.</p>
       <a class="btn pink" href="#/shop">Shop the drop</a> <a class="btn ghost" href="#/about">Our story</a></div>
       <div class="tiny">Scroll</div></div>
       <a class="r" href="#/product/${hero.id}" style="text-decoration:none">${hero.images ? `<img src="${esc(hero.images[0])}" alt="${esc(hero.name)}">` : ''}
       <span class="cap">No. ${num(hero)} — ${esc(hero.name)} — ${money(hero.price)}</span></a></section>
       <div class="stripwrap"><div class="tiny">The work, up close</div>${detailStrip()}</div>
-      <div class="wrap"><div class="sechead"><h2>the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
+      <div class="wrap"><div class="sechead"><h2 class="goth">The drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
       <section class="statement"><div class="tiny" style="margin-bottom:1.5rem">Made by hand</div>
-      <h2 class="rn-h">no two alike.|neither are you.</h2>
+      <h2 class="goth">No two alike.<br>Neither are you.</h2>
       <a class="btn ghost" href="#/about">Read the story</a>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn pink">Join</button></form></section>`;
   },
@@ -259,7 +237,6 @@ function render() {
   const view = views[name] || views.home;
   $app.innerHTML = view(arg ? decodeURIComponent(arg) : undefined);
   document.querySelectorAll('#nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === location.hash.split('?')[0]));
-  $app.querySelectorAll('h2.rn-h').forEach((h, i) => { if (!h.querySelector(".lt")) h.innerHTML = ransom(h.textContent.trim(), i + 7); });
   bind(name, arg && decodeURIComponent(arg));
   window.scrollTo(0, 0);
 }

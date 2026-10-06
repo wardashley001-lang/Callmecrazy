@@ -160,3 +160,9 @@ input,select{background:transparent}
 .badge{border:0;outline:0;background:#111;color:#f7f5ef}
 .hero .r{position:relative}
 @media(max-width:860px){.strip{grid-template-columns:repeat(2,1fr)}}
+
+/* gothic headline */
+.goth{font-family:'UnifrakturCook','Pirata One',serif!important;font-weight:700;letter-spacing:0;line-height:.88;text-transform:none;color:#111}
+.hero h1.goth{font-size:clamp(4rem,10vw,9rem)}
+.statement h2.goth{font-size:clamp(3rem,8vw,6.5rem);margin:0 auto 1.8rem;max-width:none}
+h2.goth{font-size:clamp(2.4rem,5vw,3.8rem)}
