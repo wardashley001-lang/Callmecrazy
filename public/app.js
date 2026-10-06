@@ -33,13 +33,6 @@ function ransom(text, seed = 1) {
 }
 
 // Real close-ups of her work (cx, cy = crop centre as a fraction of the photo; z = zoom).
-const DETAILS = [
-  { img: 'stay-wild-front', w: 1100, h: 1012, cx: .60, cy: .62, z: 4.2, label: 'gold heart / distressed' },
-  { img: 'stay-wild-front', w: 1100, h: 1012, cx: .58, cy: .21, z: 4.6, label: 'studs + rhinestones' },
-  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .55, cy: .57, z: 4.2, label: 'pucker up', duo: true },
-  { img: 'stay-wild-front', w: 1100, h: 1012, cx: .53, cy: .84, z: 4.2, label: 'sequin star' },
-  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .76, cy: .64, z: 4.2, label: 'patch no. 14' },
-];
 function cropHtml(d, cls = '') {
   const left = -(d.cx * d.z - 0.5) * 100, top = -(d.cy * d.z * (d.h / d.w) - 0.5) * 100;
   return `<div class="crop ${cls}"><img src="/images/${d.img}.jpg" alt="" style="width:${d.z * 100}%;left:${left}%;top:${top}%"></div>`;
@@ -51,11 +44,13 @@ const HEARTS = [
 ];
 
 function detailStrip() {
-  const crop = (d) => {
-    const left = -(d.cx * d.z - 0.5) * 100, top = -(d.cy * d.z * (d.h / d.w) - 0.5) * 100;
-    return `<figure class="dt ${d.duo ? 'duo' : ''}"><span class="tp"></span><div class="crop"><img src="/images/${d.img}.jpg" alt="${esc(d.label)}" style="width:${d.z * 100}%;left:${left}%;top:${top}%"></div><figcaption>${esc(d.label)}</figcaption></figure>`;
+  // one close-up per piece, each linking to that piece. Pieces without a close-up photo yet show a placeholder.
+  const tile = (p, i) => {
+    const d = p.closeup;
+    const body = d ? cropHtml(d) : `<div class="crop empty"><span>close-up coming</span></div>`;
+    return `<a class="dt" href="#/product/${p.id}"><span class="tp"></span>${body}<figcaption><b>no. ${num(p)}</b> ${esc(p.name)}</figcaption></a>`;
   };
-  return `<div class="strip">${DETAILS.map(crop).join('')}</div>`;
+  return `<div class="strip">${state.products.slice(0, 5).map(tile).join('')}</div>`;
 }
 
 function loadCart() { try { return JSON.parse(localStorage.getItem('cmc-cart')) || []; } catch { return []; } }

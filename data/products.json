@@ -21,7 +21,16 @@
    "/images/stay-wild-side.jpg",
    "/images/stay-wild-back.jpg",
    "/images/stay-wild-back-side.jpg"
-  ]
+  ],
+  "closeup": {
+   "img": "stay-wild-front",
+   "w": 1100,
+   "h": 1012,
+   "cx": 0.6,
+   "cy": 0.645,
+   "z": 4.2,
+   "label": "gold heart, distressed"
+  }
  },
  {
   "id": "patchwork-jacket",
