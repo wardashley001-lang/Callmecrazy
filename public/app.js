@@ -7,6 +7,25 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 
 
 
+// Ransom-note lettering (used for one word only): each letter is its own torn scrap.
+const RN_FONTS = ["'Playfair Display'", "'Abril Fatface'", "'Bebas Neue'", "'Special Elite'", "'Courier Prime'", "'Archivo Black'", "'Oswald'", "'DM Serif Display'"];
+const RN_PAPER = [['#fff', '#111'], ['#111', '#fff'], ['#e4dccb', '#111'], ['#F33283', '#fff'], ['#C1272D', '#fff'], ['#fff', '#C1272D'], ['#d9d6cd', '#111'], ['#111', '#F33283']];
+function rnd(seed) { const x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
+function ragged(s) {
+  const j = (n) => (rnd(s + n) * 7 - 1).toFixed(1);
+  return `polygon(${j(1)}% ${j(2)}%, 50% ${j(3)}%, ${100 - j(4)}% ${j(5)}%, ${100 - j(6)}% 50%, ${100 - j(7)}% ${100 - j(8)}%, 50% ${100 - j(9)}%, ${j(10)}% ${100 - j(11)}%, ${j(12)}% 55%)`;
+}
+function ransom(text, seed = 1) {
+  return `<span class="rn" aria-label="${esc(text)}">` + [...text].map((ch, k) => {
+    const s = seed * 100 + k + 1;
+    const f = RN_FONTS[Math.floor(rnd(s) * RN_FONTS.length)];
+    const [bg, fg] = RN_PAPER[Math.floor(rnd(s + 3) * RN_PAPER.length)];
+    const c = rnd(s + 5) > 0.5 ? ch.toUpperCase() : ch.toLowerCase();
+    const rot = (rnd(s + 7) * 12 - 6).toFixed(1), dy = (rnd(s + 9) * .16 - .08).toFixed(2);
+    return `<span class="lt" aria-hidden="true" style="font-family:${f},serif;background:${bg};color:${fg};transform:translateY(${dy}em) rotate(${rot}deg);clip-path:${ragged(s)}">${esc(c)}</span>`;
+  }).join('') + '</span>';
+}
+
 // Real close-ups of her work (cx, cy = crop centre as a fraction of the photo; z = zoom).
 const DETAILS = [
   { img: 'stay-wild-front', w: 1100, h: 1012, cx: .60, cy: .62, z: 4.2, label: 'gold heart / distressed' },
@@ -75,7 +94,7 @@ const views = {
     const pin = '<svg class="pin" viewBox="0 0 130 44" aria-hidden="true"><path d="M12 22C12 8 34 8 34 22C34 34 12 34 12 22M34 22L120 12M34 22L120 32M120 12C128 15 128 29 120 32" fill="none" stroke="#0b0b0b" stroke-width="3.5" stroke-linecap="round"/></svg>';
     return `<section class="h-hero"><div class="h-copy">
       <div class="lab">drop 01 — handcrafted denim — 1 of 1</div>
-      <h1><span class="own">own your</span><span class="crz"><img src="/images/crazy-white.png" alt="Crazy"></span></h1>
+      <h1><span class="own">own your</span><span class="crz">${ransom("crazy", 4)}</span></h1>
       <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><img src="${esc(hero.images[0])}" alt="${esc(hero.name)}"><span class="tp t1"></span><span class="tp t2"></span></div>${pin}<span class="sp s1">✦</span><span class="sp s2">✦</span>

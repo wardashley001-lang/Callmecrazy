@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Anton&family=Mr+Dafoe&family=Kaushan+Script&family=Playfair+Display:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Anton&family=Kaushan+Script&family=Playfair+Display:ital,wght@0,900;1,700&family=Abril+Fatface&family=Bebas+Neue&family=Special+Elite&family=Archivo+Black&family=Oswald:wght@600&family=DM+Serif+Display&display=swap');
 :root{--ink:#0a0a0a;--bg:#f6f3ed;--panel:#ebe7df;--pink:#FF007F;--denim:#2B547E;--silver:#C0C0C0;--muted:#767676;--line:#e6e4e1;--radius:0}
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -266,3 +266,14 @@ h2.big em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700
 
 .crz{font-size:0;text-shadow:none;transform:rotate(-4deg);margin:-.5rem 0 0 .4rem;line-height:1}
 .crz img{width:clamp(18rem,40vw,36rem);height:auto;display:block;filter:drop-shadow(5px 6px 0 rgba(11,11,11,.9))}
+
+/* softer hero + ransom CRAZY */
+.h-hero{background:linear-gradient(90deg,var(--paper) 0 52%,#F7C1D9 52% 100%);border-bottom:4px solid #0b0b0b}
+.crz{display:block;font-size:clamp(3.6rem,9.5vw,8.4rem);line-height:1;margin:.5rem 0 0 0;transform:rotate(-2deg);font-family:inherit}
+.crz img{display:none}
+.rn{display:inline-block;filter:drop-shadow(2px 3px 2px rgba(0,0,0,.35));font-size:inherit}
+.rn .lt{display:inline-block;padding:.04em .12em .07em;margin:0 -.015em;line-height:1;font-weight:400;text-transform:none;letter-spacing:0}
+.h-copy h1 .own{color:#0b0b0b}
+.lab{background:#fff}
+.paper{box-shadow:8px 10px 0 rgba(0,0,0,.2)}
+.tp{background:rgba(243,50,131,.55)}
