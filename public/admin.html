@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orders — Call Me Crazy</title><link rel="stylesheet" href="styles.css"></head>
+<body><div class="wrap"><h2>Orders</h2><div id="out">Loading…</div></div>
+<script>
+const money = c => '$' + (c/100).toFixed(2);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('/api/admin/orders').then(r => r.ok ? r.json() : Promise.reject()).then(os => {
+  document.getElementById('out').innerHTML = os.length ? `<table class="table"><tr><th>Order</th><th>Date</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th></tr>` +
+    os.map(o => `<tr><td>${esc(o.id)}</td><td>${new Date(o.createdAt).toLocaleString()}</td>
+    <td>${esc(o.customer.name)}<br><small>${esc(o.customer.email)}<br>${esc(o.customer.address)}, ${esc(o.customer.city)} ${esc(o.customer.state)} ${esc(o.customer.zip)}</small></td>
+    <td>${o.lines.map(l => `${l.qty}× ${esc(l.name)} (${esc(l.color)}/${esc(l.size)})`).join('<br>')}</td>
+    <td>${money(o.total)}</td><td>${esc(o.status)}</td></tr>`).join('') + '</table>' : 'No orders yet.';
+}).catch(() => document.getElementById('out').textContent = 'Unauthorized — open /admin and sign in (user: any, password: ADMIN_PASSWORD).');
+</script></body></html>
