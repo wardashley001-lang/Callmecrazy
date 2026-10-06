@@ -115,7 +115,7 @@ const views = {
       <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
       <div class="run"><div class="trk">${run}<i>✦</i>${run}<i>✦</i></div></div>
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
-      <section class="up reel"><div class="wrap"><h2 class="big">watch it<em> sparkle.</em></h2><div class="vids">${['sparkle-studs','sparkle-back','making-of'].map((v, i) => `<figure class="vd"><span class="tp"></span><video src="/video/${v}.mp4" poster="/video/${v}.jpg" autoplay muted loop playsinline></video><figcaption>${['studs + stars, in the sun', 'the back, up close', 'made by hand'][i]}</figcaption></figure>`).join('')}</div></div></section>
+      <section class="up reel"><div class="wrap"><h2 class="big">watch it<em> sparkle.</em></h2><div class="vids">${['sparkle-studs','sparkle-back'].map((v, i) => `<figure class="vd"><span class="tp"></span><video src="/video/${v}.mp4" poster="/video/${v}.jpg" autoplay muted loop playsinline></video><figcaption>${['studs + stars, in the sun', 'the back, up close'][i]}</figcaption></figure>`).join('')}</div></div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
       <section class="blk wall"><div class="wall-text"><span class="mega-black">no two<br>alike.</span>

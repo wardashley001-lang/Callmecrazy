@@ -455,7 +455,7 @@ a.dt:hover{transform:rotate(0deg) scale(1.03)}
 
 /* video reel */
 .reel .wrap{padding-bottom:2rem}
-.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.4rem}
+.vids{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:1.4rem;max-width:760px}
 .vd{position:relative;margin:0;background:#fff;padding:8px 8px 4px;box-shadow:4px 6px 0 rgba(0,0,0,.18)}
 .vd:nth-child(2){transform:rotate(1.2deg)}.vd:nth-child(1){transform:rotate(-1.2deg)}.vd:nth-child(3){transform:rotate(-.8deg)}
 .vd .tp{top:-12px;left:35%;width:80px;height:24px;transform:rotate(3deg);background:rgba(243,50,131,.65);z-index:3}
