@@ -10,11 +10,16 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 // Ransom-note lettering (used for one word only): flat, bold paper scraps in black / white / hot pink / grey,
 // a different font per letter, slightly ragged edges, tilted.
 const RN_FONTS = ["'Playfair Display'", "'Abril Fatface'", "'Bebas Neue'", "'Special Elite'", "'Courier Prime'", "'Archivo Black'", "'Oswald'", "'DM Serif Display'", "'UnifrakturCook'"];
-const RN_PAPER = [['#fdfdfb', '#111'], ['#fdfdfb', '#111'], ['#111', '#fdfdfb'], ['#111', '#fdfdfb'], ['#F33283', '#fff'], ['#F33283', '#111'], ['#d9d9d6', '#111'], ['#d9d9d6', '#111'], ['#fdfdfb', '#F33283']];
+const RN_PAPER = [['#fdf1f6', '#c2185b'], ['#fdf1f6', '#111'], ['#f7c1d9', '#8c0f45'], ['#f7c1d9', '#111'], ['#ef7fb2', '#fff'], ['#ef7fb2', '#111'], ['#F33283', '#fff'], ['#F33283', '#fdf1f6'], ['#c2185b', '#fdf1f6'], ['#8c0f45', '#f7c1d9'], ['#111', '#ef7fb2'], ['#fbd9e6', '#c2185b']];
 function rnd(seed) { const x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
 function ragged(s) {
-  const j = (n) => (rnd(s + n) * 5).toFixed(1);
-  return `polygon(${j(1)}% ${j(2)}%, ${100 - j(3)}% ${j(4)}%, ${100 - j(5)}% ${100 - j(6)}%, ${j(7)}% ${100 - j(8)}%)`;
+  const n = 5, pts = [];
+  const j = (k) => (rnd(s + k) * 5).toFixed(1);
+  for (let i = 0; i <= n; i++) pts.push(`${(i / n * 100).toFixed(1)}% ${j(i)}%`);
+  for (let i = 1; i <= n; i++) pts.push(`${(100 - j(10 + i)).toFixed(1)}% ${(i / n * 100).toFixed(1)}%`);
+  for (let i = n - 1; i >= 0; i--) pts.push(`${(i / n * 100).toFixed(1)}% ${(100 - j(20 + i)).toFixed(1)}%`);
+  for (let i = n - 1; i >= 1; i--) pts.push(`${j(30 + i)}% ${(i / n * 100).toFixed(1)}%`);
+  return `polygon(${pts.join(',')})`;
 }
 function ransom(text, seed = 1) {
   return `<span class="rn" aria-label="${esc(text)}">` + [...text].map((ch, k) => {
@@ -90,6 +95,16 @@ function pageHead(label, title, stickers = '') {
   return `<section class="pagehead"><div class="wrap ph"><div class="ph-l"><div class="lab">${esc(label)}</div><h1 class="ph-t">${esc(title)}</h1></div><div class="ph-stk" aria-hidden="true">${stickers}</div></div></section>`;
 }
 
+// Original flat graphics (our own artwork).
+const GFX = {
+phone: `<svg viewBox="0 0 100 400" aria-hidden="true"><path d="M50.0 0.0 L55.8 3.0 L58.9 6.0 L57.8 9.0 L53.0 12.0 L46.8 15.0 L42.2 18.0 L41.2 21.0 L44.3 24.0 L50.2 27.0 L55.9 30.0 L58.9 33.0 L57.7 36.0 L52.9 39.0 L46.7 42.0 L42.1 45.0 L41.2 48.0 L44.4 51.0 L50.3 54.0 L56.0 57.0 L58.9 60.0 L57.6 63.0 L52.7 66.0 L46.6 69.0 L42.0 72.0 L41.2 75.0 L44.6 78.0 L50.5 81.0 L56.1 84.0 L58.9 87.0 L57.5 90.0 L52.6 93.0 L46.4 96.0 L41.9 99.0 L41.3 102.0 L44.7 105.0 L50.6 108.0 L56.2 111.0 L59.0 114.0 L57.4 117.0 L52.4 120.0 L46.3 123.0 L41.9 126.0 L41.3 129.0 L44.8 132.0 L50.8 135.0 L56.4 138.0 L59.0 141.0 L57.4 144.0 L52.3 147.0 L46.1 150.0 L41.8 153.0 L41.3 156.0 L44.9 159.0 L50.9 162.0 L56.5 165.0 L59.0 168.0 L57.3 171.0 L52.1 174.0 L46.0 177.0 L41.8 180.0 L41.4 183.0 L45.1 186.0 L51.1 189.0 L56.6 192.0 L59.0 195.0 L57.2 198.0 L52.0 201.0 L45.9 204.0 L41.7 207.0 L41.4 210.0 L45.2 213.0 L51.2 216.0 L56.7 219.0 L59.0 222.0" fill="none" stroke="#F33283" stroke-width="3.6" stroke-linecap="round"/><path d="M50 222 L50 246" stroke="#F33283" stroke-width="3.6"/><g transform="translate(50 246)"><path d="M0 4 L0 6 C-34 20 -34 98 0 118" fill="none" stroke="#111" stroke-width="26" stroke-linecap="round"/><path d="M0 4 L0 6 C-34 20 -34 98 0 118" fill="none" stroke="#F33283" stroke-width="19" stroke-linecap="round"/><path d="M-20 26 C-27 48 -26 74 -20 96" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".55"/><ellipse cx="2" cy="4" rx="17" ry="9" fill="#c2185b" stroke="#111" stroke-width="3"/><ellipse cx="2" cy="118" rx="17" ry="9" fill="#c2185b" stroke="#111" stroke-width="3"/></g></svg>`,
+  megaphone: `<svg viewBox="0 0 220 180" aria-hidden="true"><defs><pattern id="ht" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.6" fill="#111"/></pattern></defs><path d="M40 70 L150 22 L150 138 L40 100 Z" fill="#fdf1f6" stroke="#111" stroke-width="4" stroke-linejoin="round"/><path d="M40 70 L150 22 L150 138 L40 100 Z" fill="url(#ht)" opacity=".55"/><rect x="14" y="66" width="34" height="38" rx="6" fill="#F33283" stroke="#111" stroke-width="4"/><ellipse cx="150" cy="80" rx="18" ry="58" fill="#111" stroke="#111" stroke-width="4"/><ellipse cx="146" cy="80" rx="12" ry="46" fill="#ef7fb2"/><path d="M60 104 L62 150 C62 158 70 160 78 158 L88 156 L84 112 Z" fill="#F33283" stroke="#111" stroke-width="4" stroke-linejoin="round"/></svg>`,
+  star: `<svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 62,36 96,38 69,59 79,92 50,73 21,92 31,59 4,38 38,36" fill="#F33283" stroke="#111" stroke-width="4" stroke-linejoin="round"/><polygon points="50,30 56,44 71,45 59,54 63,69 50,61 37,69 41,54 29,45 44,44" fill="#fdf1f6"/></svg>`,
+  burst: `<svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 58,28 80,10 74,36 98,34 78,52 98,66 72,68 82,92 58,78 50,98 42,78 18,92 28,68 2,66 22,52 2,34 26,36 20,10 42,28" fill="#f7c1d9" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/></svg>`,
+  ticket: `<svg viewBox="0 0 220 100" aria-hidden="true"><path d="M8 8 H212 V38 A12 12 0 0 0 212 62 V92 H8 V62 A12 12 0 0 0 8 38 Z" fill="#ef7fb2" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/><path d="M150 12 V88" stroke="#111" stroke-width="2.5" stroke-dasharray="4 5"/><text x="78" y="46" text-anchor="middle" font-family="Anton,sans-serif" font-size="30" fill="#111" letter-spacing="2">ADMIT ONE</text><text x="78" y="72" text-anchor="middle" font-family="Courier Prime,monospace" font-weight="700" font-size="12" fill="#111" letter-spacing="3">DROP 01 · NO RESTOCKS</text><text x="181" y="58" text-anchor="middle" font-family="Anton,sans-serif" font-size="26" fill="#111" transform="rotate(-90 181 50)">001</text></svg>`,
+};
+function gfx(name, style = '', cls = '') { return `<span class="gfx ${cls}" style="${style}" aria-hidden="true">${GFX[name]}</span>`; }
+
 const views = {
   home() {
     const hero = state.products[0];
@@ -107,9 +122,9 @@ const views = {
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="blk wall"><div class="wall-grid"><div class="wall-text"><div class="wall-head"><span class="mega-black">no two<br>alike.</span></div>
+      <section class="blk wall"><div class="wall-text"><span class="mega-black">no two<br>alike.</span>
       <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div></div>
-      </div>
+      <div class="wall-pics">${gfx('phone', '', 'g-phone')}${gfx('megaphone', '', 'g-mega')}${gfx('star', '', 'g-star1')}${gfx('burst', '', 'g-burst')}${gfx('star', '', 'g-star2')}</div>
       <p class="fine">Every piece is handmade from reclaimed denim. Patched, painted and studded by hand. When it's gone, it's gone. We don't restock. We don't apologize.</p>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
@@ -121,7 +136,7 @@ const views = {
     if (sort === 'low') list.sort((a, b) => a.price - b.price);
     if (sort === 'high') list.sort((a, b) => b.price - a.price);
     if (sort === 'featured') list.sort((a, b) => !!b.featured - !!a.featured);
-    return pageHead('drop 01 — one of one', cat || 'The drop', '') +
+    return pageHead('drop 01 — one of one', cat || 'The drop', gfx('ticket', 'width:210px;transform:rotate(-5deg)') + gfx('star', 'width:70px;transform:rotate(12deg)')) +
       `<div class="wrap"><div class="toolbar"><div class="chips">
         <a class="chip ${!cat ? 'on' : ''}" href="#/shop">All</a>
         ${CATEGORIES().map((c) => `<a class="chip ${c === cat ? 'on' : ''}" href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
@@ -157,7 +172,7 @@ const views = {
         <td><div class="qty"><button data-dec="${idx}" aria-label="Decrease">−</button><span style="min-width:24px;text-align:center">${i.qty}</span><button data-inc="${idx}" aria-label="Increase">+</button></div></td>
         <td>${money(p.price * i.qty)}</td></tr>`;
     }).join('');
-    return pageHead('your bag', 'Bag', '') +
+    return pageHead('your bag', 'Bag', gfx('star', 'width:90px;transform:rotate(-10deg)')) +
       `<div class="wrap"><div class="cols"><table class="table">${rows}</table>
       <div class="summary receipt" id="summary">${summaryHtml()}<a class="buy" href="#/checkout" style="margin-top:1.2rem">Checkout <span>→</span></a></div></div></div>`;
   },
@@ -182,7 +197,7 @@ const views = {
   },
 
   about() {
-    return pageHead('our story', 'Handmade. One of one.', '') +
+    return pageHead('our story', 'Handmade. One of one.', gfx('megaphone', 'width:200px;transform:rotate(-8deg)')) +
       `<div class="wrap prose story-p"><p><mark>Call Me Crazy is one person, a lot of old denim and a sewing machine.</mark></p>
       <p>Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
       <p>Every piece is made once. When it's gone, it's gone.</p></div>`;

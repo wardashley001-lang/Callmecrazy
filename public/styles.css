@@ -374,10 +374,46 @@ select{border:2px solid #0b0b0b;border-radius:0;font-family:'Courier Prime',mono
 }
 
 /* no stickers for now: closing section is a single column */
-.wall-grid{grid-template-columns:1fr}
-.wall-pics{display:none}
+
 @media(min-width:861px){
   .mega-black{font-size:clamp(6rem,22vw,20rem)}
   .script-wall span{font-size:clamp(3.4rem,11vw,10rem)}
   .script-wall{margin-top:-3.4rem}
+}
+
+/* original graphics */
+.gfx{display:block;line-height:0}.gfx svg{width:100%;height:auto;display:block;filter:drop-shadow(3px 5px 3px rgba(0,0,0,.28))}
+.ph-stk .gfx{position:relative}
+.wall-grid{grid-template-columns:1.5fr 1fr}
+.wall-pics{display:block;position:relative;min-height:600px}
+.wall-pics .gfx{position:absolute}
+.g-phone{width:clamp(70px,9vw,120px);right:34%;top:-3.5rem}
+.g-mega{width:min(34vw,330px);right:2%;top:36%;transform:rotate(-12deg)}
+.g-star1{width:min(12vw,120px);right:6%;top:6%;transform:rotate(14deg)}
+.g-burst{width:min(10vw,100px);right:30%;bottom:6%;transform:rotate(-8deg)}
+.g-star2{width:min(7vw,72px);right:3%;bottom:8%;transform:rotate(-16deg)}
+@media(max-width:860px){
+  .wall-grid{grid-template-columns:1fr}
+  .wall-pics{min-height:260px}
+  .g-phone{width:70px;right:8%;top:-2rem}
+  .g-mega{width:48%;right:auto;left:6%;top:30%}
+  .g-star1{width:20%;right:8%;top:34%}.g-burst{width:18%;right:30%;bottom:4%}.g-star2{width:12%;right:6%;bottom:6%}
+}
+
+/* closing section: text left, graphics float right, nothing in a grid */
+.blk.wall{position:relative}
+.wall-text{max-width:1240px;margin:0 auto;min-width:0}
+.wall-pics{position:absolute;inset:0;pointer-events:none;max-width:1240px;margin:0 auto}
+.wall-pics .gfx{position:absolute}
+.g-phone{width:clamp(80px,10vw,130px);right:30%;top:0}
+.g-mega{width:min(30vw,320px);right:1%;top:34%;transform:rotate(-12deg)}
+.g-star1{width:min(11vw,110px);right:8%;top:9%;transform:rotate(14deg)}
+.g-burst{width:min(9vw,90px);right:22%;top:62%;transform:rotate(-8deg)}
+.g-star2{width:min(7vw,70px);right:5%;top:72%;transform:rotate(-16deg)}
+.fine,.blk.wall .signup{position:relative;z-index:3}
+@media(max-width:860px){
+  .wall-pics{position:relative;inset:auto;height:240px;margin-top:.6rem}
+  .g-phone{width:62px;right:10%;top:-1rem}
+  .g-mega{width:46%;left:4%;right:auto;top:18%}
+  .g-star1{width:18%;right:30%;top:12%}.g-burst{width:16%;right:34%;top:60%}.g-star2{width:11%;right:6%;top:64%}
 }
