@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Anton&family=Mr+Dafoe&family=Playfair+Display:ital,wght@1,700&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Anton&family=Mr+Dafoe&family=Kaushan+Script&family=Playfair+Display:ital,wght@1,700&display=swap');
 :root{--ink:#0a0a0a;--bg:#f6f3ed;--panel:#ebe7df;--pink:#FF007F;--denim:#2B547E;--silver:#C0C0C0;--muted:#767676;--line:#e6e4e1;--radius:0}
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -242,3 +242,24 @@ h2.big em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700
 .ht .a,.ht .b{font-family:Anton,sans-serif;text-transform:uppercase;color:#f6e9d8;font-size:clamp(2.6rem,10vw,6.4rem);line-height:.88;letter-spacing:.01em}
 .ht .c{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:#ffd1e1;font-size:clamp(1.3rem,4.4vw,2.6rem);margin-top:.5rem}
 .blk.leo .signup{margin-top:2rem;background:#0b0b0b;padding:1rem 1.2rem;display:inline-flex;max-width:34rem;width:100%}
+
+/* red-on-pink wall (Dance Society / Cherry Baby inspo) */
+:root{--red:#C1272D;--orchid:#F2A3D6}
+.blk.wall{background:var(--orchid);color:#0b0b0b;text-align:center;padding:3.5rem 1.5rem 3rem;position:relative;overflow:hidden;margin-top:4rem}
+.mega-black{display:block;font-family:Anton,sans-serif;text-transform:uppercase;font-size:clamp(5rem,19vw,17rem);line-height:.82;letter-spacing:-.01em;color:#0b0b0b;position:relative;z-index:1;text-align:left;max-width:1240px;margin:0 auto}
+.script-wall{position:relative;z-index:2;max-width:1240px;margin:-3.2rem auto 0;text-align:left}
+.script-wall span{display:block;font-family:'Kaushan Script','Mr Dafoe',cursive;color:var(--red);font-size:clamp(3rem,10.5vw,9.5rem);line-height:.95;margin-left:calc(var(--i,0) * 1%);letter-spacing:-.02em}
+.script-wall span:nth-child(2){margin-left:-1%}.script-wall span:nth-child(3){margin-left:2%}.script-wall span:nth-child(4){margin-left:-.5%}.script-wall span:nth-child(5){margin-left:1.5%}
+.hpic{position:absolute;z-index:4;background:#fff;padding:8px;box-shadow:6px 8px 0 rgba(0,0,0,.28)}
+.hpic .crop{aspect-ratio:1;background:#ddd}
+.hpic .tp{top:-12px;left:35%;width:90px;height:24px;transform:rotate(-5deg);background:rgba(255,255,255,.7)}
+.hpic.h1{width:min(36vw,400px);right:4%;top:14%;transform:rotate(5deg)}
+.hpic.h2{width:min(17vw,200px);left:3%;bottom:30%;transform:rotate(-7deg)}
+.hpic.h3{width:min(15vw,180px);right:22%;bottom:34%;transform:rotate(6deg)}
+.fine{position:relative;z-index:3;max-width:1240px;margin:2.2rem auto 0;text-align:justify;text-justify:inter-character;text-transform:uppercase;font-family:Anton,sans-serif;font-size:clamp(.8rem,1.5vw,1.15rem);letter-spacing:.02em;line-height:1.3;color:#0b0b0b;text-align-last:justify}
+.blk.wall .signup{position:relative;z-index:3;margin:2rem auto 0;background:transparent;padding:0;display:flex;align-items:center;gap:1rem;max-width:44rem;flex-wrap:wrap;justify-content:center}
+.callme{font-family:'Kaushan Script',cursive;font-size:2.4rem;color:var(--red);transform:rotate(-4deg)}
+.blk.wall .signup input{background:transparent;color:#0b0b0b;border:0;border-bottom:3px solid #0b0b0b;flex:1;min-width:14rem}
+.blk.wall .signup input::placeholder{color:#5a2a40}
+.blk.wall .btn{color:#0b0b0b;border-color:#0b0b0b}.blk.wall .btn:hover{background:#0b0b0b;color:var(--orchid)}
+@media(max-width:860px){.hpic.h1{width:46vw;top:10%}.hpic.h2{width:24vw;bottom:36%}.hpic.h3{display:none}}

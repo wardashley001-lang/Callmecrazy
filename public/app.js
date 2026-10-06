@@ -15,6 +15,16 @@ const DETAILS = [
   { img: 'stay-wild-front', w: 1100, h: 1012, cx: .53, cy: .84, z: 4.2, label: 'sequin star' },
   { img: 'stay-wild-back', w: 1100, h: 1131, cx: .76, cy: .64, z: 4.2, label: 'patch no. 14' },
 ];
+function cropHtml(d, cls = '') {
+  const left = -(d.cx * d.z - 0.5) * 100, top = -(d.cy * d.z * (d.h / d.w) - 0.5) * 100;
+  return `<div class="crop ${cls}"><img src="/images/${d.img}.jpg" alt="" style="width:${d.z * 100}%;left:${left}%;top:${top}%"></div>`;
+}
+const HEARTS = [
+  { img: 'stay-wild-front', w: 1100, h: 1012, cx: .60, cy: .645, z: 3.4 },
+  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .325, cy: .47, z: 5.2 },
+  { img: 'stay-wild-back', w: 1100, h: 1131, cx: .895, cy: .78, z: 5.2 },
+];
+
 function detailStrip() {
   const crop = (d) => {
     const left = -(d.cx * d.z - 0.5) * 100, top = -(d.cy * d.z * (d.h / d.w) - 0.5) * 100;
@@ -74,9 +84,13 @@ const views = {
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="blk leo"><span class="sp s3">✦</span><span class="sp s4">✦</span>
-      <div class="heartwrap"><svg class="heart" viewBox="0 0 400 360" aria-hidden="true"><path d="M200 340 C40 232 8 130 60 66 C104 14 176 30 200 86 C224 30 296 14 340 66 C392 130 360 232 200 340Z" fill="#8f0012"/><path d="M200 322 C58 226 30 134 74 80 C110 36 172 50 200 102 C228 50 290 36 326 80 C370 134 342 226 200 322Z" fill="none" stroke="#fff" stroke-opacity=".0"/><path d="M200 350 C30 238 -4 128 52 58 C100 0 178 18 200 76 C222 18 300 0 348 58 C404 128 370 238 200 350Z" fill="none" stroke="#ffd1e1" stroke-width="9" stroke-linecap="round" stroke-dasharray="0.1 12"/></svg><div class="ht"><span class="a">No two</span><span class="b">alike.</span><span class="c">neither are you.</span></div></div>
-      <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
+      <section class="blk wall"><div class="wall-head"><span class="mega-black">no two<br>alike.</span></div>
+      <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div>
+      <div class="hpic h1"><span class="tp"></span>${cropHtml(HEARTS[0])}</div>
+      <div class="hpic h2"><span class="tp"></span>${cropHtml(HEARTS[1])}</div>
+      <div class="hpic h3"><span class="tp"></span>${cropHtml(HEARTS[2])}</div>
+      <p class="fine">Every piece is handmade from reclaimed denim. Patched, painted and studded by hand. When it's gone, it's gone. We don't restock. We don't apologize.</p>
+      <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
 
   shop(cat) {
