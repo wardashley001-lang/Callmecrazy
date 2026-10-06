@@ -281,3 +281,29 @@ h2.big em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700
 /* ransom (flat paper scraps) */
 .rn{display:inline-flex;align-items:flex-end;gap:.04em;filter:drop-shadow(2px 3px 2px rgba(0,0,0,.3))}
 .rn .lt{display:inline-block;padding:.04em .1em .08em;line-height:1;min-width:.6em;text-align:center;font-weight:400;text-transform:none;letter-spacing:0}
+
+/* photos get their own space so they never cover the words */
+.wall-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:2rem;align-items:center;max-width:1240px;margin:0 auto}
+.wall-text{min-width:0}
+.wall-pics{position:relative;min-height:560px}
+.wall-pics .hpic{position:absolute}
+.wall-pics .hpic.h1{width:78%;right:0;top:0;left:auto;bottom:auto;transform:rotate(4deg)}
+.wall-pics .hpic.h2{width:38%;left:0;bottom:2%;top:auto;right:auto;transform:rotate(-7deg)}
+.wall-pics .hpic.h3{width:34%;right:6%;bottom:0;top:auto;left:auto;transform:rotate(6deg);display:block}
+.mega-black{margin-left:0}
+@media(max-width:860px){
+  .wall-grid{grid-template-columns:1fr;gap:1.4rem}
+  .wall-pics{display:flex;gap:.8rem;min-height:0;justify-content:center;align-items:flex-start;padding:.6rem 0 .4rem}
+  .wall-pics .hpic{position:relative;width:30%;right:auto;left:auto;top:auto;bottom:auto;flex:none}
+  .wall-pics .hpic.h1{width:38%;transform:rotate(3deg)}.wall-pics .hpic.h2{transform:rotate(-5deg)}.wall-pics .hpic.h3{transform:rotate(4deg);display:block}
+  .script-wall{margin-top:-1rem}
+  .script-wall span:nth-child(n+4){display:none}
+  .script-wall span{font-size:clamp(2.6rem,12vw,5rem)}
+  .fine{text-align:left;text-align-last:left;margin-top:1.4rem}
+}
+@media(min-width:861px){
+  .script-wall span{white-space:nowrap;font-size:clamp(3rem,6.6vw,6.4rem)}
+  .mega-black{font-size:clamp(5rem,15vw,13rem)}
+  .script-wall{margin-top:-2.4rem}
+  .wall-pics{min-height:520px}
+}

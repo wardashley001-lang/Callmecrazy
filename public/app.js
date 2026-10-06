@@ -103,11 +103,12 @@ const views = {
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
-      <section class="blk wall"><div class="wall-head"><span class="mega-black">no two<br>alike.</span></div>
-      <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div>
+      <section class="blk wall"><div class="wall-grid"><div class="wall-text"><div class="wall-head"><span class="mega-black">no two<br>alike.</span></div>
+      <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div></div>
+      <div class="wall-pics">
       <div class="hpic h1"><span class="tp"></span>${cropHtml(HEARTS[0])}</div>
       <div class="hpic h2"><span class="tp"></span>${cropHtml(HEARTS[1])}</div>
-      <div class="hpic h3"><span class="tp"></span>${cropHtml(HEARTS[2])}</div>
+      <div class="hpic h3"><span class="tp"></span>${cropHtml(HEARTS[2])}</div></div></div>
       <p class="fine">Every piece is handmade from reclaimed denim. Patched, painted and studded by hand. When it's gone, it's gone. We don't restock. We don't apologize.</p>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
