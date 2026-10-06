@@ -47,7 +47,7 @@ function detailStrip() {
   // one close-up per piece, each linking to that piece. Pieces without a close-up photo yet show a placeholder.
   const tile = (p, i) => {
     const d = p.closeup;
-    const body = d ? cropHtml(d) : `<div class="crop empty"><span>close-up coming</span></div>`;
+    const body = p.closeupVideo ? `<div class="crop"><video src="/video/${p.closeupVideo}.mp4" poster="/video/${p.closeupVideo}.jpg" autoplay muted loop playsinline></video></div>` : d ? cropHtml(d) : `<div class="crop empty"><span>close-up coming</span></div>`;
     return `<a class="dt" href="#/product/${p.id}"><span class="tp"></span>${body}<figcaption><b>no. ${num(p)}</b> ${esc(p.name)}</figcaption></a>`;
   };
   return `<div class="strip">${state.products.slice(0, 5).map(tile).join('')}</div>`;
@@ -102,7 +102,7 @@ function gfx(name, style = '', cls = '') { return `<span class="gfx ${cls}" styl
 
 const views = {
   home() {
-    const hero = state.products[0];
+    const hero = state.products.find((x) => x.id === 'studded-patch-jacket') || state.products[0];
     const feat = state.products.slice(0, 4);
     const ph = (t) => `<span>${t}</span>`;
     const run = ['NO RULES. JUST CRAZY.', 'ONE OF ONE', 'HANDCRAFTED DENIM', 'NO RESTOCKS', 'OWN YOUR CRAZY'].map(ph).join('<i>✦</i>');
@@ -111,11 +111,10 @@ const views = {
       <h1><span class="own">own your</span><span class="crz">${ransom("crazy", [7, 11, 12][Math.floor(Math.random() * 3)])}</span></h1>
       <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
-      <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><img src="${esc(hero.images[0])}" alt="${esc(hero.name)}"><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
+      <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><video src="/video/sparkle-studs.mp4" poster="/video/sparkle-studs.jpg" autoplay muted loop playsinline aria-label="${esc(hero.name)}"></video><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
       <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
       <div class="run"><div class="trk">${run}<i>✦</i>${run}<i>✦</i></div></div>
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
-      <section class="up reel"><div class="wrap"><h2 class="big">watch it<em> sparkle.</em></h2><div class="vids">${['sparkle-studs','sparkle-back'].map((v, i) => `<figure class="vd"><span class="tp"></span><video src="/video/${v}.mp4" poster="/video/${v}.jpg" autoplay muted loop playsinline></video><figcaption>${['studs + stars, in the sun', 'the back, up close'][i]}</figcaption></figure>`).join('')}</div></div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
       <section class="blk wall"><div class="wall-text"><span class="mega-black">no two<br>alike.</span>

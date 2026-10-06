@@ -155,7 +155,8 @@
    "cy": 0.5,
    "z": 1,
    "label": "close-up"
-  }
+  },
+  "closeupVideo": "sparkle-back"
  },
  {
   "id": "long-patch-jacket",
