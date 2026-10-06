@@ -111,20 +111,20 @@ const views = {
     const feat = state.products.slice(0, 4);
     const ph = (t) => `<span>${t}</span>`;
     const run = ['NO RULES. JUST CRAZY.', 'ONE OF ONE', 'HANDCRAFTED DENIM', 'NO RESTOCKS', 'OWN YOUR CRAZY'].map(ph).join('<i>✦</i>');
-    return `<section class="h-hero"><div class="h-copy">
+    return `<section class="h-hero"><span class="gfx g-hang" aria-hidden="true"><img src="/images/art/phone.png" alt=""></span><div class="h-copy">
       <div class="lab">drop 01 — handcrafted denim — 1 of 1</div>
       <h1><span class="own">own your</span><span class="crz">${ransom("crazy", [7, 11, 12][Math.floor(Math.random() * 3)])}</span></h1>
       <p class="hl"><mark>Reclaimed denim. Patched, painted and studded by hand.</mark></p>
       <a class="btn" href="#/shop">shop the drop</a><a class="btn" href="#/about">our story</a></div>
       <a class="h-photo" href="#/product/${hero.id}"><div class="paper"><img src="${esc(hero.images[0])}" alt="${esc(hero.name)}"><span class="tp t1"></span><span class="tp t2"></span></div><span class="sp s1">✦</span><span class="sp s2">✦</span>
-      ${gfx('bubble', '', 'g-bub')}<div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
+      <div class="tagl">no. ${num(hero)}<br>${money(hero.price)}</div></a></section>
       <div class="run"><div class="trk">${run}<i>✦</i>${run}<i>✦</i></div></div>
       <section class="up"><div class="wrap"><h2 class="big">up close<em> the work.</em></h2>${detailStrip()}</div></section>
       <div class="wrap"><div class="sechead"><h2 class="big">the drop</h2><a class="tiny" href="#/shop">View all →</a></div>
       <div class="grid">${feat.map(card).join('')}</div></div>
       <section class="blk wall"><div class="wall-text"><span class="mega-black">no two<br>alike.</span>
       <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div></div>
-      <div class="wall-pics">${gfx('phone', '', 'g-phone')}${gfx('megaphone-stars', '', 'g-mega')}${gfx('lips', '', 'g-lips')}${gfx('kiss-me', '', 'g-kiss')}${gfx('lover-girl', '', 'g-lover')}</div>
+      <div class="wall-pics"></div>
       <p class="fine">Every piece is handmade from reclaimed denim. Patched, painted and studded by hand. When it's gone, it's gone. We don't restock. We don't apologize.</p>
       <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
   },
@@ -136,7 +136,7 @@ const views = {
     if (sort === 'low') list.sort((a, b) => a.price - b.price);
     if (sort === 'high') list.sort((a, b) => b.price - a.price);
     if (sort === 'featured') list.sort((a, b) => !!b.featured - !!a.featured);
-    return pageHead('drop 01 — one of one', cat || 'The drop', gfx('ticket-shitshow', 'width:200px;transform:rotate(-5deg)') + gfx('kiss-me', 'width:84px;transform:rotate(10deg)')) +
+    return pageHead('drop 01 — one of one', cat || 'The drop', '') +
       `<div class="wrap"><div class="toolbar"><div class="chips">
         <a class="chip ${!cat ? 'on' : ''}" href="#/shop">All</a>
         ${CATEGORIES().map((c) => `<a class="chip ${c === cat ? 'on' : ''}" href="#/shop/${c}">${esc(c)}</a>`).join('')}</div>
@@ -172,7 +172,7 @@ const views = {
         <td><div class="qty"><button data-dec="${idx}" aria-label="Decrease">−</button><span style="min-width:24px;text-align:center">${i.qty}</span><button data-inc="${idx}" aria-label="Increase">+</button></div></td>
         <td>${money(p.price * i.qty)}</td></tr>`;
     }).join('');
-    return pageHead('your bag', 'Bag', gfx('lips', 'width:120px;transform:rotate(-8deg)')) +
+    return pageHead('your bag', 'Bag', '') +
       `<div class="wrap"><div class="cols"><table class="table">${rows}</table>
       <div class="summary receipt" id="summary">${summaryHtml()}<a class="buy" href="#/checkout" style="margin-top:1.2rem">Checkout <span>→</span></a></div></div></div>`;
   },
@@ -197,7 +197,7 @@ const views = {
   },
 
   about() {
-    return pageHead('our story', 'Handmade. One of one.', gfx('bubble', 'width:240px;transform:rotate(-4deg)')) +
+    return pageHead('our story', 'Handmade. One of one.', '') +
       `<div class="wrap prose story-p"><p><mark>Call Me Crazy is one person, a lot of old denim and a sewing machine.</mark></p>
       <p>Every piece is cut up and rebuilt by hand with patches, paint, studs and rhinestones.</p>
       <p>Every piece is made once. When it's gone, it's gone.</p></div>`;
