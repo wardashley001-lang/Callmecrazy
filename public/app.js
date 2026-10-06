@@ -121,7 +121,7 @@ const views = {
       <div class="script-wall" aria-hidden="true">${'<span>neither are you.</span>'.repeat(5)}</div></div>
       <div class="wall-pics"></div>
       <p class="fine">Every piece is cut up and rebuilt by hand from reclaimed denim. Made once. When it's gone, it's gone. We don't restock. We don't apologize.</p>
-      <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join</button></form></section>`;
+      <form class="signup" onsubmit="event.preventDefault();toast('Noted.')"><span class="callme">Call me?</span><input type="email" placeholder="email, for the next drop" required aria-label="Email"><button class="btn">join the crazy</button></form></section>`;
   },
 
   shop(cat) {

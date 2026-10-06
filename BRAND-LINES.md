@@ -17,7 +17,9 @@ Rules: clean language on the website, no swearing. "Crazy" means personality and
 ## Rules lines
 - No restocks. No apologies.
 - When it's gone, it's gone.
-- One woman. One number. One shot. (a lot of crazy and a lot of denim)
+- One woman. One number. One shot. (crazy and a lot of denim)
+- A lot of crazy. A lot of denim. No filter.
+- Join the Crazy. (signup button)
 
 ## Team favorites (picked from the ideas below)
 - Not a phase.
