@@ -26,12 +26,15 @@ Create/edit the color scheme so it reads black + hot pink:
 | Silver details | `#C0C0C0` |
 
 ## 3. Fonts  (Theme settings → Typography)
+Look: tall, tight, ALL-CAPS headlines (like a magazine cover) with a sleek italic serif for sassy accent words.
 - **Body:** Montserrat (in the font picker).
-- **Headings:** pick the boldest handwritten/script option available. Your exact brush font isn't in Shopify's picker.
-- Best match for the preview: Permanent Marker (Google font). If Shopify's picker doesn't have it, paste this into **Theme settings → Custom CSS** (try it; if it doesn't load, tell me and I'll give you another way):
+- **Headings:** Anton, or the closest tall condensed bold option in the picker (e.g. Oswald / Bebas). Set headings to uppercase.
+- **Accent words** (pink, italic): Playfair Display Italic.
+- If Anton / Playfair aren't in Shopify's picker, paste this into **Theme settings → Custom CSS** (if it doesn't load, tell me and I'll give you another way):
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-h1, h2, h3, .h0, .h1, .h2 { font-family: 'Permanent Marker', cursive; letter-spacing: .01em; }
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@1,800&display=swap');
+h1, h2, h3, .h0, .h1, .h2 { font-family: 'Anton', Impact, sans-serif; text-transform: uppercase; letter-spacing: .04em; line-height: 1; }
+em { font-family: 'Playfair Display', Georgia, serif; font-style: italic; text-transform: none; color: #FF007F; letter-spacing: 0; }
 ```
 - Use the **logo image** for the biggest brand moments; it already has your brush lettering.
 
@@ -41,11 +44,11 @@ h1, h2, h3, .h0, .h1, .h2 { font-family: 'Permanent Marker', cursive; letter-spa
 - Turn **on** the announcement bar: `OWN YOUR CRAZY · FREE SHIPPING OVER $100` (pink background, white text).
 
 ## 5. Homepage sections (top to bottom)
-1. **Image banner** (hero): black background or a dark photo of a piece; big heading **"Own Your Crazy."**, subtext "Handcrafted denim. One of one.", buttons **Shop the drop** (pink) and **Our story** (outline).
+1. **Image banner** (hero): black background or a dark photo of a piece; big heading **"Own Your Crazy."**, subtext "Crazy? Maybe. *Unique? Definitely.*" and "Handcrafted denim. One of one.", buttons **Shop the drop** (pink) and **Our story** (outline).
 2. **Marquee / rich text strip** (pink bar): `NO RULES. JUST CRAZY. ✦ ONE OF ONE ✦ HANDCRAFTED DENIM ✦ OWN YOUR CRAZY`
-3. **Collection list:** Skirts, Jackets, Jeans, Vests, Accessories.
-4. **Featured collection**, titled "Fresh off the sewing machine", 4 products.
-5. **Image with text** (denim-blue background): heading **"Why fit in when you were born to stand out?"**, text "Every piece is handcrafted from reclaimed denim, patched, painted and studded by hand. No two are alike, and neither are you.", button **Read our story**.
+3. **Collection list**, titled "Pick your *poison*": Skirts, Jackets, Jeans, Vests, Accessories.
+4. **Featured collection**, titled "Just *dropped.* Don't sleep.", 4 products.
+5. **Image with text** (denim-blue background): heading **"Why fit in when you were born to stand out?"**, text "Every piece is handcrafted from reclaimed denim, patched, painted and studded by hand. No two are alike, and neither are you. Don't call us crazy… or do. We dare you.", button **Read our story**.
 6. **Instagram / social** link in the footer: https://instagram.com/shopcallmecrazy
 7. Optional: **Email signup**: "Get first dibs on every drop."
 
