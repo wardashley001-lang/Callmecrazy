@@ -2,7 +2,7 @@
   <span class="gfx g-hang" aria-hidden="true"><img src="{{ 'phone.png' | asset_url }}" alt="" width="60" height="400"></span>
   <div class="h-copy">
     <div class="lab">{{ section.settings.label }}</div>
-    <h1><span class="own">{{ section.settings.top }}</span><span class="crz" data-ransom="{{ section.settings.word }}" data-seed="{{ section.settings.seed }}">{{ section.settings.word }}</span></h1>
+    <h1><span class="own">{{ section.settings.top }}</span><span class="crz"><span data-ransom="{{ section.settings.word }}" data-seed="{{ section.settings.seed }}">{{ section.settings.word }}</span></span></h1>
     <p class="hl"><mark>{{ section.settings.subline }}</mark></p>
     {% if section.settings.button_1_label != blank %}<a class="btn" href="{{ section.settings.button_1_link }}">{{ section.settings.button_1_label }}</a>{% endif %}
     {% if section.settings.button_2_label != blank %}<a class="btn" href="{{ section.settings.button_2_link }}">{{ section.settings.button_2_label }}</a>{% endif %}
