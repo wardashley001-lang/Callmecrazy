@@ -1,0 +1,10 @@
+<div class="announce" {{ section.shopify_attributes }}>{{ section.settings.text }}</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Text", "default": "Free shipping over $100 · One of one · No restocks, no apologies" }
+  ]
+}
+{% endschema %}

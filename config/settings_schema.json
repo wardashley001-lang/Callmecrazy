@@ -1,0 +1,17 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Call Me Crazy",
+    "theme_version": "0.1.0",
+    "theme_author": "Call Me Crazy",
+    "theme_documentation_url": "https://shopcallmecrazy.com",
+    "theme_support_url": "https://shopcallmecrazy.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "text", "id": "instagram_handle", "label": "Instagram handle", "default": "shopcallmecrazy" },
+      { "type": "text", "id": "footer_tagline", "label": "Footer tagline", "default": "Handmade denim. One of one." }
+    ]
+  }
+]

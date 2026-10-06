@@ -1,0 +1,34 @@
+<section class="trio" {{ section.shopify_attributes }}>
+  <div class="wrap">
+    {%- for block in section.blocks -%}
+      <div {{ block.shopify_attributes }}><b>{{ block.settings.title }}</b><span>{{ block.settings.text }}</span></div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Three statements",
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Statement",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "one woman." },
+        { "type": "text", "id": "text", "label": "Text", "default": "crazy and a lot of denim." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three statements",
+      "blocks": [
+        { "type": "item", "settings": { "title": "one woman.", "text": "crazy and a lot of denim." } },
+        { "type": "item", "settings": { "title": "one number.", "text": "every piece is numbered and never made again." } },
+        { "type": "item", "settings": { "title": "one shot.", "text": "no restocks. when it's gone, it's gone." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,16 @@
+{% render 'page-head', label: section.settings.label, title: section.settings.title %}
+<div class="wrap prose">
+  <p><mark>{{ section.settings.text }}</mark></p>
+  {% render 'signup', placeholder: 'email', button: 'join the crazy' %}
+</div>
+
+{% schema %}
+{
+  "name": "Next drop",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "drop 02" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Next drop" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Date coming soon. The waitlist gets in 30 minutes early." }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,9 @@
+{% render 'page-head', label: shop.name, title: page.title %}
+<div class="wrap prose story-p">{{ page.content }}</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,39 @@
+{%- if cart.item_count == 0 -%}
+  {% render 'page-head', label: 'your bag', title: 'Empty.' %}
+  <div class="wrap"><p class="sub">Nothing yet.</p><a class="btn" href="{{ routes.all_products_collection_url }}">Shop the drop</a></div>
+{%- else -%}
+  {% render 'page-head', label: 'your bag', title: 'Bag' %}
+  <div class="wrap">
+    <form action="{{ routes.cart_url }}" method="post" class="cols">
+      <table class="table">
+        {%- for item in cart.items -%}
+          <tr>
+            <td><div class="thumb">{% if item.image %}{{ item.image | image_url: width: 160 | image_tag: class: 'photo', loading: 'lazy' }}{% endif %}</div></td>
+            <td>
+              <a href="{{ item.url }}"><b>{{ item.product.title | escape }}</b></a>
+              {%- unless item.product.has_only_default_variant -%}<br><small>{{ item.variant.title }}</small>{%- endunless -%}
+              <br><a class="link" href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">Remove</a>
+            </td>
+            <td><input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity" style="width:64px"></td>
+            <td>{{ item.final_line_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+      </table>
+      <div class="summary receipt">
+        <div class="rc-h">receipt — drop 01</div>
+        <div class="row"><span>Subtotal</span><span>{{ cart.total_price | money }}</span></div>
+        <div class="row"><span>Shipping &amp; taxes</span><span>at checkout</span></div>
+        <div class="row total"><span>Total</span><span>{{ cart.total_price | money }}</span></div>
+        <button class="buy" type="submit" name="checkout" style="margin-top:1.2rem">Checkout <span>→</span></button>
+        <button class="link" type="submit" name="update">Update bag</button>
+      </div>
+    </form>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bag",
+  "settings": []
+}
+{% endschema %}

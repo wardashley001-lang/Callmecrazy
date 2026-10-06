@@ -1,0 +1,28 @@
+{% doc %}
+Renders a product card.
+@param {product} product - The product to render
+@param {number} index - Position, used when the product has no piece number
+@param {boolean} [gone] - Show the sold state
+{% enddoc %}
+{%- liquid
+  assign piece = product.metafields.custom.piece_number.value
+  if piece == blank
+    assign piece = index | plus: 1 | prepend: '00' | slice: -3, 3
+  endif
+-%}
+<a class="card{% if gone %} gonecard{% endif %}" href="{{ product.url }}">
+  <div class="img">
+    {% if product.featured_image %}
+      {{ product.featured_image | image_url: width: 800 | image_tag: class: 'photo', loading: 'lazy', widths: '400, 600, 800', alt: product.title }}
+    {% endif %}
+    {% if gone or product.available == false %}
+      <span class="gbadge">gone.</span>
+    {% else %}
+      <span class="badge">One of one</span>
+    {% endif %}
+  </div>
+  <div class="row">
+    <div><div class="no">NO. {{ piece }}</div><h3>{{ product.title | escape }}</h3></div>
+    <div class="meta">{{ product.price | money }}</div>
+  </div>
+</a>

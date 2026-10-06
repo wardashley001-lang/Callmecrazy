@@ -1,0 +1,24 @@
+<footer class="site-footer" {{ section.shopify_attributes }}>
+  <div>
+    <strong>{{ shop.name }}</strong>
+    <p>{{ settings.footer_tagline }}</p>
+  </div>
+  <div>
+    {% for link in linklists[section.settings.menu].links %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+    {% if settings.instagram_handle != blank %}
+      <a href="https://instagram.com/{{ settings.instagram_handle }}" target="_blank" rel="noopener">Instagram @{{ settings.instagram_handle }}</a>
+    {% endif %}
+  </div>
+  <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</small>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+  ]
+}
+{% endschema %}

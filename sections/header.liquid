@@ -1,0 +1,21 @@
+<header class="site-header" {{ section.shopify_attributes }}>
+  <a href="{{ routes.root_url }}" class="logo"><img src="{{ 'logo-dark.png' | asset_url }}" alt="{{ shop.name | escape }}" width="200" height="60"></a>
+  <nav id="nav" aria-label="Main">
+    {% for link in linklists[section.settings.menu].links %}
+      <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+    {% endfor %}
+  </nav>
+  {% if settings.instagram_handle != blank %}
+    <a href="https://instagram.com/{{ settings.instagram_handle }}" class="ig" target="_blank" rel="noopener">@{{ settings.instagram_handle }}</a>
+  {% endif %}
+  <a href="{{ routes.cart_url }}" class="cart-link" aria-label="Bag">Bag <span id="cart-count">{{ cart.item_count }}</span></a>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

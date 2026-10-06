@@ -1,0 +1,37 @@
+{% render 'page-head', label: 'drop 01 — one of one', title: collection.title %}
+<div class="wrap">
+  <div class="toolbar">
+    <div class="chips">
+      <a class="chip{% if collection.handle == 'all' %} on{% endif %}" href="{{ routes.all_products_collection_url }}">All</a>
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a class="chip{% if link.active %} on{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    </div>
+    <select id="sort" aria-label="Sort">
+      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+      <option value="manual"{% if sort_by == 'manual' %} selected{% endif %}>Featured</option>
+      <option value="created-descending"{% if sort_by == 'created-descending' %} selected{% endif %}>Newest</option>
+      <option value="price-ascending"{% if sort_by == 'price-ascending' %} selected{% endif %}>Price: low to high</option>
+      <option value="price-descending"{% if sort_by == 'price-descending' %} selected{% endif %}>Price: high to low</option>
+    </select>
+  </div>
+  {% paginate collection.products by 12 %}
+    <div class="grid">
+      {%- for product in collection.products -%}
+        {% render 'product-card', product: product, index: forloop.index0 %}
+      {%- else -%}
+        <p>No pieces here yet.</p>
+      {%- endfor -%}
+    </div>
+    {{ paginate | default_pagination }}
+  {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Category filter links", "default": "main-menu" }
+  ]
+}
+{% endschema %}

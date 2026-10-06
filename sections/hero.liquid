@@ -1,0 +1,46 @@
+<section class="h-hero" {{ section.shopify_attributes }}>
+  <span class="gfx g-hang" aria-hidden="true"><img src="{{ 'phone.png' | asset_url }}" alt="" width="60" height="400"></span>
+  <div class="h-copy">
+    <div class="lab">{{ section.settings.label }}</div>
+    <h1><span class="own">{{ section.settings.top }}</span><span class="crz" data-ransom="{{ section.settings.word }}" data-seed="{{ section.settings.seed }}">{{ section.settings.word }}</span></h1>
+    <p class="hl"><mark>{{ section.settings.subline }}</mark></p>
+    {% if section.settings.button_1_label != blank %}<a class="btn" href="{{ section.settings.button_1_link }}">{{ section.settings.button_1_label }}</a>{% endif %}
+    {% if section.settings.button_2_label != blank %}<a class="btn" href="{{ section.settings.button_2_link }}">{{ section.settings.button_2_label }}</a>{% endif %}
+  </div>
+  {%- assign hero_product = section.settings.product -%}
+  <a class="h-photo" href="{{ hero_product.url | default: routes.collections_url }}">
+    <div class="paper">
+      {%- if section.settings.video != blank -%}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '600x' }}
+      {%- elsif section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: alt: hero_product.title }}
+      {%- elsif hero_product.featured_image -%}
+        {{ hero_product.featured_image | image_url: width: 1000 | image_tag }}
+      {%- endif -%}
+      <span class="tp t1"></span><span class="tp t2"></span>
+    </div>
+    <span class="sp s1">✦</span><span class="sp s2">✦</span>
+    {% if hero_product != blank %}<div class="tagl">{{ hero_product.title | escape }}<br>{{ hero_product.price | money }}</div>{% endif %}
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "drop 01 — one of one — no restocks" },
+    { "type": "text", "id": "top", "label": "Headline (plain part)", "default": "own your" },
+    { "type": "text", "id": "word", "label": "Headline (cut-paper word)", "default": "crazy" },
+    { "type": "range", "id": "seed", "label": "Cut-paper style", "min": 1, "max": 20, "step": 1, "default": 7 },
+    { "type": "text", "id": "subline", "label": "Subline", "default": "One of one. We dare you." },
+    { "type": "text", "id": "button_1_label", "label": "Button 1 label", "default": "shop the drop" },
+    { "type": "url", "id": "button_1_link", "label": "Button 1 link" },
+    { "type": "text", "id": "button_2_label", "label": "Button 2 label", "default": "our story" },
+    { "type": "url", "id": "button_2_link", "label": "Button 2 link" },
+    { "type": "product", "id": "product", "label": "Featured piece" },
+    { "type": "video", "id": "video", "label": "Hero video (looping, no sound)" },
+    { "type": "image_picker", "id": "image", "label": "Hero image (used if no video)" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}
