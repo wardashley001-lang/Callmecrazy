@@ -1,0 +1,42 @@
+<section class="procstrip" {{ section.shopify_attributes }}>
+  <div class="wrap">
+    <h2 class="big">{{ section.settings.heading }}<em> {{ section.settings.script }}</em></h2>
+    <ol class="steps">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}><b>{{ forloop.index }}</b><span>{{ block.settings.step }}</span></li>
+      {%- endfor -%}
+    </ol>
+    <p class="fine">{{ section.settings.text }}</p>
+    <a class="btn" href="{{ section.settings.link }}">{{ section.settings.button }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Process strip",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "slow" },
+    { "type": "text", "id": "script", "label": "Heading (script part)", "default": "on purpose." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Every stud is set by hand, one at a time. No shortcuts." },
+    { "type": "text", "id": "button", "label": "Button", "default": "see how it's made" },
+    { "type": "url", "id": "link", "label": "Button link" }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Step", "settings": [{ "type": "text", "id": "step", "label": "Step", "default": "wash" }] }
+  ],
+  "presets": [
+    {
+      "name": "Process strip",
+      "blocks": [
+        { "type": "step", "settings": { "step": "wash" } },
+        { "type": "step", "settings": { "step": "bleach" } },
+        { "type": "step", "settings": { "step": "paint" } },
+        { "type": "step", "settings": { "step": "dye" } },
+        { "type": "step", "settings": { "step": "foil" } },
+        { "type": "step", "settings": { "step": "stud" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

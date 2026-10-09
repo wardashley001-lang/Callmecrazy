@@ -169,6 +169,58 @@
     "wall": {
       "type": "wall",
       "settings": {}
+    },
+    "process": {
+      "type": "process-strip",
+      "settings": {
+        "link": "/pages/how-its-made"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "step": "wash"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "step": "bleach"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "step": "paint"
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "step": "dye"
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "step": "foil"
+          }
+        },
+        "s6": {
+          "type": "step",
+          "settings": {
+            "step": "stud, one at a time"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ]
     }
   },
   "order": [
@@ -177,6 +229,7 @@
     "up_close",
     "trio",
     "drop",
+    "process",
     "gone",
     "wall"
   ]
