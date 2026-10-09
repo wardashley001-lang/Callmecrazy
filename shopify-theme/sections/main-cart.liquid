@@ -8,7 +8,7 @@
       <table class="table">
         {%- for item in cart.items -%}
           <tr>
-            <td><div class="thumb">{% if item.image %}{{ item.image | image_url: width: 160 | image_tag: class: 'photo', loading: 'lazy' }}{% endif %}</div></td>
+            <td><a class="thumb" href="{{ item.url }}">{%- assign cart_img = item.image | default: item.product.featured_image -%}{%- if cart_img -%}<img class="cart-img" src="{{ cart_img | image_url: width: 240 }}" alt="{{ item.product.title | escape }}" width="96" height="128" loading="lazy">{%- endif -%}</a></td>
             <td>
               <a href="{{ item.url }}"><b>{{ item.product.title | escape }}</b></a>
               {%- unless item.product.has_only_default_variant -%}<br><small>{{ item.variant.title }}</small>{%- endunless -%}

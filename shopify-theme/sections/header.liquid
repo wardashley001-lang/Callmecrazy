@@ -8,7 +8,7 @@
   {% if settings.instagram_handle != blank %}
     <a href="https://instagram.com/{{ settings.instagram_handle }}" class="ig" target="_blank" rel="noopener">@{{ settings.instagram_handle }}</a>
   {% endif %}
-  <a href="{{ routes.cart_url }}" class="cart-link" aria-label="Bag">Bag <span id="cart-count">{{ cart.item_count }}</span></a>
+  <a href="{{ routes.cart_url }}" class="cart-link" aria-label="Bag, {{ cart.item_count }} items"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-label">Bag</span><span id="cart-count">{{ cart.item_count }}</span></a>
 </header>
 
 {% schema %}
