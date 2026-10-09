@@ -478,3 +478,6 @@ a.dt:hover{transform:rotate(0deg) scale(1.03)}
 .crop img.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .nav-sub{display:flex;gap:1rem}
 @media(max-width:700px){.trio .wrap{grid-template-columns:1fr}}
+
+.paper img,.pimg img{height:auto}
+.paper video{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block}

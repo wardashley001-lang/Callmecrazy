@@ -8,7 +8,7 @@
           <span class="tp"></span>
           <div class="crop">
             {%- if block.settings.video != blank -%}
-              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '400x' }}
+              <video autoplay loop muted playsinline poster="{{ block.settings.video.preview_image | image_url: width: 600 }}">{% for source in block.settings.video.sources %}<source src="{{ source.url }}" type="{{ source.mime_type }}">{% endfor %}</video>
             {%- elsif block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 600 | image_tag: class: 'fill', loading: 'lazy' }}
             {%- else -%}
