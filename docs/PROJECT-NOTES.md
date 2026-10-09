@@ -54,6 +54,9 @@ Last updated: Oct 9, 2026. Keep this file current. Everything decided in chat li
 ## Packaging research
 See Packaging Options doc in Drive. Summary: start with stock boxes or poly mailers + hot pink tissue + custom stickers, thank-you card and care card; custom boxes only after volume. Prices are from reviews and guides, not vendor quotes.
 
+## Shipping label printer (to-do)
+- Mom will need a 4x6 thermal label printer: Rollo or MUNBYN (about $65 to $200; sources disagree) plus generic 4x6 direct thermal label rolls (about $0.01 to $0.04 per label). Skip DYMO/Brother (proprietary rolls). Until then labels can be printed on regular paper. Confirm model and current price before buying.
+
 ## Open decisions and to-dos
 - Return policy (final sale, exchange only, or returns), shipping price (flat $12 or free), real piece names/prices/sizes/measurements, packed weights, public photos, cowgirl skirt video, art rights check on the phone graphic, thank-you note placement and signature, launch date.
 - Payments (Shopify Payments), taxes, policies, domain, checkout branding, store name: owner does these in Shopify admin.
