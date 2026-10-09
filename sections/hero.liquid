@@ -11,7 +11,7 @@
   <a class="h-photo" href="{{ hero_product.url | default: routes.collections_url }}">
     <div class="paper">
       {%- if section.settings.video != blank -%}
-        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '600x' }}
+        <video autoplay loop muted playsinline poster="{{ section.settings.video.preview_image | image_url: width: 800 }}">{% for source in section.settings.video.sources %}<source src="{{ source.url }}" type="{{ source.mime_type }}">{% endfor %}</video>
       {%- elsif section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1000 | image_tag: alt: hero_product.title }}
       {%- elsif hero_product.featured_image -%}
