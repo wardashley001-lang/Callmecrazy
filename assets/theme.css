@@ -488,3 +488,5 @@ a.dt:hover{transform:rotate(0deg) scale(1.03)}
 .cart-link #cart-count{display:inline-grid;place-items:center;min-width:1.4rem;height:1.4rem;padding:0 .3rem;margin:0;border-radius:999px;background:var(--pink);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:0}
 .thumb{display:block;width:96px;aspect-ratio:3/4;overflow:hidden;background:#fff;border:1px solid var(--line)}
 .thumb .cart-img{display:block;width:100%;height:100%;object-fit:cover}
+
+.care{border-top:1px solid var(--line);padding:.8rem 0}.care summary{cursor:pointer;font:700 .72rem 'Courier Prime',monospace;letter-spacing:.18em;text-transform:uppercase}.care p{margin:.6rem 0 0;font-size:.85rem}
