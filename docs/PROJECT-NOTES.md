@@ -35,6 +35,8 @@ Last updated: Oct 9, 2026. Keep this file current. Everything decided in chat li
 - Telemetry from the Shopify toolkit scripts was opted out (empty file at ~/.config/shopify-ai-toolkit/opt-out).
 
 ## Google Drive (jodi@shopcallmecrazy.com)
+**Reorganized Nov 9, 2026: see docs/DRIVE-REORG-2026-11-09.md for the current file map (Mom files 1/2/3, Ashley master tracker, numbered photo folders 01-07, archive folder). The list below is the older structure.**
+
 - Website folder 1BK_JgNpazbzpVzh3f1WZLQfy2kaIsgxz: 1_Photos (tie-dye jacket, vest, long patch jacket, making-of, 5_Howdy Patch Jacket, 6_Studded Patch Jacket), 2_Videos, 3_Graphics and Logos.
 - Docs/sheets created: Launch Checklist, Launch To-Do List, FOR MOM checklist, Inventory Intake sheet, 1 MASTER Launch Tracker, 2 MOM'S LIST, 4 PHOTO TRACKER, START HERE (v2), SHIPPING PLAN, Shipping & Packaging doc, Packaging Options, this notes file.
 - Brand Write-ups folder (1-h0im5eWfUvq-8vBqmFoz5Jxg8qIeFaE): design process, care instructions, thank-you note (written by Jodi, drafts).
