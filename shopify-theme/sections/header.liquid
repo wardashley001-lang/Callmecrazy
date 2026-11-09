@@ -2,7 +2,7 @@
   <a href="{{ routes.root_url }}" class="logo"><img src="{{ 'logo-dark.png' | asset_url }}" alt="{{ shop.name | escape }}" width="200" height="60"></a>
   <nav id="nav" aria-label="Main">
     {% for link in linklists[section.settings.menu].links %}
-      <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+      <a href="{{ link.url }}"{% if link.active %} class="active" aria-current="page"{% endif %}>{{ link.title }}</a>
     {% endfor %}
   </nav>
   {% if settings.instagram_handle != blank %}

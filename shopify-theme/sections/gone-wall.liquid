@@ -7,7 +7,7 @@
       {%- for product in collections.all.products -%}
         {%- unless product.available -%}
           {%- assign shown = shown | plus: 1 -%}
-          {% render 'product-card', product: product, index: forloop.index0, gone: true %}
+          {% render 'product-card', product: product, gone: true %}
         {%- endunless -%}
       {%- endfor -%}
     </div>

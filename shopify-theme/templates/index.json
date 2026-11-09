@@ -76,7 +76,6 @@
         "t1": {
           "type": "tile",
           "settings": {
-            "number": "001",
             "product": "stay-wild-cowgirl-patchwork-skirt",
             "image": "shopify://shop_images/closeup-skirt.jpg"
           }
@@ -84,7 +83,6 @@
         "t2": {
           "type": "tile",
           "settings": {
-            "number": "002",
             "product": "howdy-patch-jacket",
             "image": "shopify://shop_images/closeup-howdy.jpg"
           }
@@ -92,7 +90,6 @@
         "t3": {
           "type": "tile",
           "settings": {
-            "number": "003",
             "product": "tie-dye-studded-jacket",
             "image": "shopify://shop_images/closeup-tiedye.jpg"
           }
@@ -100,7 +97,6 @@
         "t4": {
           "type": "tile",
           "settings": {
-            "number": "004",
             "product": "ride-or-die-vest",
             "image": "shopify://shop_images/closeup-vest.jpg"
           }
@@ -108,7 +104,6 @@
         "t5": {
           "type": "tile",
           "settings": {
-            "number": "005",
             "product": "studded-patch-jacket",
             "video": "shopify://files/videos/sparkle-back.mp4"
           }

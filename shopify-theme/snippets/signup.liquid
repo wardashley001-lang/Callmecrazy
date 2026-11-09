@@ -8,5 +8,6 @@ Renders the email signup form.
   <span class="callme">Call me?</span>
   <input type="email" name="contact[email]" placeholder="{{ placeholder | escape }}" required aria-label="Email" value="{{ form.email }}">
   <button class="btn" type="submit">{{ button }}</button>
-  {% if form.posted_successfully? %}<p class="fineprint">You're in.</p>{% endif %}
+  {% if form.errors %}<div class="fineprint" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+  {% if form.posted_successfully? %}<p class="fineprint" role="status">You're in.</p>{% endif %}
 {% endform %}
