@@ -2,9 +2,9 @@
 <div class="wrap">
   <div class="toolbar">
     <div class="chips">
-      <a class="chip{% if collection.handle == 'all' %} on{% endif %}" href="{{ routes.all_products_collection_url }}">All</a>
+      <a class="chip{% if collection.handle == 'all' %} on{% endif %}" href="{{ routes.all_products_collection_url }}"{% if collection.handle == 'all' %} aria-current="page"{% endif %}>All</a>
       {%- for link in linklists[section.settings.menu].links -%}
-        <a class="chip{% if link.active %} on{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+        <a class="chip{% if link.active %} on{% endif %}" href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
       {%- endfor -%}
     </div>
     <select id="sort" aria-label="Sort">
@@ -18,7 +18,7 @@
   {% paginate collection.products by 12 %}
     <div class="grid">
       {%- for product in collection.products -%}
-        {% render 'product-card', product: product, index: forloop.index0 %}
+        {% render 'product-card', product: product %}
       {%- else -%}
         <p>No pieces here yet.</p>
       {%- endfor -%}

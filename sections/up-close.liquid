@@ -4,6 +4,7 @@
     <div class="strip">
       {%- for block in section.blocks -%}
         {%- assign p = block.settings.product -%}
+        {%- assign piece = p.metafields.custom.piece_number.value -%}
         <a class="dt" href="{{ p.url | default: '#' }}" {{ block.shopify_attributes }}>
           <span class="tp"></span>
           <div class="crop">
@@ -15,7 +16,7 @@
               <div class="crop empty"><span>close-up coming</span></div>
             {%- endif -%}
           </div>
-          <figcaption><b>no. {{ block.settings.number }}</b> {{ p.title | default: block.settings.caption }}</figcaption>
+          <figcaption>{% if piece != blank %}<b>no. {{ piece }}</b> {% endif %}{{ p.title | default: block.settings.caption }}</figcaption>
         </a>
       {%- endfor -%}
     </div>
@@ -36,7 +37,6 @@
       "name": "Close-up",
       "settings": [
         { "type": "product", "id": "product", "label": "Links to piece" },
-        { "type": "text", "id": "number", "label": "Piece number", "default": "001" },
         { "type": "text", "id": "caption", "label": "Caption (if no product)" },
         { "type": "video", "id": "video", "label": "Close-up video" },
         { "type": "image_picker", "id": "image", "label": "Close-up photo (used if no video)" }

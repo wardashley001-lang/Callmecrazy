@@ -17,7 +17,8 @@
     {%- if product.images.size > 1 -%}
       <div class="thumbs">
         {%- for image in product.images -%}
-          <button type="button" class="{% if forloop.first %}on{% endif %}" data-thumb="{{ image | image_url: width: 1100 }}" aria-label="Photo {{ forloop.index }}">
+          {%- assign image_alt = image.alt | default: product.title -%}
+          <button type="button" class="{% if forloop.first %}on{% endif %}" data-thumb="{{ image | image_url: width: 1100 }}" data-thumb-alt="{{ image_alt | escape }}" aria-label="Photo {{ forloop.index }}: {{ image_alt | escape }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
             {{ image | image_url: width: 160 | image_tag: class: 'photo', loading: 'lazy' }}
           </button>
         {%- endfor -%}
@@ -58,7 +59,7 @@
     {%- endform -%}
     <details class="care"><summary>Care</summary><p>{{ section.settings.care_text }} <a href="/pages/care">Full care guide</a></p></details>
     <details class="care"><summary>How it's made</summary><p>{{ section.settings.process_text }} <a href="/pages/how-its-made">See the process</a></p></details>
-    <p class="fineprint">Ships in 5–7 days · Free over $100 · One of one, no restocks</p>
+    <p class="fineprint">One of one · Made by hand · No restocks</p>
   </div>
 </div>
 

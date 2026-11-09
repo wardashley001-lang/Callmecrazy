@@ -6,18 +6,32 @@
   <div class="wrap">
     <form action="{{ routes.cart_url }}" method="post" class="cols">
       <table class="table">
+        <caption class="visually-hidden">Items in your bag</caption>
+        <thead class="visually-hidden">
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Piece</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
         {%- for item in cart.items -%}
           <tr>
-            <td><a class="thumb" href="{{ item.url }}">{%- assign cart_img = item.image | default: item.product.featured_image -%}{%- if cart_img -%}<img class="cart-img" src="{{ cart_img | image_url: width: 240 }}" alt="{{ item.product.title | escape }}" width="96" height="128" loading="lazy">{%- endif -%}</a></td>
+            <td><a class="thumb" href="{{ item.url }}">{%- assign cart_img = item.image | default: item.product.featured_image -%}{%- assign cart_img_alt = cart_img.alt | default: item.product.title -%}{%- if cart_img -%}<img class="cart-img" src="{{ cart_img | image_url: width: 240 }}" alt="{{ cart_img_alt | escape }}" width="96" height="128" loading="lazy">{%- endif -%}</a></td>
             <td>
               <a href="{{ item.url }}"><b>{{ item.product.title | escape }}</b></a>
               {%- unless item.product.has_only_default_variant -%}<br><small>{{ item.variant.title }}</small>{%- endunless -%}
               <br><a class="link" href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">Remove</a>
             </td>
-            <td><input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity" style="width:64px"></td>
+            <td>
+              <span>Qty 1</span>
+              <input type="hidden" name="updates[]" value="1">
+            </td>
             <td>{{ item.final_line_price | money }}</td>
           </tr>
         {%- endfor -%}
+        </tbody>
       </table>
       <div class="summary receipt">
         <div class="rc-h">receipt — drop 01</div>
