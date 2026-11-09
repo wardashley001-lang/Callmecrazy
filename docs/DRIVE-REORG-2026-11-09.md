@@ -39,9 +39,9 @@ Launch Tracker v2, Piece & Photo Tracker (Inventory Intake), 4 Photo Tracker, A 
 Pieces 8-14 in the Pieces tab are older Master Inventory jackets with no folder yet. The 10 loose clips in `2_Videos` are unlabeled by piece. Making-of photos: `1SgjT7FWXs1cquYjBftuolNXRQI5kVR4n`.
 
 ## Theme vs Shopify content (what is and is not pushed)
-- **Theme code**: `shopify-theme/` on the working branch is identical to the `shopify-theme` branch Shopify reads (tree hash verified). Nothing is pending. Last deploy: "Theme: process strip on homepage" (09532af).
+- **Live theme** (`shopify-theme` branch, which Shopify reads): unchanged since "Theme: process strip on homepage" (09532af).
+- **OpenClaw's storefront QA changes** ("Complete local storefront QA updates", 1d47752, 18 theme files) are now on the working branch `claude/magical-babbage-b2vpvt` under `shopify-theme/`. They are **not deployed** and **not yet reviewed by Claude**. Next step: review the diff, run theme-check, then merge into `shopify-theme` only after Ashley approves.
 - **Store content** (products, collections, pages, menus, media) lives in Shopify, edited via the Shopify MCP, not GitHub. It is live in draft preview with placeholder prices/sizes.
-- OpenClaw's local theme QA changes are NOT in the repo. Ask it to push them to a separate non-deploy branch; review before merging into `shopify-theme`.
 
 ## What's next
 1. Ashley texts Mom the message (photos + measurements in inches + price + name idea per piece). Measuring: lay flat; jacket/vest chest = across underarm to underarm x2, length = collar to hem, sleeve = shoulder seam to cuff; skirt waist and hip = across x2, length = waistband to hem.
