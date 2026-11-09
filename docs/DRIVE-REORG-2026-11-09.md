@@ -3,18 +3,18 @@
 Done by Claude Code at Ashley's request ("simplify the tasks for Mom, link the trackers to each other, number the photo folders to match the piece numbers, make the tables easy to read, hyperlink the links"). This file is for the OpenClaw / Brand Manager agent. **This supersedes** `CURRENT-HANDOFF.md`'s document map and the Drive docs "CURRENT - Mom Handoff" and "Mom Task Batch 1" (both now archived).
 
 ## What Mom sees (top level of Website folder, id `1BK_JgNpazbzpVzh3f1WZLQfy2kaIsgxz`)
-All three are Google Docs with formatted tables and real hyperlinks.
+All three are Google Docs (rebuilt after the first versions rendered badly: fixed column widths, 3-4 columns max, one small card table per piece, real hyperlinks). Docs, not Sheets, because Mom fills them in by phone and the connector cannot format Sheets.
 
 | File | Doc id | Purpose |
 |---|---|---|
-| 1 MOM - START HERE | `1xfzPWOAnnFDkra02NdJI7RqSB2W1gUxIx-wSosBrjcA` | Her five jobs, with links and a Done? column |
-| 2 MOM - Piece Info | `1wysN6q9DDn2bZzZvvqrnLxVONByXV8bkfsoTFDle9sA` | Table: new name, price, size, waist, chest/hip, length, denim source for pieces 1-7 |
-| 3 MOM - Photo Checklist | `1BC78pbBmO3hnOD4Ll2f8b3i5_J5GF1lJtbdPcQjaMyg` | Table of photos to take per piece, with upload-folder links |
+| 1 MOM - START HERE | `1xMkOhlKIlw3SkAeL8UfWfXGKIVUQcdENl-VqCKcgiJI` | Her five jobs, with links and a Done? column |
+| 2 MOM - Piece Info | `1VNBo6V-m7GWbjU8DAtUgadwOv2f82lpTI4tWvZqjdIA` | Table: new name, price, size, waist, chest/hip, length, denim source for pieces 1-7 |
+| 3 MOM - Photo Checklist | `1e1PrDNBICz2aCBdDpYY93G2-2mzQK5_s3YsMGfBs4_U` | Table of photos to take per piece, with upload-folder links |
 
 Plus folders: `1_Photos (web-ready)` (`1Nk1zXO1PXDNuhnqtfhvKZkYpvDh4mgp4`), `2_Videos` (`1H9L8jUf454pAZEtGf3LQ_ZnNlq46W_yA`), `3_Graphics and Logos`.
 
 ## What Ashley sees
-- **A ASHLEY - Master Tracker (with links)**: doc id `1AjCiNzIhjWZrDtTVcGJOZoe6jH0qbHAHzbTdqWDTO0w`. Files at a glance, the piece-number table, and a 17-row to-do list, each row linked to the file it needs.
+- **A ASHLEY - Master Tracker (with links)**: a Google **Sheet**, id `18nbbBUeALnmyvDAD6mwP6x1TJqqvK5btjkzHN6C88kM`. 20 numbered tasks grouped MOM NOW / ASHLEY NOW / AFTER MOM / LATER, with Who, Status, and an "Open this" column of live `=HYPERLINK()` formulas to the doc/folder each task needs, plus a FILES block. A Sheet because Ashley sorts and updates status here.
 - **ARCHIVE and reference (not for Mom)**: folder `1sgi0hofu9_uIsWNNE5TrA4wxtFFSNxnw`. Everything old or reference-only lives here.
 
 ## Piece numbers (same in every file, matching the site's "no. 00X")
@@ -44,3 +44,7 @@ Plus folders: `1_Photos (web-ready)` (`1Nk1zXO1PXDNuhnqtfhvKZkYpvDh4mgp4`), `2_V
 - The Drive connector cannot edit file contents, so new versions were created and old ones archived. Docs were built from HTML (tables, colors, hyperlinks).
 - Still unverified: whether Mom's access is set to edit on these files (Ashley shares the Website folder with her).
 - No theme or Shopify changes were made in this pass.
+
+## Update (later same day)
+- First-round Docs (old START HERE, Piece Info, Photo Checklist and the first tracker `1AjCiNzIhjWZrDtTVcGJOZoe6jH0qbHAHzbTdqWDTO0w`) were trashed; the IDs above are the current ones.
+- Shipping Plan and Packaging Options are Sheets; Project Notes is a Doc.
