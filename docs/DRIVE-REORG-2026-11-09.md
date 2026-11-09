@@ -1,50 +1,56 @@
-# Drive reorganization, Nov 9, 2026
+# Drive state, Nov 9, 2026 (final, supersedes earlier versions of this file)
 
-Done by Claude Code at Ashley's request ("simplify the tasks for Mom, link the trackers to each other, number the photo folders to match the piece numbers, make the tables easy to read, hyperlink the links"). This file is for the OpenClaw / Brand Manager agent. **This supersedes** `CURRENT-HANDOFF.md`'s document map and the Drive docs "CURRENT - Mom Handoff" and "Mom Task Batch 1" (both now archived).
+For the OpenClaw / Brand Manager agent. This supersedes the Drive section of `CURRENT-HANDOFF.md` and the earlier version of this note, which described Mom docs that no longer exist.
 
-## What Mom sees (top level of Website folder, id `1BK_JgNpazbzpVzh3f1WZLQfy2kaIsgxz`)
-All three are Google Docs (rebuilt after the first versions rendered badly: fixed column widths, 3-4 columns max, one small card table per piece, real hyperlinks). Docs, not Sheets, because Mom fills them in by phone and the connector cannot format Sheets.
+## The plan in one line
+Mom just **texts Ashley** photos, measurements, price and a name idea for each finished piece (any order, one at a time). Ashley files photos and fills the Pieces tab; Claude/OpenClaw update Shopify from it. No forms, no docs for Mom.
 
-| File | Doc id | Purpose |
-|---|---|---|
-| 1 MOM - START HERE | `1xMkOhlKIlw3SkAeL8UfWfXGKIVUQcdENl-VqCKcgiJI` | Her five jobs, with links and a Done? column |
-| 2 MOM - Piece Info | `1VNBo6V-m7GWbjU8DAtUgadwOv2f82lpTI4tWvZqjdIA` | Table: new name, price, size, waist, chest/hip, length, denim source for pieces 1-7 |
-| 3 MOM - Photo Checklist | `1e1PrDNBICz2aCBdDpYY93G2-2mzQK5_s3YsMGfBs4_U` | Table of photos to take per piece, with upload-folder links |
+## One master file
+**ASHLEY MONSTER MASTER LAUNCH SHEET** (Google Sheet, Website folder). Tabs:
+- **Dashboard**: jump links, how Mom works, live progress counts, next 5 things.
+- **Launch Tracker**: 39 tasks (Store build / Store setup / Pieces / Content / Shipping / Launch / Later). Status + Owner dropdowns; Done = green.
+- **Pieces**: piece no., working name, new brand name, category, price, size, chest/hip, waist, length, sleeve, photo folder link. Pink cells = what Mom texts.
+- **Piece Details**: what is on it, quip, denim source (Master #), notes.
+- **Photo Tracker**: Have/Needed grid per piece (front, back, 3 close-ups, tag, video), "All 6 done?" dropdown.
+- **Decisions**: decided vs OPEN.
+- **Links**: every Drive file/folder and site link.
 
-Plus folders: `1_Photos (web-ready)` (`1Nk1zXO1PXDNuhnqtfhvKZkYpvDh4mgp4`), `2_Videos` (`1H9L8jUf454pAZEtGf3LQ_ZnNlq46W_yA`), `3_Graphics and Logos`.
+Built from the original Launch Tracker v2, Inventory Intake / Piece Info and Photo Tracker sheets, which Ashley preferred over the later Mom docs. A newer layout (larger text, Pieces split in two, Dashboard fixed) was delivered as an .xlsx on Nov 9 for Ashley to upload and "Save as Google Sheets"; until she swaps it in, the live Sheet is the first layout without the Piece Details tab (descriptions were columns on Pieces).
 
-## What Ashley sees
-- **A ASHLEY - Master Tracker (with links)**: a Google **Sheet**, id `18nbbBUeALnmyvDAD6mwP6x1TJqqvK5btjkzHN6C88kM`. 20 numbered tasks grouped MOM NOW / ASHLEY NOW / AFTER MOM / LATER, with Who, Status, and an "Open this" column of live `=HYPERLINK()` formulas to the doc/folder each task needs, plus a FILES block. A Sheet because Ashley sorts and updates status here.
-- **ARCHIVE and reference (not for Mom)**: folder `1sgi0hofu9_uIsWNNE5TrA4wxtFFSNxnw`. Everything old or reference-only lives here.
+## Website folder (id `1BK_JgNpazbzpVzh3f1WZLQfy2kaIsgxz`) now holds
+- The Monster sheet; SHIPPING PLAN (`1gdAfQPXYVvVD2lbvWKO0DRRnL8HD_lxCU8TLNp3wwK0`); PACKAGING OPTIONS (`1vqVn19AAxjF0jkpZEt4wYn_eTboc6GpMmuzXCisClR4`).
+- Docs kept in place: Launch To-Do List (Oct 2026), Launch Checklist (working), PROJECT NOTES (`1X3O6JbOGv0BubIQIFqS-UafXQZhW_1wr6nBFRr025SY`), Shipping & Packaging decisions, README Photo shot list.
+- Folders: `1_Photos (web-ready)` (`1Nk1zXO1PXDNuhnqtfhvKZkYpvDh4mgp4`), `2_Videos` (`1H9L8jUf454pAZEtGf3LQ_ZnNlq46W_yA`), `3_Graphics and Logos`, `ARCHIVE and reference (not for Mom)` (`1sgi0hofu9_uIsWNNE5TrA4wxtFFSNxnw`).
 
-## Piece numbers (same in every file, matching the site's "no. 00X")
-| No. | Piece | Photo folder (renamed) | Folder id | Batch 1 |
-|---|---|---|---|---|
-| 1 | Stay Wild Cowgirl Patchwork Skirt | 01_Stay Wild Cowgirl Skirt (new) | `1keJzb-OXO6VONdV6miW3D549SXXYMGpC` | yes |
-| 2 | Howdy Patch Jacket | 02_Howdy Patch Jacket | `1afHOqq7e4qgnAePnIxHEE_06CARKvMaR` | yes |
-| 3 | Tie-Dye Studded Jacket | 03_Tie-Dye Studded Jacket | `1ibU5tIaZ2HSOO8BLX9lTCUMI7oV8D7ve` | later |
-| 4 | Ride or Die Vest | 04_Ride or Die Vest | `1wmywC5ZC1JljDsvzPd0TzwXm2Eh2uQOv` | yes |
-| 5 | Studded Patch Jacket | 05_Studded Patch Jacket | `1vuFcgI-9VFN9SyggJ8Gs83HMwBlkcPoM` | later |
-| 6 | Long Patch Jacket | 06_Long Patch Jacket | `1_4oZeN_kVTqkVHH_VbDjGRLlb-42cXss` | later |
-| 7 | Black Skirt with Stars | 07_Black Skirt with Stars (new, empty) | `1Mg4065Xhr_xAgC48YL53ubZLh3IB00B8` | later |
+## Archived (moved, not deleted) into ARCHIVE, all renamed "OLD - ..."
+Launch Tracker v2, Piece & Photo Tracker (Inventory Intake), 4 Photo Tracker, A ASHLEY Master Tracker, START HERE v2, Mom's List, CURRENT Mom Handoff, Mom Task Batch 1, FOR MOM checklist doc, and the three Mom docs (1 MOM - START HERE, 2 MOM - Piece Info, 3 MOM - Photo Checklist). The four first-round drafts made earlier today were trashed (recoverable 30 days). **Do not point Mom or scripts at any archived file.**
 
-- Making-of folder was renamed "Making-of (process shots)" (`1SgjT7FWXs1cquYjBftuolNXRQI5kVR4n`).
-- **Batch 1 = pieces 1, 2 and 4 (skirt, jacket, vest)** is Claude's proposal (one of each type, to match "pack one jacket/vest/skirt"). Ashley still needs to confirm. Earlier docs said "first 3 pieces" without naming them.
-- Old photos from earlier work are in those folders as HEIC; the black skirt photos/video still live in `Skirt 1 - Blk w/stars` (`1-9XvHOHh2Y7M9Z6-OPwLteBa-ADsoQDs`, under 2_Inventory_Review) and were not moved into folder 07.
+## Piece numbers (same everywhere; folder number = piece number = site "no. 00X")
+| No. | Piece | Photo folder | Folder id |
+|---|---|---|---|
+| 1 | Stay Wild Cowgirl Patchwork Skirt | 01_Stay Wild Cowgirl Skirt (empty) | `1keJzb-OXO6VONdV6miW3D549SXXYMGpC` |
+| 2 | Howdy Patch Jacket | 02_Howdy Patch Jacket (4 HEIC + video) | `1afHOqq7e4qgnAePnIxHEE_06CARKvMaR` |
+| 3 | Tie-Dye Studded Jacket | 03_... (18 JPEG) | `1ibU5tIaZ2HSOO8BLX9lTCUMI7oV8D7ve` |
+| 4 | Ride or Die Vest | 04_... (97 files, many near-duplicates) | `1wmywC5ZC1JljDsvzPd0TzwXm2Eh2uQOv` |
+| 5 | Studded Patch Jacket | 05_... (18 HEIC) | `1vuFcgI-9VFN9SyggJ8Gs83HMwBlkcPoM` |
+| 6 | Long Patch Jacket | 06_... (100+ JPEG) | `1_4oZeN_kVTqkVHH_VbDjGRLlb-42cXss` |
+| 7 | Black Skirt with Stars | 07_... (empty; its photos/video are still in `Skirt 1 - Blk w/stars`, `1-9XvHOHh2Y7M9Z6-OPwLteBa-ADsoQDs`) | `1Mg4065Xhr_xAgC48YL53ubZLh3IB00B8` |
 
-## What was archived (moved to the ARCHIVE folder, renamed "OLD - ..." where replaced)
-- OLD - 2 MOM'S LIST, OLD - 4 PHOTO TRACKER, OLD - Inventory Intake, OLD - START HERE v2, OLD - 1 MASTER Launch Tracker v2, OLD - FOR MOM checklist doc, OLD - CURRENT Mom Handoff 2026-11-09, OLD - Mom Task Batch 1.
-- Reference (kept at original names): Launch Checklist (working), Launch To-Do List (Oct 2026), README - Photo shot list, SHIPPING PLAN (`1gdAfQPXYVvVD2lbvWKO0DRRnL8HD_lxCU8TLNp3wwK0`), PACKAGING OPTIONS (`1vqVn19AAxjF0jkpZEt4wYn_eTboc6GpMmuzXCisClR4`), PROJECT NOTES (`1X3O6JbOGv0BubIQIFqS-UafXQZhW_1wr6nBFRr025SY`), Shipping & Packaging decisions doc.
-- Nothing was deleted. Four intermediate drafts Claude created minutes earlier (plain-text/CSV versions of files 1, 2, 3 and the tracker) were moved to the Drive trash (recoverable for 30 days). The old Inventory Intake sheet was empty of Mom's data, so nothing was lost; it is in the archive.
+Pieces 8-14 in the Pieces tab are older Master Inventory jackets with no folder yet. The 10 loose clips in `2_Videos` are unlabeled by piece. Making-of photos: `1SgjT7FWXs1cquYjBftuolNXRQI5kVR4n`.
 
-## Changes that affect the other agent
-- Use the **new** Mom files above. The old Inventory Intake and Photo Tracker sheets are archived; do not point Mom or scripts at them.
-- The Inventory Intake data model changed: it is now a **Google Doc table** ("2 MOM - Piece Info"), keyed by piece number 1-7, not a spreadsheet. The old sheet also carried the Master Inventory List cross-reference ($315-$850 jacket prices) and quips; those are only in the archived sheet.
-- Photo folders are numbered 01-07 to match piece numbers; match photos to products by folder number.
-- The Drive connector cannot edit file contents, so new versions were created and old ones archived. Docs were built from HTML (tables, colors, hyperlinks).
-- Still unverified: whether Mom's access is set to edit on these files (Ashley shares the Website folder with her).
-- No theme or Shopify changes were made in this pass.
+## Theme vs Shopify content (what is and is not pushed)
+- **Theme code**: `shopify-theme/` on the working branch is identical to the `shopify-theme` branch Shopify reads (tree hash verified). Nothing is pending. Last deploy: "Theme: process strip on homepage" (09532af).
+- **Store content** (products, collections, pages, menus, media) lives in Shopify, edited via the Shopify MCP, not GitHub. It is live in draft preview with placeholder prices/sizes.
+- OpenClaw's local theme QA changes are NOT in the repo. Ask it to push them to a separate non-deploy branch; review before merging into `shopify-theme`.
 
-## Update (later same day)
-- First-round Docs (old START HERE, Piece Info, Photo Checklist and the first tracker `1AjCiNzIhjWZrDtTVcGJOZoe6jH0qbHAHzbTdqWDTO0w`) were trashed; the IDs above are the current ones.
-- Shipping Plan and Packaging Options are Sheets; Project Notes is a Doc.
+## What's next
+1. Ashley texts Mom the message (photos + measurements in inches + price + name idea per piece). Measuring: lay flat; jacket/vest chest = across underarm to underarm x2, length = collar to hem, sleeve = shoulder seam to cuff; skirt waist and hip = across x2, length = waistband to hem.
+2. Ashley swaps in the new Monster sheet and shares the Website folder with Mom (edit access; unverified).
+3. Ashley decides: returns, flat $12 vs free shipping, launch date; sets up Shopify Payments + test order.
+4. On each Mom text: fill Pieces tab, file photos, update the Shopify product.
+5. Later (Mom): pack one jacket and text weight + box size, buy packaging and a 4x6 thermal label printer. Then test order, teasers, remove storefront password.
+
+## Process notes
+- The Drive connector cannot edit file contents or convert .xlsx to Sheets; new versions are created and old ones archived. Two sessions/agents have been editing Drive files today; check modified times before overwriting.
+- Earlier in the day Claude moved the launch files to the archive without asking; they were restored. Ask before moving or archiving Ashley's originals.
+- Piece measurement and brand rules unchanged: no swearing on the public site, Jodi's name not public, contact jodi@shopcallmecrazy.com.
