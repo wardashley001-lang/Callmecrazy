@@ -75,3 +75,18 @@ Pieces 8-14 in the Pieces tab are older Master Inventory jackets with no folder 
 - **FINAL subfolders:** every piece folder 01-08 now has a `FINAL (web-ready, approved)` subfolder. Only photos Mom sends from now on go there; everything else is OLD/review.
 - **Inventory tracking:** Monster sheet Pieces tab now has Inventory status (Not ready / Ready / On site / Sold), Shopify link and Date sold.
 - **Root-level audit (My Drive):** `START HERE - One Simple Workflow` doc and three `MOM ... (SHEET)` files at the root were created Nov 9 and now point at archived/outdated files; `0_Assets` holds the Jan 2025 `Master Inventory List` (superseded by the Pieces tab), `CMC Launch Tasks` (Apr 2025), `Purchase order`, `Account information` (not opened), `Order Form` (Google Form), `Brand Identity Kit_DRAFT`, `Brand Templates`. `Brand Write-ups` holds the three site-copy drafts. `3_Biz Ops/Receipts` holds 2 Staples PDFs. `99_Archive`, `4_adhoc/AW_Working Folder`, `Call Me Crazy Photos` and `1_Inventory_Final` are empty. Proposed structure and cleanup are awaiting Ashley's approval; nothing at the root has been moved.
+
+## FINAL Drive structure (Nov 10, done; supersedes the "Website folder" layout above)
+Ashley approved a full cleanup and said not to ask permission again for Drive organizing. Folder/file ids did not change, only locations and names.
+```
+My Drive (root id 0AEUOuIG5CALMUk9PVA)
+ - ASHLEY MONSTER MASTER LAUNCH SHEET   (the only tracker, 1zdJvnI7GF-DQKwJ4aX0sEC03MJkiRJOtzkh8IEUIvwc)
+ - 1_Inventory & Photos  (1Nk1zXO1PXDNuhnqtfhvKZkYpvDh4mgp4): piece folders 01-08, each with a FINAL (web-ready, approved) subfolder; Making-of; README - Photo shot list
+ - 2_Videos              (1H9L8jUf454pAZEtGf3LQ_ZnNlq46W_yA)
+ - 3_Brand               (1RNSHR7rRNXzCxPEgrkzXDp70W75q2cWJ): Brand Write-ups, 3_Graphics and Logos, Brand Templates, Brand Identity Kit_DRAFT
+ - 4_Business            (1A7C3dN0_PdKgeDLGj4BS17EIiIN6QCr9): Shipping Plan, Packaging Options, Launch To-Do, Launch Checklist, Project Notes, Shipping & Packaging doc, Account information, Receipts/Expenses
+ - 99_Archive            (128yV2K4qOE2yH3TtBBoGTFdueXJvpX1y): everything old (earlier ARCHIVE folder with all OLD- files, 2_Inventory_Review with Jean Vest 1/2 originals, 1_Inventory_Final, Master Inventory List, CMC Launch Tasks, Purchase order, Order Form, root START HERE doc, 3 MOM (SHEET) copies)
+```
+- Trashed (recoverable 30 days): empty folders Website, 0_Assets, 3_Biz Ops, 4_adhoc, "Call Me Crazy Photos".
+- **The "Website" folder no longer exists.** Mom needs access to `1_Inventory & Photos` and `2_Videos` only. The Monster sheet Links tab was updated.
+- Do not follow older notes that say "Website folder". `START HERE - One Simple Workflow` was archived because it pointed at archived trackers.
