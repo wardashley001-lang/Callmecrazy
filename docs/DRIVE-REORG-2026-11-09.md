@@ -54,3 +54,11 @@ Pieces 8-14 in the Pieces tab are older Master Inventory jackets with no folder 
 - The Drive connector cannot edit file contents or convert .xlsx to Sheets; new versions are created and old ones archived. Two sessions/agents have been editing Drive files today; check modified times before overwriting.
 - Earlier in the day Claude moved the launch files to the archive without asking; they were restored. Ask before moving or archiving Ashley's originals.
 - Piece measurement and brand rules unchanged: no swearing on the public site, Jodi's name not public, contact jodi@shopcallmecrazy.com.
+
+## Update Nov 10: first piece from Mom received (Stay Wild Jacket)
+- Mom texted 9 photos, 2 videos and a handwritten measurement card for an Earl Jean denim jacket (back reads STAY WILD). Treated as **piece 8** (provisional; Ashley to confirm) and likely old Master Inventory #5.
+- Measurements: Small fitted, chest 34 in (17 flat x 2), length 21, sleeve 24, shoulders 15.
+- **Shopify: product `stay-wild-jacket` created as DRAFT** (id 15511060381827) with 9 photos + 2 videos (resized proportionally to 1600 px long edge, videos to 720p mp4, no cropping or distortion; originals untouched), measurements + provenance metafields, piece_number 008, stock 1, tag `needs-price`. **Price is intentionally $0.00: Ashley sets prices, do not fill one in.** Do not publish until she sets price, name and number.
+- Drive: empty folder `08_Stay Wild Jacket` (`1rFqqaQ3EK0UfUkwvErZIeCGy4pjbCFoq`) created under Photos. The Drive connector cannot upload binary files, so Ashley needs to drag Mom's original photos/videos into it.
+- The Monster sheet (xlsx source built by Claude) was updated: piece 8 row, photo tracker row, folder link, tasks. Old Master items renumbered 9-14. Ashley must re-upload and "Save as Google Sheets" to apply.
+- Rule from Ashley: never set a price automatically.
