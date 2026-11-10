@@ -62,3 +62,10 @@ Pieces 8-14 in the Pieces tab are older Master Inventory jackets with no folder 
 - Drive: empty folder `08_Stay Wild Jacket` (`1rFqqaQ3EK0UfUkwvErZIeCGy4pjbCFoq`) created under Photos. The Drive connector cannot upload binary files, so Ashley needs to drag Mom's original photos/videos into it.
 - The Monster sheet (xlsx source built by Claude) was updated: piece 8 row, photo tracker row, folder link, tasks. Old Master items renumbered 9-14. Ashley must re-upload and "Save as Google Sheets" to apply.
 - Rule from Ashley: never set a price automatically.
+
+## Update Nov 10 (later): photo status rule
+- **Only photos Mom sends from now on are FINAL** (ready for the site and for sale). Photos in folders 01-07 are OLD placeholders that need review; they stay on the site for now.
+- Drive: folders 01-07 renamed with " (OLD - review)". Folder numbers unchanged. 08 and newer folders are final.
+- Shopify: products 1-6 tagged `placeholder-photos` (remove the tag when final photos are in). `stay-wild-jacket` is tagged `needs-price`.
+- Monster sheet Photo Tracker has a "Photo status" column (Final / Old - needs review / None yet); Dashboard counts only Final.
+- Two older root-level Drive folders exist, view-only for Claude: `1_Inventory_Final` (`1q6_zcdEf0Hd6uMLiV_B8BoXly4bR2MCw`, only contains "0 [TEMP]") and `2_Inventory_Review` (`1rpQz_FHCkKMeozKE4FzDsTz3fzVkUIxN`: Jean Vest 1, Jean Vest 2, 0_Photos to Review, Skirt 1 - Blk w/stars). Recommendation pending Ashley's decision: treat them as legacy; fold their contents into the numbered piece folders rather than running two systems.
