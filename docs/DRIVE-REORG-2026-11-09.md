@@ -99,3 +99,6 @@ Several numbered folders each held photos of two different jackets/vests. Verifi
 - **02 Howdy Patch Jacket**: held two jackets (Howdy = IMG_1420/1423; tie-dye = IMG_1424/1427, moved to 03).
 - Not yet checked: folders 01 (empty), 06 (100+ JPEGs, likely mixed), and whether the *product photos currently on the Shopify site* came from the mixed folders (some site images may show the wrong jacket). Worth auditing the site images against pieces.
 - Monster sheet source updated with pieces 15 and 16.
+
+## Pre-made piece folders (Nov 11)
+Ashley asked for a "template folder". Google Drive can't copy folders, so ready-to-use empty piece folders exist under `1_Inventory & Photos`: `09`, `10`, `11`, `12`, `13`, `14`, `17`, `18`, `19`, `20` (each `NN_New Piece (name TBD)` with a `FINAL (web-ready, approved)` subfolder). Photos, videos and the handwritten measurement card all go in FINAL. Rename the folder when the piece is named. Note: piece numbers 9-14 in the Monster sheet are older Master Inventory items; renumber freely if the new piece is a different item. 15 and 16 are the split-out dark biker vest and teal blazer.
