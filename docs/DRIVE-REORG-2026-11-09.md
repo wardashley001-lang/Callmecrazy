@@ -109,3 +109,8 @@ Ashley asked for a "template folder". Google Drive can't copy folders, so ready-
 - All 12 photos checked: one light-wash ripped/slashed-back blazer (no expiration lettering, 1969 sleeve, medal, lips, studs). Likely old Master Inventory #3 ("Blazer Graffiti w/ open back"); Ashley to confirm.
 - Shopify: product `graffiti-blazer` created as DRAFT (id 15511253352579) with 12 photos (resized proportionally to 1600 px long edge, originals untouched), measurements, piece_number 009, stock 1, tag `needs-price`. **Price $0.00 on purpose: never set a price automatically.** Do not publish until Ashley sets price.
 - Monster sheet source: piece 9 is now the Graffiti Blazer; Maggy London jacket moved to piece 11.
+
+## Update Nov 11: sold items for the Gone Wall + content
+Ashley renamed pre-made folders and uploaded ~12 photos each for SOLD pieces (for the site's Gone Wall and for content): `10_Ride a Cowboy (SOLD)`, `11_Camo Pants (SOLD)`, `12_Lake Rockstar Jacket (SOLD)`, `13_Rock & Love Molly Jacket (SOLD)`, `14_Rare AF Jeans (SOLD)`, `17_Crazy Since 94 Jeans (SOLD)`, `18_POW Camo Jacket (SOLD)` (all under `1_Inventory & Photos`; folder 20 was renamed `00_New Piece (name TBD)`).
+- Monster sheet source: those are pieces 10-14, 17, 18 (status Sold). The older Master Inventory leftovers (Western/graffiti blazer, Maggy London, Levi's trucker, Merona, Vintage America Blues) were renumbered 21-25.
+- Plan (pending Ashley's answers): create each as a sold-out ACTIVE product (inventory 0) so it appears on the Gone Wall, with prices NOT set automatically; the product card shows a price, so decide whether to hide prices on gone cards. Check the "AF" in "Rare AF Jeans" against the no-swearing rule.
