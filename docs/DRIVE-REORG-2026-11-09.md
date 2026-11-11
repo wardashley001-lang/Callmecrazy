@@ -102,3 +102,10 @@ Several numbered folders each held photos of two different jackets/vests. Verifi
 
 ## Pre-made piece folders (Nov 11)
 Ashley asked for a "template folder". Google Drive can't copy folders, so ready-to-use empty piece folders exist under `1_Inventory & Photos`: `09`, `10`, `11`, `12`, `13`, `14`, `17`, `18`, `19`, `20` (each `NN_New Piece (name TBD)` with a `FINAL (web-ready, approved)` subfolder). Photos, videos and the handwritten measurement card all go in FINAL. Rename the folder when the piece is named. Note: piece numbers 9-14 in the Monster sheet are older Master Inventory items; renumber freely if the new piece is a different item. 15 and 16 are the split-out dark biker vest and teal blazer.
+
+## Update Nov 11: second piece from Mom (Graffiti Blazer, piece 009)
+- Ashley uploaded 12 photos + a handwritten card to Drive `09_Graffiti Blazer` (`1IKLABbt-2qRc-QFJ5Y9NZyRYX5rw2BVl`, renamed from 09_New Piece). The "1 video" she mentioned had NOT arrived in Drive when checked.
+- Card: "Graffiti Blazer", Size Small, length 23.5, sleeve 23, shoulders 16, chest 18 x 2 = 36 in.
+- All 12 photos checked: one light-wash ripped/slashed-back blazer (no expiration lettering, 1969 sleeve, medal, lips, studs). Likely old Master Inventory #3 ("Blazer Graffiti w/ open back"); Ashley to confirm.
+- Shopify: product `graffiti-blazer` created as DRAFT (id 15511253352579) with 12 photos (resized proportionally to 1600 px long edge, originals untouched), measurements, piece_number 009, stock 1, tag `needs-price`. **Price $0.00 on purpose: never set a price automatically.** Do not publish until Ashley sets price.
+- Monster sheet source: piece 9 is now the Graffiti Blazer; Maggy London jacket moved to piece 11.
