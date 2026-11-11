@@ -114,3 +114,11 @@ Ashley asked for a "template folder". Google Drive can't copy folders, so ready-
 Ashley renamed pre-made folders and uploaded ~12 photos each for SOLD pieces (for the site's Gone Wall and for content): `10_Ride a Cowboy (SOLD)`, `11_Camo Pants (SOLD)`, `12_Lake Rockstar Jacket (SOLD)`, `13_Rock & Love Molly Jacket (SOLD)`, `14_Rare AF Jeans (SOLD)`, `17_Crazy Since 94 Jeans (SOLD)`, `18_POW Camo Jacket (SOLD)` (all under `1_Inventory & Photos`; folder 20 was renamed `00_New Piece (name TBD)`).
 - Monster sheet source: those are pieces 10-14, 17, 18 (status Sold). The older Master Inventory leftovers (Western/graffiti blazer, Maggy London, Levi's trucker, Merona, Vintage America Blues) were renumbered 21-25.
 - Plan (pending Ashley's answers): create each as a sold-out ACTIVE product (inventory 0) so it appears on the Gone Wall, with prices NOT set automatically; the product card shows a price, so decide whether to hide prices on gone cards. Check the "AF" in "Rare AF Jeans" against the no-swearing rule.
+
+## Update 2026-11-11 (theme + live tracker)
+- Theme: sold/unavailable products show "gone." instead of a price (product-card + main-product). Deployed to `shopify-theme` branch (b331c42), includes OpenClaw's QA changes.
+- Tracker: "ASHLEY MONSTER MASTER LAUNCH SHEET" (id 1zdJvnI7GF-DQKwJ4aX0sEC03MJkiRJOtzkh8IEUIvwc) is edited IN PLACE in Google Drive via Sheets tools. Do not hand out xlsx copies.
+  - Pieces tab: 1-9 active, 10-14/17/18 sold (Gone Wall), 15/16 unreviewed, 21-25 old Master leftovers. New columns: Inventory status, Shopify, Date sold.
+  - Photo Tracker has a Photo status column. Dashboard/Links refreshed.
+- Rules: NEVER auto-fill prices (Ashley decides). Jodi's name not on public site; no swearing ("Rare AF Jeans" pending rename decision).
+- TODO: sold-out Shopify products for pieces 10-14, 17, 18; check folder 06; Graffiti Blazer video missing.
