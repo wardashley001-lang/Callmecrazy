@@ -90,3 +90,12 @@ My Drive (root id 0AEUOuIG5CALMUk9PVA)
 - Trashed (recoverable 30 days): empty folders Website, 0_Assets, 3_Biz Ops, 4_adhoc, "Call Me Crazy Photos".
 - **The "Website" folder no longer exists.** Mom needs access to `1_Inventory & Photos` and `2_Videos` only. The Monster sheet Links tab was updated.
 - Do not follow older notes that say "Website folder". `START HERE - One Simple Workflow` was archived because it pointed at archived trackers.
+
+## Update Nov 10-11: mixed-up piece folders found and split (Ashley asked; Claude did the moves)
+Several numbered folders each held photos of two different jackets/vests. Verified by viewing sample photos:
+- **04 Ride or Die Vest**: held two vests. The 40 `Old_*.HEIC` files (dark raw-hem vest, Biker for Life, Route 66 back) were moved to new folder **15_Dark Biker Vest (OLD - review)** (`1VZnngGFN8Plsc6ZouZfC3RqILjIRPj-R`). Folder 04 now holds only the paint-splatter Ride Free vest (the one on the site).
+- **05 Studded Patch Jacket**: held the blue trucker (ROCK & Love pop-art back, USA/lake life sleeves: the real piece 5) AND a teal/green hand-dyed blazer (Let's Go Girls back, peace sign). The 8 blazer files (IMG_1536-1544) moved to new folder **16_Teal Graffiti Blazer (OLD - review)** (`1eG4BFwcuQHjw6hkMuK55wNntxZwyhHDg`). The 8 JPEG copies of the trucker (IMG_1527-1535) that were misfiled in folder 03 were moved into 05.
+- **03 Tie-Dye Studded Jacket**: held the trucker JPEGs (now moved to 05). It also now receives the two tie-dye photos (IMG_1424, IMG_1427 HEIC) that were misfiled in folder 02.
+- **02 Howdy Patch Jacket**: held two jackets (Howdy = IMG_1420/1423; tie-dye = IMG_1424/1427, moved to 03).
+- Not yet checked: folders 01 (empty), 06 (100+ JPEGs, likely mixed), and whether the *product photos currently on the Shopify site* came from the mixed folders (some site images may show the wrong jacket). Worth auditing the site images against pieces.
+- Monster sheet source updated with pieces 15 and 16.
