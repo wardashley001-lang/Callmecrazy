@@ -20,6 +20,6 @@ Renders a product card.
   </div>
   <div class="row">
     <div>{% if piece != blank %}<div class="no">NO. {{ piece }}</div>{% endif %}<h3>{{ product.title | escape }}</h3></div>
-    <div class="meta">{{ product.price | money }}</div>
+    {% if gone or product.available == false %}<div class="meta">gone.</div>{% else %}<div class="meta">{{ product.price | money }}</div>{% endif %}
   </div>
 </a>

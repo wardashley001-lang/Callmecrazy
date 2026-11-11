@@ -28,7 +28,7 @@
   <div class="info">
     <div class="lab">{% if piece != blank %}no. {{ piece }} — {% endif %}one of one</div>
     <h2 class="plain">{{ product.title | escape }}</h2>
-    <div class="price">{{ product.price | money }}</div>
+    {%- if product.available -%}<div class="price">{{ product.price | money }}</div>{%- else -%}<div class="price">gone.</div>{%- endif -%}
     <div class="desc">{{ product.description }}{% if quip != blank %} <b>{{ quip }}</b>{% endif %}</div>
 
     {%- if provenance != blank -%}
